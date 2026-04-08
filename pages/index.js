@@ -152,7 +152,7 @@ export default function Home() {
 
   const t = translations[lang];
 
-  const affiliateTag = process.env.NEXT_PUBLIC_AMAZON_AFFILIATE_TAG || 'kidspark-20';
+  const affiliateTag = process.env.NEXT_PUBLIC_AMAZON_AFFILIATE_TAG || 'kidspark0b-20';
 
   const generateActivity = async () => {
     setLoading(true);
