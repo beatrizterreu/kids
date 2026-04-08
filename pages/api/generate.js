@@ -5,12 +5,12 @@ export default async function handler(req, res) {
 
   const { age, category, time, location, lang } = req.body;
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     return res.status(500).json({
       error: lang === 'es'
-        ? 'Clave API no configurada. Revisa el archivo .env.local'
-        : 'API key not configured. Check your .env.local file',
+        ? 'Clave API no configurada. Revisa las variables de entorno en Vercel.'
+        : 'API key not configured. Check your environment variables in Vercel.',
     });
   }
 
@@ -25,7 +25,7 @@ Parameters:
 - Location: ${location}
 - Response language: ${isSpanish ? 'SPANISH' : 'ENGLISH'}
 
-Return ONLY a valid JSON object. No markdown, no code blocks, no extra text.
+Return ONLY a valid JSON object. No markdown, no code blocks, no extra text. Just the raw JSON.
 The JSON must have this exact structure:
 
 {
@@ -45,70 +45,62 @@ The JSON must have this exact structure:
     }
   ],
   "imagePrompt": "Detailed visual description in ENGLISH for AI image generation. Describe the scene, colors, style.",
-  "duration": "Realistic duration estimate (e.g. '20 minutes' in ${isSpanish ? 'Spanish' : 'English'})",
+  "duration": "Realistic duration estimate in ${isSpanish ? 'Spanish' : 'English'} (e.g. '${isSpanish ? '20 minutos' : '20 minutes'}')",
   "difficulty": "easy"
 }
 
 Rules:
-- title, description, steps, materials.name → in ${isSpanish ? 'SPANISH' : 'ENGLISH'}
-- imagePrompt, materials.amazonSearch → ALWAYS in English
-- difficulty → one of exactly: easy, medium, hard
-- steps → between 4 and 7 steps
-- materials → between 2 and 6 items, only real physical materials
-- imagePrompt → vivid, detailed, suitable for a cartoon illustration for children
-- Make it genuinely creative, not generic
-- Ensure activity is realistic for the age group specified`;
+- title, description, steps, materials.name, duration in ${isSpanish ? 'SPANISH' : 'ENGLISH'}
+- imagePrompt and materials.amazonSearch ALWAYS in English
+- difficulty must be one of: easy, medium, hard
+- steps between 4 and 7 items
+- materials between 2 and 6 items, only real physical materials needed
+- imagePrompt: vivid, detailed scene description for a colorful cartoon illustration for children
+- Make it genuinely creative and fun, not generic
+- Ensure activity is realistic and safe for the age group`;
 
   try {
-    const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [{ text: prompt }],
-            },
-          ],
-          generationConfig: {
-            temperature: 1.0,
-            topK: 40,
-            topP: 0.95,
-            maxOutputTokens: 1024,
+    const groqRes = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'llama-3.1-70b-versatile',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a creative children\'s activity expert. Always respond with valid JSON only, no markdown.',
           },
-          safetySettings: [
-            { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-            { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-          ],
-        }),
-      }
-    );
+          {
+            role: 'user',
+            content: prompt,
+          },
+        ],
+        temperature: 1.0,
+        max_tokens: 1024,
+        response_format: { type: 'json_object' },
+      }),
+    });
 
-    if (!geminiRes.ok) {
-      const errData = await geminiRes.json();
-      throw new Error(errData.error?.message || `Gemini error: ${geminiRes.status}`);
+    if (!groqRes.ok) {
+      const errData = await groqRes.json();
+      throw new Error(errData.error?.message || `Groq error: ${groqRes.status}`);
     }
 
-    const data = await geminiRes.json();
-    const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const data = await groqRes.json();
+    const rawText = data?.choices?.[0]?.message?.content;
 
     if (!rawText) {
-      throw new Error('Empty response from Gemini');
+      throw new Error('Empty response from Groq');
     }
-
-    // Strip markdown code blocks if present
-    const cleaned = rawText
-      .replace(/^```(?:json)?\s*/i, '')
-      .replace(/\s*```$/i, '')
-      .trim();
 
     let activity;
     try {
-      activity = JSON.parse(cleaned);
+      activity = JSON.parse(rawText);
     } catch {
-      // Try to extract JSON object from the text
-      const match = cleaned.match(/\{[\s\S]*\}/);
+      const match = rawText.match(/\{[\s\S]*\}/);
       if (match) {
         activity = JSON.parse(match[0]);
       } else {
@@ -116,9 +108,8 @@ Rules:
       }
     }
 
-    // Validate required fields
     if (!activity.title || !activity.steps || !activity.description) {
-      throw new Error('Incomplete activity data');
+      throw new Error('Incomplete activity data received');
     }
 
     return res.status(200).json(activity);
