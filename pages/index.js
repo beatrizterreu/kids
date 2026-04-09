@@ -90,6 +90,138 @@ const translations = {
     errorMsg: 'Something went wrong. Please try again!',
     footerText: 'Made with ❤️ for creative parents',
   },
+  fr: {
+    siteTitle: 'KidSpark — Activités pour Enfants',
+    siteDesc: 'Générez des activités uniques, amusantes et éducatives pour vos enfants en quelques secondes. Bricolage, jeux, yoga, cuisine et plus.',
+    hero: "Qu'est-ce qu'on fait aujourd'hui ?",
+    heroEmoji: '✨',
+    subtitle: 'Générez des activités uniques et amusantes pour vos enfants en quelques secondes',
+    ageLabel: "Âge de l'enfant",
+    categoryLabel: "Type d'activité",
+    timeLabel: 'Temps disponible',
+    locationLabel: 'Où',
+    generateBtn: 'Générer une activité !',
+    generating: 'Création en cours...',
+    generateAnother: 'Générer une autre activité',
+    materialsTitle: 'Matériaux nécessaires',
+    stepsTitle: 'Comment faire',
+    buyOnAmazon: 'Voir sur Amazon',
+    ages: [
+      { label: '0–2 ans', emoji: '👶' },
+      { label: '3–5 ans', emoji: '🧒' },
+      { label: '6–8 ans', emoji: '🧑' },
+      { label: '9–12 ans', emoji: '👦' },
+    ],
+    categories: [
+      { label: 'Bricolage', emoji: '🎨' },
+      { label: 'Jeux', emoji: '🎮' },
+      { label: 'Nature', emoji: '🌿' },
+      { label: 'Éducatif', emoji: '📚' },
+      { label: 'Yoga', emoji: '🧘' },
+      { label: 'Cuisine', emoji: '👨‍🍳' },
+    ],
+    times: [
+      { label: '15 min', emoji: '⚡' },
+      { label: '30 min', emoji: '🕐' },
+      { label: '1 heure', emoji: '🕑' },
+      { label: 'Libre', emoji: '🌟' },
+    ],
+    locations: [
+      { label: 'Intérieur', emoji: '🏠' },
+      { label: 'Extérieur', emoji: '🌳' },
+    ],
+    difficulty: { easy: 'Facile', medium: 'Moyen', hard: 'Difficile' },
+    errorMsg: "Quelque chose s'est mal passé. Réessayez !",
+    footerText: 'Fait avec ❤️ pour les parents créatifs',
+  },
+  it: {
+    siteTitle: 'KidSpark — Attività per Bambini',
+    siteDesc: 'Genera attività uniche, divertenti ed educative per i tuoi bambini in pochi secondi. Lavoretti, giochi, yoga, cucina e altro.',
+    hero: 'Cosa facciamo oggi?',
+    heroEmoji: '✨',
+    subtitle: 'Genera attività uniche e divertenti per i tuoi figli in pochi secondi',
+    ageLabel: 'Età del bambino',
+    categoryLabel: "Tipo di attività",
+    timeLabel: 'Tempo disponibile',
+    locationLabel: 'Dove',
+    generateBtn: 'Genera attività!',
+    generating: 'Creando magia...',
+    generateAnother: "Genera un'altra attività",
+    materialsTitle: 'Materiali necessari',
+    stepsTitle: 'Come farlo',
+    buyOnAmazon: 'Vedi su Amazon',
+    ages: [
+      { label: '0–2 anni', emoji: '👶' },
+      { label: '3–5 anni', emoji: '🧒' },
+      { label: '6–8 anni', emoji: '🧑' },
+      { label: '9–12 anni', emoji: '👦' },
+    ],
+    categories: [
+      { label: 'Lavoretti', emoji: '🎨' },
+      { label: 'Giochi', emoji: '🎮' },
+      { label: 'Natura', emoji: '🌿' },
+      { label: 'Educativo', emoji: '📚' },
+      { label: 'Yoga', emoji: '🧘' },
+      { label: 'Cucina', emoji: '👨‍🍳' },
+    ],
+    times: [
+      { label: '15 min', emoji: '⚡' },
+      { label: '30 min', emoji: '🕐' },
+      { label: '1 ora', emoji: '🕑' },
+      { label: 'Libero', emoji: '🌟' },
+    ],
+    locations: [
+      { label: 'Interno', emoji: '🏠' },
+      { label: 'Esterno', emoji: '🌳' },
+    ],
+    difficulty: { easy: 'Facile', medium: 'Medio', hard: 'Difficile' },
+    errorMsg: 'Qualcosa è andato storto. Riprova!',
+    footerText: 'Fatto con ❤️ per genitori creativi',
+  },
+  de: {
+    siteTitle: 'KidSpark — Aktivitäten für Kinder',
+    siteDesc: 'Generiere einzigartige, lustige und lehrreiche Aktivitäten für deine Kinder in Sekunden. Basteln, Spiele, Yoga, Kochen und mehr.',
+    hero: 'Was machen wir heute?',
+    heroEmoji: '✨',
+    subtitle: 'Generiere einzigartige und lustige Aktivitäten für deine Kinder in Sekunden',
+    ageLabel: 'Alter des Kindes',
+    categoryLabel: 'Art der Aktivität',
+    timeLabel: 'Verfügbare Zeit',
+    locationLabel: 'Wo',
+    generateBtn: 'Aktivität generieren!',
+    generating: 'Magie erschaffen...',
+    generateAnother: 'Weitere Aktivität generieren',
+    materialsTitle: 'Benötigte Materialien',
+    stepsTitle: 'So geht es',
+    buyOnAmazon: 'Bei Amazon ansehen',
+    ages: [
+      { label: '0–2 Jahre', emoji: '👶' },
+      { label: '3–5 Jahre', emoji: '🧒' },
+      { label: '6–8 Jahre', emoji: '🧑' },
+      { label: '9–12 Jahre', emoji: '👦' },
+    ],
+    categories: [
+      { label: 'Basteln', emoji: '🎨' },
+      { label: 'Spiele', emoji: '🎮' },
+      { label: 'Natur', emoji: '🌿' },
+      { label: 'Lernaktivität', emoji: '📚' },
+      { label: 'Yoga', emoji: '🧘' },
+      { label: 'Kochen', emoji: '👨‍🍳' },
+    ],
+    times: [
+      { label: '15 Min', emoji: '⚡' },
+      { label: '30 Min', emoji: '🕐' },
+      { label: '1 Std', emoji: '🕑' },
+      { label: 'Offen', emoji: '🌟' },
+    ],
+    locations: [
+      { label: 'Drinnen', emoji: '🏠' },
+      { label: 'Draußen', emoji: '🌳' },
+    ],
+    difficulty: { easy: 'Einfach', medium: 'Mittel', hard: 'Schwer' },
+    errorMsg: 'Etwas ist schiefgelaufen. Bitte versuche es erneut!',
+    footerText: 'Mit ❤️ für kreative Eltern gemacht',
+  },
 };
 
 const difficultyColors = {
@@ -196,9 +328,18 @@ export default function Home() {
         <title>{t.siteTitle}</title>
         <meta name="description" content={t.siteDesc} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content="actividades para niños, manualidades niños, activities for kids, crafts for children, activités enfants, attività bambini, Aktivitäten Kinder, yoga niños, juegos niños en casa" />
+        <meta name="robots" content="index, follow" />
         <meta property="og:title" content={t.siteTitle} />
         <meta property="og:description" content={t.siteDesc} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kids-one-ebon.vercel.app/" />
+        <meta property="og:image" content="https://kids-one-ebon.vercel.app/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.siteTitle} />
+        <meta name="twitter:description" content={t.siteDesc} />
+        <link rel="canonical" href="https://kids-one-ebon.vercel.app/" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="icon" href="/favicon.ico" />
         {/*
           ╔══════════════════════════════════════════════╗
@@ -223,12 +364,17 @@ export default function Home() {
                 KidSpark
               </span>
             </div>
-            <button
-              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-              className="bg-white border border-purple-200 rounded-full px-4 py-1.5 text-sm font-bold text-purple-700 hover:border-purple-400 hover:bg-purple-50 transition-all shadow-sm"
+            <select
+              value={lang}
+              onChange={(e) => setLang(e.target.value)}
+              className="bg-white border border-purple-200 rounded-full px-3 py-1.5 text-sm font-bold text-purple-700 hover:border-purple-400 transition-all shadow-sm cursor-pointer outline-none"
             >
-              {lang === 'es' ? '🇺🇸 English' : '🇪🇸 Español'}
-            </button>
+              <option value="es">🇪🇸 Español</option>
+              <option value="en">🇺🇸 English</option>
+              <option value="fr">🇫🇷 Français</option>
+              <option value="it">🇮🇹 Italiano</option>
+              <option value="de">🇩🇪 Deutsch</option>
+            </select>
           </div>
         </header>
 
