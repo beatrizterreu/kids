@@ -59,7 +59,7 @@ const translations = {
     times: [
       { label: '15 min', emoji: '⚡' },
       { label: '30 min', emoji: '🕐' },
-      { label: '1 hora', emoji: '🕑' },
+      { label: '1 hora', emoji: '⏳' },
       { label: 'Libre', emoji: '🌟' },
     ],
     locations: [
@@ -124,7 +124,7 @@ const translations = {
     times: [
       { label: '15 min', emoji: '⚡' },
       { label: '30 min', emoji: '🕐' },
-      { label: '1 hour', emoji: '🕑' },
+      { label: '1 hour', emoji: '⏳' },
       { label: 'Free', emoji: '🌟' },
     ],
     locations: [
@@ -188,7 +188,7 @@ const translations = {
     times: [
       { label: '15 min', emoji: '⚡' },
       { label: '30 min', emoji: '🕐' },
-      { label: '1 heure', emoji: '🕑' },
+      { label: '1 heure', emoji: '⏳' },
       { label: 'Libre', emoji: '🌟' },
     ],
     locations: [
@@ -252,7 +252,7 @@ const translations = {
     times: [
       { label: '15 min', emoji: '⚡' },
       { label: '30 min', emoji: '🕐' },
-      { label: '1 ora', emoji: '🕑' },
+      { label: '1 ora', emoji: '⏳' },
       { label: 'Libero', emoji: '🌟' },
     ],
     locations: [
@@ -316,7 +316,7 @@ const translations = {
     times: [
       { label: '15 Min', emoji: '⚡' },
       { label: '30 Min', emoji: '🕐' },
-      { label: '1 Std', emoji: '🕑' },
+      { label: '1 Std', emoji: '⏳' },
       { label: 'Offen', emoji: '🌟' },
     ],
     locations: [
@@ -484,7 +484,7 @@ export default function Home() {
 
   const imageUrl = activity
     ? `https://image.pollinations.ai/prompt/${encodeURIComponent(
-        activity.imagePrompt + ', colorful cartoon illustration for children, cute and friendly, no text, no letters, vibrant colors'
+        activity.imagePrompt + ', children book illustration style, hand drawn, warm pastel colors, soft lines, whimsical and cozy, watercolor texture, no text, no letters'
       )}?width=600&height=400&nologo=true`
     : null;
 
@@ -576,32 +576,71 @@ export default function Home() {
               </div>
             </fieldset>
 
-            {/* CATEGORIES — split Ocio / Educación */}
+            {/* CATEGORIES — tab group selector + items */}
             <fieldset>
-              <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-4">
+              <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3">
                 Actividad
               </legend>
-              <div className="space-y-4">
+
+              {/* Tab selector: Ocio / Educación */}
+              <div className="flex gap-2 p-1 bg-gray-100 rounded-full mb-4" role="tablist">
                 {t.categoryGroups.map((group, gi) => (
-                  <div key={gi}>
-                    <p className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">
-                      {group.groupLabel}
-                    </p>
-                    <div className="flex flex-wrap gap-3" role="group" aria-label={group.groupLabel}>
-                      {group.items.map((item, ii) => (
-                        <PillButton
-                          key={ii}
-                          active={catGroup === gi && catItem === ii}
-                          onClick={() => { setCatGroup(gi); setCatItem(ii); setActivity(null); }}
-                          emoji={item.emoji}
-                          label={item.label}
-                          color={gi === 0 ? 'pink' : 'purple'}
-                        />
-                      ))}
-                    </div>
-                  </div>
+                  <button
+                    key={gi}
+                    role="tab"
+                    aria-selected={catGroup === gi}
+                    onClick={() => { setCatGroup(gi); setCatItem(0); setActivity(null); }}
+                    className={`flex-1 py-2 px-4 rounded-full text-sm font-black transition-all duration-200
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-1
+                      ${catGroup === gi
+                        ? 'bg-white text-gray-900 shadow-sm'
+                        : 'text-gray-500 hover:text-gray-700'
+                      }`}
+                  >
+                    {group.groupLabel}
+                  </button>
                 ))}
               </div>
+
+              {/* Items for selected group */}
+              <div className="flex flex-wrap gap-3" role="tabpanel" aria-label={t.categoryGroups[catGroup].groupLabel}>
+                {t.categoryGroups[catGroup].items.map((item, ii) => (
+                  <PillButton
+                    key={ii}
+                    active={catItem === ii}
+                    onClick={() => { setCatItem(ii); setActivity(null); }}
+                    emoji={item.emoji}
+                    label={item.label}
+                    color={catGroup === 0 ? 'pink' : 'purple'}
+                  />
+                ))}
+              </div>
+
+              {/* PDF button — inside card, only for education */}
+              {isEducation && (
+                <button
+                  onClick={downloadWorksheet}
+                  disabled={loading || loadingPdf}
+                  aria-busy={loadingPdf}
+                  className="mt-4 w-full py-3 rounded-full text-sm font-black text-purple-800
+                    bg-purple-50 border-2 border-purple-200 hover:bg-purple-100 hover:border-purple-300
+                    active:scale-95 transition-all duration-200
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2
+                    disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {loadingPdf ? (
+                    <>
+                      <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      {t.generatingWorksheet}
+                    </>
+                  ) : (
+                    <>📄 {t.generateWorksheet}</>
+                  )}
+                </button>
+              )}
             </fieldset>
 
             {/* TIME */}
@@ -622,80 +661,37 @@ export default function Home() {
               <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3">
                 {t.locationLabel}
               </legend>
-              <div className="flex gap-3" role="group">
+              <div className="flex flex-wrap gap-3" role="group">
                 {t.locations.map((loc, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setLocation(i)}
-                    aria-pressed={location === i}
-                    className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-bold
-                      transition-all duration-150 focus-visible:outline-none focus-visible:ring-2
-                      focus-visible:ring-offset-2 focus-visible:ring-green-600
-                      ${location === i
-                        ? 'bg-green-700 text-white scale-105 shadow-md'
-                        : 'bg-green-50 text-green-900 hover:bg-green-100'
-                      }`}
-                  >
-                    <span aria-hidden="true">{loc.emoji}</span>
-                    <span>{loc.label}</span>
-                  </button>
+                  <PillButton key={i} active={location === i} onClick={() => setLocation(i)}
+                    emoji={loc.emoji} label={loc.label} color="green" />
                 ))}
               </div>
             </fieldset>
           </section>
 
-          {/* BUTTONS */}
-          <div className="mt-5 flex flex-col gap-3">
-            {/* Generate activity */}
-            <button
-              onClick={generateActivity}
-              disabled={loading || loadingPdf}
-              aria-busy={loading}
-              className="w-full py-5 rounded-3xl text-xl font-black text-white shadow-xl
-                bg-gradient-to-r from-violet-700 via-pink-600 to-orange-500
-                hover:from-violet-800 hover:via-pink-700 hover:to-orange-600
-                active:scale-95 transition-all duration-200
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-600
-                disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <span className="flex items-center justify-center gap-3">
-                  <svg className="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  {t.generatingBtn}
-                </span>
-              ) : t.generateBtn}
-            </button>
-
-            {/* Download PDF worksheet — education only */}
-            {isEducation && (
-              <button
-                onClick={downloadWorksheet}
-                disabled={loading || loadingPdf}
-                aria-busy={loadingPdf}
-                className="w-full py-4 rounded-3xl text-base font-black text-white shadow-md
-                  bg-gradient-to-r from-purple-700 to-violet-600
-                  hover:from-purple-800 hover:to-violet-700
-                  active:scale-95 transition-all duration-200
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-purple-600
-                  disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                {loadingPdf ? (
-                  <span className="flex items-center justify-center gap-3">
-                    <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                    {t.generatingWorksheet}
-                  </span>
-                ) : (
-                  <span>📄 {t.generateWorksheet}</span>
-                )}
-              </button>
-            )}
-          </div>
+          {/* GENERATE BUTTON */}
+          <button
+            onClick={generateActivity}
+            disabled={loading || loadingPdf}
+            aria-busy={loading}
+            className="mt-5 w-full py-5 rounded-full text-xl font-black text-white shadow-xl
+              bg-gradient-to-r from-violet-700 via-pink-600 to-orange-500
+              hover:from-violet-800 hover:via-pink-700 hover:to-orange-600
+              active:scale-95 transition-all duration-200
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-600
+              disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {loading ? (
+              <span className="flex items-center justify-center gap-3">
+                <svg className="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                {t.generatingBtn}
+              </span>
+            ) : t.generateBtn}
+          </button>
 
           {/* ERROR */}
           {error && (
@@ -809,7 +805,7 @@ export default function Home() {
                 <button
                   onClick={generateActivity}
                   disabled={loading}
-                  className="w-full py-4 rounded-2xl text-base font-black text-white
+                  className="w-full py-4 rounded-full text-base font-black text-white
                     bg-gradient-to-r from-violet-700 to-pink-600
                     hover:from-violet-800 hover:to-pink-700
                     active:scale-95 transition-all duration-200
