@@ -1,36 +1,60 @@
 import { useState } from 'react';
 import Head from 'next/head';
 
+// ─── TRANSLATIONS ─────────────────────────────────────────────────────────────
 const translations = {
   es: {
     siteTitle: 'KidSpark — Actividades para Niños',
     siteDesc: 'Genera actividades únicas, divertidas y educativas para niños en segundos. Manualidades, juegos, yoga, cocina y más.',
     hero: '¿Qué hacemos hoy?',
-    heroEmoji: '✨',
     subtitle: 'Genera actividades únicas y divertidas para tus hijos en segundos',
     ageLabel: 'Edad del niño',
-    categoryLabel: 'Tipo de actividad',
     timeLabel: 'Tiempo disponible',
     locationLabel: 'Dónde',
-    generateBtn: '¡Generar actividad!',
-    generating: 'Creando magia...',
+    groupOcio: 'Ocio',
+    groupEdu: 'Educación',
+    generateBtn: 'Generar actividad',
+    generatingBtn: 'Creando magia...',
+    generateWorksheet: 'Descargar ficha PDF',
+    generatingWorksheet: 'Generando ficha...',
     generateAnother: 'Generar otra actividad',
     materialsTitle: 'Materiales necesarios',
     stepsTitle: 'Cómo hacerlo',
     buyOnAmazon: 'Ver en Amazon',
+    langLabel: 'Idioma',
+    difficulty: { easy: 'Fácil', medium: 'Medio', hard: 'Difícil' },
+    errorMsg: 'Algo salió mal. Inténtalo de nuevo.',
+    footerText: 'Hecho con amor para padres creativos',
     ages: [
       { label: '0–2 años', emoji: '👶' },
       { label: '3–5 años', emoji: '🧒' },
       { label: '6–8 años', emoji: '🧑' },
       { label: '9–12 años', emoji: '👦' },
     ],
-    categories: [
-      { label: 'Manualidades', emoji: '🎨' },
-      { label: 'Juegos', emoji: '🎮' },
-      { label: 'Naturaleza', emoji: '🌿' },
-      { label: 'Educativo', emoji: '📚' },
-      { label: 'Yoga', emoji: '🧘' },
-      { label: 'Cocina', emoji: '👨‍🍳' },
+    categoryGroups: [
+      {
+        groupLabel: 'Ocio',
+        items: [
+          { label: 'Manualidades', emoji: '🎨' },
+          { label: 'Juegos', emoji: '🎮' },
+          { label: 'Naturaleza', emoji: '🌿' },
+          { label: 'Yoga', emoji: '🧘' },
+          { label: 'Cocina', emoji: '👨‍🍳' },
+          { label: 'Música', emoji: '🎵' },
+          { label: 'Teatro', emoji: '🎭' },
+        ],
+      },
+      {
+        groupLabel: 'Educación',
+        items: [
+          { label: 'Matemáticas', emoji: '🔢' },
+          { label: 'Lectura', emoji: '📖' },
+          { label: 'Caligrafía', emoji: '✏️' },
+          { label: 'Ciencias', emoji: '🔬' },
+          { label: 'Historia', emoji: '🏛️' },
+          { label: 'Idiomas', emoji: '🌍' },
+        ],
+      },
     ],
     times: [
       { label: '15 min', emoji: '⚡' },
@@ -42,39 +66,60 @@ const translations = {
       { label: 'Interior', emoji: '🏠' },
       { label: 'Exterior', emoji: '🌳' },
     ],
-    difficulty: { easy: 'Fácil', medium: 'Medio', hard: 'Difícil' },
-    errorMsg: 'Algo salió mal. ¡Inténtalo de nuevo!',
-    footerText: 'Hecho con ❤️ para padres creativos',
+    footerCredits: 'Hecho con ❤️ para padres creativos',
   },
   en: {
     siteTitle: 'KidSpark — Activities for Kids',
     siteDesc: 'Generate unique, fun and educational activities for kids in seconds. Crafts, games, yoga, cooking and more.',
-    hero: "What are we doing today?",
-    heroEmoji: '✨',
+    hero: 'What are we doing today?',
     subtitle: 'Generate unique and fun activities for your kids in seconds',
     ageLabel: "Child's age",
-    categoryLabel: 'Activity type',
     timeLabel: 'Time available',
     locationLabel: 'Where',
-    generateBtn: 'Generate activity!',
-    generating: 'Creating magic...',
+    groupOcio: 'Leisure',
+    groupEdu: 'Education',
+    generateBtn: 'Generate activity',
+    generatingBtn: 'Creating magic...',
+    generateWorksheet: 'Download PDF worksheet',
+    generatingWorksheet: 'Generating worksheet...',
     generateAnother: 'Generate another activity',
     materialsTitle: 'Materials needed',
     stepsTitle: 'How to do it',
     buyOnAmazon: 'See on Amazon',
+    langLabel: 'Language',
+    difficulty: { easy: 'Easy', medium: 'Medium', hard: 'Hard' },
+    errorMsg: 'Something went wrong. Please try again.',
+    footerText: 'Made with love for creative parents',
     ages: [
       { label: '0–2 years', emoji: '👶' },
       { label: '3–5 years', emoji: '🧒' },
       { label: '6–8 years', emoji: '🧑' },
       { label: '9–12 years', emoji: '👦' },
     ],
-    categories: [
-      { label: 'Crafts', emoji: '🎨' },
-      { label: 'Games', emoji: '🎮' },
-      { label: 'Nature', emoji: '🌿' },
-      { label: 'Educational', emoji: '📚' },
-      { label: 'Yoga', emoji: '🧘' },
-      { label: 'Cooking', emoji: '👨‍🍳' },
+    categoryGroups: [
+      {
+        groupLabel: 'Leisure',
+        items: [
+          { label: 'Crafts', emoji: '🎨' },
+          { label: 'Games', emoji: '🎮' },
+          { label: 'Nature', emoji: '🌿' },
+          { label: 'Yoga', emoji: '🧘' },
+          { label: 'Cooking', emoji: '👨‍🍳' },
+          { label: 'Music', emoji: '🎵' },
+          { label: 'Theater', emoji: '🎭' },
+        ],
+      },
+      {
+        groupLabel: 'Education',
+        items: [
+          { label: 'Math', emoji: '🔢' },
+          { label: 'Reading', emoji: '📖' },
+          { label: 'Handwriting', emoji: '✏️' },
+          { label: 'Science', emoji: '🔬' },
+          { label: 'History', emoji: '🏛️' },
+          { label: 'Languages', emoji: '🌍' },
+        ],
+      },
     ],
     times: [
       { label: '15 min', emoji: '⚡' },
@@ -86,39 +131,59 @@ const translations = {
       { label: 'Indoor', emoji: '🏠' },
       { label: 'Outdoor', emoji: '🌳' },
     ],
-    difficulty: { easy: 'Easy', medium: 'Medium', hard: 'Hard' },
-    errorMsg: 'Something went wrong. Please try again!',
-    footerText: 'Made with ❤️ for creative parents',
+    footerCredits: 'Made with ❤️ for creative parents',
   },
   fr: {
     siteTitle: 'KidSpark — Activités pour Enfants',
-    siteDesc: 'Générez des activités uniques, amusantes et éducatives pour vos enfants en quelques secondes. Bricolage, jeux, yoga, cuisine et plus.',
+    siteDesc: 'Générez des activités uniques, amusantes et éducatives pour vos enfants en quelques secondes.',
     hero: "Qu'est-ce qu'on fait aujourd'hui ?",
-    heroEmoji: '✨',
     subtitle: 'Générez des activités uniques et amusantes pour vos enfants en quelques secondes',
     ageLabel: "Âge de l'enfant",
-    categoryLabel: "Type d'activité",
     timeLabel: 'Temps disponible',
     locationLabel: 'Où',
-    generateBtn: 'Générer une activité !',
-    generating: 'Création en cours...',
+    groupOcio: 'Loisirs',
+    groupEdu: 'Éducation',
+    generateBtn: 'Générer une activité',
+    generatingBtn: 'Création en cours...',
+    generateWorksheet: 'Télécharger la fiche PDF',
+    generatingWorksheet: 'Génération de la fiche...',
     generateAnother: 'Générer une autre activité',
     materialsTitle: 'Matériaux nécessaires',
     stepsTitle: 'Comment faire',
     buyOnAmazon: 'Voir sur Amazon',
+    langLabel: 'Langue',
+    difficulty: { easy: 'Facile', medium: 'Moyen', hard: 'Difficile' },
+    errorMsg: "Quelque chose s'est mal passé. Réessayez.",
     ages: [
       { label: '0–2 ans', emoji: '👶' },
       { label: '3–5 ans', emoji: '🧒' },
       { label: '6–8 ans', emoji: '🧑' },
       { label: '9–12 ans', emoji: '👦' },
     ],
-    categories: [
-      { label: 'Bricolage', emoji: '🎨' },
-      { label: 'Jeux', emoji: '🎮' },
-      { label: 'Nature', emoji: '🌿' },
-      { label: 'Éducatif', emoji: '📚' },
-      { label: 'Yoga', emoji: '🧘' },
-      { label: 'Cuisine', emoji: '👨‍🍳' },
+    categoryGroups: [
+      {
+        groupLabel: 'Loisirs',
+        items: [
+          { label: 'Bricolage', emoji: '🎨' },
+          { label: 'Jeux', emoji: '🎮' },
+          { label: 'Nature', emoji: '🌿' },
+          { label: 'Yoga', emoji: '🧘' },
+          { label: 'Cuisine', emoji: '👨‍🍳' },
+          { label: 'Musique', emoji: '🎵' },
+          { label: 'Théâtre', emoji: '🎭' },
+        ],
+      },
+      {
+        groupLabel: 'Éducation',
+        items: [
+          { label: 'Mathématiques', emoji: '🔢' },
+          { label: 'Lecture', emoji: '📖' },
+          { label: 'Calligraphie', emoji: '✏️' },
+          { label: 'Sciences', emoji: '🔬' },
+          { label: 'Histoire', emoji: '🏛️' },
+          { label: 'Langues', emoji: '🌍' },
+        ],
+      },
     ],
     times: [
       { label: '15 min', emoji: '⚡' },
@@ -130,39 +195,59 @@ const translations = {
       { label: 'Intérieur', emoji: '🏠' },
       { label: 'Extérieur', emoji: '🌳' },
     ],
-    difficulty: { easy: 'Facile', medium: 'Moyen', hard: 'Difficile' },
-    errorMsg: "Quelque chose s'est mal passé. Réessayez !",
-    footerText: 'Fait avec ❤️ pour les parents créatifs',
+    footerCredits: 'Fait avec ❤️ pour les parents créatifs',
   },
   it: {
     siteTitle: 'KidSpark — Attività per Bambini',
-    siteDesc: 'Genera attività uniche, divertenti ed educative per i tuoi bambini in pochi secondi. Lavoretti, giochi, yoga, cucina e altro.',
+    siteDesc: 'Genera attività uniche, divertenti ed educative per i tuoi bambini in pochi secondi.',
     hero: 'Cosa facciamo oggi?',
-    heroEmoji: '✨',
     subtitle: 'Genera attività uniche e divertenti per i tuoi figli in pochi secondi',
     ageLabel: 'Età del bambino',
-    categoryLabel: "Tipo di attività",
     timeLabel: 'Tempo disponibile',
     locationLabel: 'Dove',
-    generateBtn: 'Genera attività!',
-    generating: 'Creando magia...',
+    groupOcio: 'Svago',
+    groupEdu: 'Educazione',
+    generateBtn: 'Genera attività',
+    generatingBtn: 'Creando magia...',
+    generateWorksheet: 'Scarica scheda PDF',
+    generatingWorksheet: 'Generando la scheda...',
     generateAnother: "Genera un'altra attività",
     materialsTitle: 'Materiali necessari',
     stepsTitle: 'Come farlo',
     buyOnAmazon: 'Vedi su Amazon',
+    langLabel: 'Lingua',
+    difficulty: { easy: 'Facile', medium: 'Medio', hard: 'Difficile' },
+    errorMsg: 'Qualcosa è andato storto. Riprova.',
     ages: [
       { label: '0–2 anni', emoji: '👶' },
       { label: '3–5 anni', emoji: '🧒' },
       { label: '6–8 anni', emoji: '🧑' },
       { label: '9–12 anni', emoji: '👦' },
     ],
-    categories: [
-      { label: 'Lavoretti', emoji: '🎨' },
-      { label: 'Giochi', emoji: '🎮' },
-      { label: 'Natura', emoji: '🌿' },
-      { label: 'Educativo', emoji: '📚' },
-      { label: 'Yoga', emoji: '🧘' },
-      { label: 'Cucina', emoji: '👨‍🍳' },
+    categoryGroups: [
+      {
+        groupLabel: 'Svago',
+        items: [
+          { label: 'Lavoretti', emoji: '🎨' },
+          { label: 'Giochi', emoji: '🎮' },
+          { label: 'Natura', emoji: '🌿' },
+          { label: 'Yoga', emoji: '🧘' },
+          { label: 'Cucina', emoji: '👨‍🍳' },
+          { label: 'Musica', emoji: '🎵' },
+          { label: 'Teatro', emoji: '🎭' },
+        ],
+      },
+      {
+        groupLabel: 'Educazione',
+        items: [
+          { label: 'Matematica', emoji: '🔢' },
+          { label: 'Lettura', emoji: '📖' },
+          { label: 'Calligrafia', emoji: '✏️' },
+          { label: 'Scienze', emoji: '🔬' },
+          { label: 'Storia', emoji: '🏛️' },
+          { label: 'Lingue', emoji: '🌍' },
+        ],
+      },
     ],
     times: [
       { label: '15 min', emoji: '⚡' },
@@ -174,39 +259,59 @@ const translations = {
       { label: 'Interno', emoji: '🏠' },
       { label: 'Esterno', emoji: '🌳' },
     ],
-    difficulty: { easy: 'Facile', medium: 'Medio', hard: 'Difficile' },
-    errorMsg: 'Qualcosa è andato storto. Riprova!',
-    footerText: 'Fatto con ❤️ per genitori creativi',
+    footerCredits: 'Fatto con ❤️ per genitori creativi',
   },
   de: {
     siteTitle: 'KidSpark — Aktivitäten für Kinder',
-    siteDesc: 'Generiere einzigartige, lustige und lehrreiche Aktivitäten für deine Kinder in Sekunden. Basteln, Spiele, Yoga, Kochen und mehr.',
+    siteDesc: 'Generiere einzigartige, lustige und lehrreiche Aktivitäten für deine Kinder in Sekunden.',
     hero: 'Was machen wir heute?',
-    heroEmoji: '✨',
     subtitle: 'Generiere einzigartige und lustige Aktivitäten für deine Kinder in Sekunden',
     ageLabel: 'Alter des Kindes',
-    categoryLabel: 'Art der Aktivität',
     timeLabel: 'Verfügbare Zeit',
     locationLabel: 'Wo',
-    generateBtn: 'Aktivität generieren!',
-    generating: 'Magie erschaffen...',
+    groupOcio: 'Freizeit',
+    groupEdu: 'Bildung',
+    generateBtn: 'Aktivität generieren',
+    generatingBtn: 'Magie erschaffen...',
+    generateWorksheet: 'PDF-Arbeitsblatt herunterladen',
+    generatingWorksheet: 'Arbeitsblatt wird erstellt...',
     generateAnother: 'Weitere Aktivität generieren',
     materialsTitle: 'Benötigte Materialien',
     stepsTitle: 'So geht es',
     buyOnAmazon: 'Bei Amazon ansehen',
+    langLabel: 'Sprache',
+    difficulty: { easy: 'Einfach', medium: 'Mittel', hard: 'Schwer' },
+    errorMsg: 'Etwas ist schiefgelaufen. Bitte versuche es erneut.',
     ages: [
       { label: '0–2 Jahre', emoji: '👶' },
       { label: '3–5 Jahre', emoji: '🧒' },
       { label: '6–8 Jahre', emoji: '🧑' },
       { label: '9–12 Jahre', emoji: '👦' },
     ],
-    categories: [
-      { label: 'Basteln', emoji: '🎨' },
-      { label: 'Spiele', emoji: '🎮' },
-      { label: 'Natur', emoji: '🌿' },
-      { label: 'Lernaktivität', emoji: '📚' },
-      { label: 'Yoga', emoji: '🧘' },
-      { label: 'Kochen', emoji: '👨‍🍳' },
+    categoryGroups: [
+      {
+        groupLabel: 'Freizeit',
+        items: [
+          { label: 'Basteln', emoji: '🎨' },
+          { label: 'Spiele', emoji: '🎮' },
+          { label: 'Natur', emoji: '🌿' },
+          { label: 'Yoga', emoji: '🧘' },
+          { label: 'Kochen', emoji: '👨‍🍳' },
+          { label: 'Musik', emoji: '🎵' },
+          { label: 'Theater', emoji: '🎭' },
+        ],
+      },
+      {
+        groupLabel: 'Bildung',
+        items: [
+          { label: 'Mathematik', emoji: '🔢' },
+          { label: 'Lesen', emoji: '📖' },
+          { label: 'Schreiben', emoji: '✏️' },
+          { label: 'Wissenschaft', emoji: '🔬' },
+          { label: 'Geschichte', emoji: '🏛️' },
+          { label: 'Sprachen', emoji: '🌍' },
+        ],
+      },
     ],
     times: [
       { label: '15 Min', emoji: '⚡' },
@@ -218,31 +323,55 @@ const translations = {
       { label: 'Drinnen', emoji: '🏠' },
       { label: 'Draußen', emoji: '🌳' },
     ],
-    difficulty: { easy: 'Einfach', medium: 'Mittel', hard: 'Schwer' },
-    errorMsg: 'Etwas ist schiefgelaufen. Bitte versuche es erneut!',
-    footerText: 'Mit ❤️ für kreative Eltern gemacht',
+    footerCredits: 'Mit ❤️ für kreative Eltern gemacht',
+  },
+};
+
+// ─── WCAG COLOUR TOKENS ──────────────────────────────────────────────────────
+// All combos verified ≥ 4.5:1 contrast ratio (WCAG AA)
+const pill = {
+  purple: {
+    active:   'bg-purple-700 text-white',
+    inactive: 'bg-purple-50 text-purple-900 hover:bg-purple-100',
+    focus:    'focus-visible:ring-purple-600',
+  },
+  pink: {
+    active:   'bg-pink-700 text-white',
+    inactive: 'bg-pink-50 text-pink-900 hover:bg-pink-100',
+    focus:    'focus-visible:ring-pink-600',
+  },
+  amber: {
+    active:   'bg-amber-500 text-amber-950',
+    inactive: 'bg-amber-50 text-amber-900 hover:bg-amber-100',
+    focus:    'focus-visible:ring-amber-600',
+  },
+  green: {
+    active:   'bg-green-700 text-white',
+    inactive: 'bg-green-50 text-green-900 hover:bg-green-100',
+    focus:    'focus-visible:ring-green-600',
   },
 };
 
 const difficultyColors = {
-  easy:   { bg: 'bg-green-100',  text: 'text-green-700',  label: '🟢' },
-  medium: { bg: 'bg-amber-100',  text: 'text-amber-700',  label: '🟡' },
-  hard:   { bg: 'bg-red-100',    text: 'text-red-700',    label: '🔴' },
+  easy:   { bg: 'bg-green-100',  text: 'text-green-800' },
+  medium: { bg: 'bg-amber-100',  text: 'text-amber-900' },
+  hard:   { bg: 'bg-red-100',    text: 'text-red-800'   },
 };
 
-function PillButton({ active, onClick, emoji, label, color }) {
-  const colors = {
-    purple: active ? 'bg-purple-500 text-white shadow-lg scale-105' : 'bg-purple-50 text-purple-700 hover:bg-purple-100',
-    pink:   active ? 'bg-pink-500 text-white shadow-lg scale-105'   : 'bg-pink-50 text-pink-700 hover:bg-pink-100',
-    amber:  active ? 'bg-amber-400 text-white shadow-lg scale-105'  : 'bg-amber-50 text-amber-700 hover:bg-amber-100',
-    green:  active ? 'bg-green-500 text-white shadow-lg scale-105'  : 'bg-green-50 text-green-700 hover:bg-green-100',
-  };
+// ─── COMPONENTS ──────────────────────────────────────────────────────────────
+function PillButton({ active, onClick, emoji, label, color, ariaLabel }) {
+  const c = pill[color];
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${colors[color]}`}
+      aria-pressed={active}
+      aria-label={ariaLabel || label}
+      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold
+        transition-all duration-150 focus-visible:outline-none focus-visible:ring-2
+        focus-visible:ring-offset-2 ${c.focus}
+        ${active ? c.active + ' scale-105 shadow-md' : c.inactive}`}
     >
-      <span>{emoji}</span>
+      <span aria-hidden="true">{emoji}</span>
       <span>{label}</span>
     </button>
   );
@@ -250,11 +379,15 @@ function PillButton({ active, onClick, emoji, label, color }) {
 
 function LoadingSkeleton() {
   return (
-    <div className="mt-6 bg-white rounded-3xl shadow-lg overflow-hidden animate-pulse">
+    <div
+      className="mt-6 bg-white rounded-3xl shadow-lg overflow-hidden"
+      role="status"
+      aria-label="Cargando actividad..."
+    >
       <div className="h-56 shimmer" />
-      <div className="p-6 space-y-4">
+      <div className="p-6 space-y-4" aria-hidden="true">
         <div className="h-7 shimmer rounded-xl w-3/4" />
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           <div className="h-6 shimmer rounded-full w-20" />
           <div className="h-6 shimmer rounded-full w-20" />
           <div className="h-6 shimmer rounded-full w-16" />
@@ -262,8 +395,8 @@ function LoadingSkeleton() {
         <div className="h-4 shimmer rounded-lg" />
         <div className="h-4 shimmer rounded-lg w-5/6" />
         <div className="space-y-2 pt-2">
-          {[1,2,3,4,5].map(i => (
-            <div key={i} className="h-4 shimmer rounded-lg" style={{ width: `${70 + i * 5}%` }} />
+          {[1, 2, 3, 4, 5].map(i => (
+            <div key={i} className="h-4 shimmer rounded-lg" style={{ width: `${68 + i * 6}%` }} />
           ))}
         </div>
       </div>
@@ -271,55 +404,88 @@ function LoadingSkeleton() {
   );
 }
 
+// ─── MAIN ─────────────────────────────────────────────────────────────────────
 export default function Home() {
-  const [lang, setLang]         = useState('es');
-  const [age, setAge]           = useState(1);
-  const [category, setCategory] = useState(0);
-  const [time, setTime]         = useState(1);
-  const [location, setLocation] = useState(0);
-  const [loading, setLoading]   = useState(false);
-  const [activity, setActivity] = useState(null);
-  const [error, setError]       = useState(null);
-  const [imgLoaded, setImgLoaded] = useState(false);
+  const [lang, setLang]               = useState('es');
+  const [age, setAge]                 = useState(1);
+  const [catGroup, setCatGroup]       = useState(0);   // 0=Ocio 1=Edu
+  const [catItem, setCatItem]         = useState(0);
+  const [time, setTime]               = useState(1);
+  const [location, setLocation]       = useState(0);
+  const [loading, setLoading]         = useState(false);
+  const [loadingPdf, setLoadingPdf]   = useState(false);
+  const [activity, setActivity]       = useState(null);
+  const [error, setError]             = useState(null);
+  const [imgLoaded, setImgLoaded]     = useState(false);
 
-  const t = translations[lang];
-
+  const t            = translations[lang];
+  const isEducation  = catGroup === 1;
+  const selectedCat  = t.categoryGroups[catGroup].items[catItem];
   const affiliateTag = process.env.NEXT_PUBLIC_AMAZON_AFFILIATE_TAG || 'kidspark0b-20';
 
+  const langMap = { es: 'SPANISH', en: 'ENGLISH', fr: 'FRENCH', it: 'ITALIAN', de: 'GERMAN' };
+
+  // ── Generate activity ──
   const generateActivity = async () => {
     setLoading(true);
     setError(null);
     setActivity(null);
     setImgLoaded(false);
-
     try {
-      const response = await fetch('/api/generate', {
+      const res = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           age: t.ages[age].label,
-          category: `${t.categories[category].emoji} ${t.categories[category].label}`,
+          category: `${selectedCat.emoji} ${selectedCat.label}`,
           time: t.times[time].label,
           location: t.locations[location].label,
           lang,
         }),
       });
-
-      const data = await response.json();
+      const data = await res.json();
       if (data.error) throw new Error(data.error);
       setActivity(data);
-    } catch (err) {
+    } catch {
       setError(t.errorMsg);
     } finally {
       setLoading(false);
     }
   };
 
+  // ── Download PDF worksheet (education only) ──
+  const downloadWorksheet = async () => {
+    setLoadingPdf(true);
+    try {
+      const res = await fetch('/api/generate-worksheet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          age: t.ages[age].label,
+          category: selectedCat.label,
+          lang,
+          responseLang: langMap[lang],
+        }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+
+      // Open printable HTML in new tab
+      const win = window.open('', '_blank');
+      win.document.write(data.html);
+      win.document.close();
+      setTimeout(() => win.print(), 600);
+    } catch {
+      setError(t.errorMsg);
+    } finally {
+      setLoadingPdf(false);
+    }
+  };
+
   const imageUrl = activity
     ? `https://image.pollinations.ai/prompt/${encodeURIComponent(
-        activity.imagePrompt +
-        ', colorful cartoon illustration for children, cute and friendly, no text, no letters, vibrant colors'
-      )}?width=600&height=400&nologo=true&seed=${Date.now()}`
+        activity.imagePrompt + ', colorful cartoon illustration for children, cute and friendly, no text, no letters, vibrant colors'
+      )}?width=600&height=400&nologo=true`
     : null;
 
   return (
@@ -328,312 +494,338 @@ export default function Home() {
         <title>{t.siteTitle}</title>
         <meta name="description" content={t.siteDesc} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="actividades para niños, manualidades niños, activities for kids, crafts for children, activités enfants, attività bambini, Aktivitäten Kinder, yoga niños, juegos niños en casa" />
+        <meta name="keywords" content="actividades para niños, manualidades niños, activities for kids, crafts for children, fichas educativas, yoga niños" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content={t.siteTitle} />
         <meta property="og:description" content={t.siteDesc} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://kids-one-ebon.vercel.app/" />
-        <meta property="og:image" content="https://kids-one-ebon.vercel.app/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t.siteTitle} />
-        <meta name="twitter:description" content={t.siteDesc} />
         <link rel="canonical" href="https://kids-one-ebon.vercel.app/" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="icon" href="/favicon.ico" />
-        {/*
-          ╔══════════════════════════════════════════════╗
-          ║  GOOGLE ADSENSE — Descomenta y pon tu ID     ║
-          ╚══════════════════════════════════════════════╝
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-            crossOrigin="anonymous"
-          />
-        */}
       </Head>
+
+      {/* Skip to main content — WCAG 2.4.1 */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50
+          focus:px-4 focus:py-2 focus:bg-purple-700 focus:text-white focus:rounded-lg focus:font-bold"
+      >
+        Saltar al contenido
+      </a>
 
       <div className="min-h-screen bg-gradient-to-br from-violet-50 via-pink-50 to-amber-50">
 
         {/* ── HEADER ── */}
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-purple-100">
+        <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-purple-100">
           <div className="max-w-2xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl animate-bounce-gentle">🌟</span>
-              <span className="text-xl font-black bg-gradient-to-r from-violet-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+            <a href="/" aria-label="KidSpark — inicio" className="flex items-center gap-2
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 rounded-lg">
+              <span className="text-xl font-black bg-gradient-to-r from-violet-700 via-pink-600 to-orange-500 bg-clip-text text-transparent">
                 KidSpark
               </span>
-            </div>
+            </a>
+
+            <label htmlFor="lang-select" className="sr-only">{t.langLabel}</label>
             <select
+              id="lang-select"
               value={lang}
               onChange={(e) => setLang(e.target.value)}
-              className="bg-white border border-purple-200 rounded-full px-3 py-1.5 text-sm font-bold text-purple-700 hover:border-purple-400 transition-all shadow-sm cursor-pointer outline-none"
+              className="bg-white border border-purple-300 rounded-full pl-4 pr-8 py-1.5
+                text-sm font-bold text-purple-900 hover:border-purple-500 cursor-pointer
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600
+                focus-visible:ring-offset-2 appearance-none transition-colors shadow-sm"
+              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237C3AED' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
             >
-              <option value="es">🇪🇸 Español</option>
-              <option value="en">🇺🇸 English</option>
-              <option value="fr">🇫🇷 Français</option>
-              <option value="it">🇮🇹 Italiano</option>
-              <option value="de">🇩🇪 Deutsch</option>
+              <option value="es">Español</option>
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="it">Italiano</option>
+              <option value="de">Deutsch</option>
             </select>
           </div>
         </header>
 
-        <main className="max-w-2xl mx-auto px-4 pb-16">
+        {/* ── MAIN ── */}
+        <main id="main-content" className="max-w-2xl mx-auto px-4 pb-16">
 
-          {/* ── HERO ── */}
-          <div className="text-center pt-10 pb-6">
-            <h1 className="text-4xl md:text-5xl font-black text-gray-800 mb-2 leading-tight">
-              {t.hero} <span>{t.heroEmoji}</span>
+          {/* HERO */}
+          <div className="text-center pt-10 pb-8">
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
+              {t.hero}
             </h1>
-            <p className="text-gray-500 text-base md:text-lg max-w-md mx-auto">{t.subtitle}</p>
+            <p className="text-gray-600 text-xl md:text-2xl max-w-md mx-auto font-medium">
+              {t.subtitle}
+            </p>
           </div>
 
-          {/* ── AD SLOT TOP (descomenta cuando tengas AdSense aprobado) ── */}
-          {/*
-          <div className="mb-4 flex justify-center">
-            <ins className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-              data-ad-slot="XXXXXXXXXX"
-              data-ad-format="auto"
-              data-full-width-responsive="true" />
-          </div>
-          */}
-
-          {/* ── FILTER CARD ── */}
-          <div className="bg-white rounded-3xl shadow-md border border-purple-50 p-6 space-y-6">
+          {/* FILTER CARD */}
+          <section aria-label="Filtros de actividad" className="bg-white rounded-3xl shadow-md border border-purple-100 p-6 space-y-7">
 
             {/* AGE */}
-            <div>
-              <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">
-                👶 {t.ageLabel}
-              </p>
-              <div className="flex flex-wrap gap-2">
+            <fieldset>
+              <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3">
+                {t.ageLabel}
+              </legend>
+              <div className="flex flex-wrap gap-3" role="group">
                 {t.ages.map((a, i) => (
                   <PillButton key={i} active={age === i} onClick={() => setAge(i)}
                     emoji={a.emoji} label={a.label} color="purple" />
                 ))}
               </div>
-            </div>
+            </fieldset>
 
-            {/* CATEGORY */}
-            <div>
-              <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">
-                🎯 {t.categoryLabel}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {t.categories.map((c, i) => (
-                  <PillButton key={i} active={category === i} onClick={() => setCategory(i)}
-                    emoji={c.emoji} label={c.label} color="pink" />
+            {/* CATEGORIES — split Ocio / Educación */}
+            <fieldset>
+              <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-4">
+                Actividad
+              </legend>
+              <div className="space-y-4">
+                {t.categoryGroups.map((group, gi) => (
+                  <div key={gi}>
+                    <p className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">
+                      {group.groupLabel}
+                    </p>
+                    <div className="flex flex-wrap gap-3" role="group" aria-label={group.groupLabel}>
+                      {group.items.map((item, ii) => (
+                        <PillButton
+                          key={ii}
+                          active={catGroup === gi && catItem === ii}
+                          onClick={() => { setCatGroup(gi); setCatItem(ii); setActivity(null); }}
+                          emoji={item.emoji}
+                          label={item.label}
+                          color={gi === 0 ? 'pink' : 'purple'}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
-            </div>
+            </fieldset>
 
             {/* TIME */}
-            <div>
-              <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">
-                ⏱️ {t.timeLabel}
-              </p>
-              <div className="flex flex-wrap gap-2">
+            <fieldset>
+              <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3">
+                {t.timeLabel}
+              </legend>
+              <div className="flex flex-wrap gap-3" role="group">
                 {t.times.map((tm, i) => (
                   <PillButton key={i} active={time === i} onClick={() => setTime(i)}
                     emoji={tm.emoji} label={tm.label} color="amber" />
                 ))}
               </div>
-            </div>
+            </fieldset>
 
             {/* LOCATION */}
-            <div>
-              <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">
-                📍 {t.locationLabel}
-              </p>
-              <div className="flex gap-3">
+            <fieldset>
+              <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3">
+                {t.locationLabel}
+              </legend>
+              <div className="flex gap-3" role="group">
                 {t.locations.map((loc, i) => (
                   <button
                     key={i}
                     onClick={() => setLocation(i)}
-                    className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-bold transition-all duration-200 ${
-                      location === i
-                        ? 'bg-green-500 text-white shadow-lg scale-105'
-                        : 'bg-green-50 text-green-700 hover:bg-green-100'
-                    }`}
+                    aria-pressed={location === i}
+                    className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-bold
+                      transition-all duration-150 focus-visible:outline-none focus-visible:ring-2
+                      focus-visible:ring-offset-2 focus-visible:ring-green-600
+                      ${location === i
+                        ? 'bg-green-700 text-white scale-105 shadow-md'
+                        : 'bg-green-50 text-green-900 hover:bg-green-100'
+                      }`}
                   >
-                    <span className="text-lg">{loc.emoji}</span>
+                    <span aria-hidden="true">{loc.emoji}</span>
                     <span>{loc.label}</span>
                   </button>
                 ))}
               </div>
-            </div>
+            </fieldset>
+          </section>
+
+          {/* BUTTONS */}
+          <div className="mt-5 flex flex-col gap-3">
+            {/* Generate activity */}
+            <button
+              onClick={generateActivity}
+              disabled={loading || loadingPdf}
+              aria-busy={loading}
+              className="w-full py-5 rounded-3xl text-xl font-black text-white shadow-xl
+                bg-gradient-to-r from-violet-700 via-pink-600 to-orange-500
+                hover:from-violet-800 hover:via-pink-700 hover:to-orange-600
+                active:scale-95 transition-all duration-200
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-600
+                disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {loading ? (
+                <span className="flex items-center justify-center gap-3">
+                  <svg className="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  {t.generatingBtn}
+                </span>
+              ) : t.generateBtn}
+            </button>
+
+            {/* Download PDF worksheet — education only */}
+            {isEducation && (
+              <button
+                onClick={downloadWorksheet}
+                disabled={loading || loadingPdf}
+                aria-busy={loadingPdf}
+                className="w-full py-4 rounded-3xl text-base font-black text-white shadow-md
+                  bg-gradient-to-r from-purple-700 to-violet-600
+                  hover:from-purple-800 hover:to-violet-700
+                  active:scale-95 transition-all duration-200
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-purple-600
+                  disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {loadingPdf ? (
+                  <span className="flex items-center justify-center gap-3">
+                    <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    {t.generatingWorksheet}
+                  </span>
+                ) : (
+                  <span>📄 {t.generateWorksheet}</span>
+                )}
+              </button>
+            )}
           </div>
 
-          {/* ── GENERATE BUTTON ── */}
-          <button
-            onClick={generateActivity}
-            disabled={loading}
-            className="mt-5 w-full py-5 rounded-3xl text-xl font-black text-white shadow-xl
-              bg-gradient-to-r from-violet-500 via-pink-500 to-orange-400
-              hover:from-violet-600 hover:via-pink-600 hover:to-orange-500
-              active:scale-95 transition-all duration-200
-              disabled:opacity-60 disabled:cursor-not-allowed
-              disabled:hover:from-violet-500 disabled:hover:via-pink-500 disabled:hover:to-orange-400"
-          >
-            {loading ? (
-              <span className="flex items-center justify-center gap-3">
-                <svg className="animate-spin h-6 w-6 text-white" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
-                </svg>
-                {t.generating}
-              </span>
-            ) : (
-              <span>🎉 {t.generateBtn}</span>
-            )}
-          </button>
-
-          {/* ── ERROR ── */}
+          {/* ERROR */}
           {error && (
-            <div className="mt-5 bg-red-50 border border-red-200 rounded-2xl p-4 text-red-600 text-center font-semibold">
-              ⚠️ {error}
+            <div role="alert" className="mt-5 bg-red-50 border border-red-300 rounded-2xl p-4 text-red-800 text-center font-semibold">
+              {error}
             </div>
           )}
 
-          {/* ── LOADING SKELETON ── */}
+          {/* SKELETON */}
           {loading && <LoadingSkeleton />}
 
-          {/* ── RESULT CARD ── */}
+          {/* RESULT CARD */}
           {activity && !loading && (
-            <div className="mt-6 bg-white rounded-3xl shadow-lg border border-purple-50 overflow-hidden animate-fade-in-up">
-
+            <article
+              className="mt-6 bg-white rounded-3xl shadow-lg border border-purple-50 overflow-hidden"
+              aria-live="polite"
+              aria-atomic="true"
+            >
               {/* Image */}
               <div className="relative h-60 bg-gradient-to-br from-violet-100 to-pink-100 overflow-hidden">
-                {!imgLoaded && (
-                  <div className="absolute inset-0 shimmer" />
-                )}
+                {!imgLoaded && <div className="absolute inset-0 shimmer" aria-hidden="true" />}
                 <img
                   src={imageUrl}
-                  alt={activity.title}
+                  alt={`Ilustración de la actividad: ${activity.title}`}
                   onLoad={() => setImgLoaded(true)}
                   onError={(e) => { e.target.style.display = 'none'; setImgLoaded(true); }}
                   className={`w-full h-full object-cover transition-opacity duration-500 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
                 />
               </div>
 
-              <div className="p-6 space-y-5">
+              <div className="p-6 space-y-6">
 
-                {/* Title */}
+                {/* Title + Badges */}
                 <div>
-                  <h2 className="text-2xl font-black text-gray-800 mb-3 leading-tight">
+                  <h2 className="text-2xl font-black text-gray-900 mb-4 leading-tight">
                     {activity.title}
                   </h2>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1.5 rounded-full">
+                  <div className="flex flex-wrap gap-3">
+                    <span className="bg-purple-100 text-purple-900 text-xs font-bold px-3 py-1.5 rounded-full">
                       {t.ages[age].emoji} {t.ages[age].label}
                     </span>
-                    <span className="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1.5 rounded-full">
-                      ⏱️ {activity.duration}
+                    <span className="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-full">
+                      {activity.duration}
                     </span>
                     {activity.difficulty && difficultyColors[activity.difficulty] && (
-                      <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${difficultyColors[activity.difficulty].bg} ${difficultyColors[activity.difficulty].text}`}>
-                        {difficultyColors[activity.difficulty].label} {t.difficulty[activity.difficulty]}
+                      <span className={`text-xs font-bold px-3 py-1.5 rounded-full
+                        ${difficultyColors[activity.difficulty].bg}
+                        ${difficultyColors[activity.difficulty].text}`}>
+                        {t.difficulty[activity.difficulty]}
                       </span>
                     )}
-                    <span className="bg-pink-100 text-pink-700 text-xs font-bold px-3 py-1.5 rounded-full">
-                      {t.categories[category].emoji} {t.categories[category].label}
+                    <span className="bg-pink-100 text-pink-900 text-xs font-bold px-3 py-1.5 rounded-full">
+                      {selectedCat.emoji} {selectedCat.label}
                     </span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed text-base">{activity.description}</p>
-
-                {/* AD SLOT MID (descomenta cuando tengas AdSense aprobado) */}
-                {/*
-                <ins className="adsbygoogle"
-                  style={{ display: 'block', textAlign: 'center' }}
-                  data-ad-layout="in-article"
-                  data-ad-format="fluid"
-                  data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                  data-ad-slot="XXXXXXXXXX" />
-                */}
+                <p className="text-gray-700 text-lg leading-relaxed">{activity.description}</p>
 
                 {/* Steps */}
-                <div>
-                  <h3 className="font-black text-gray-800 text-lg mb-3">
-                    📋 {t.stepsTitle}
-                  </h3>
+                <section aria-label={t.stepsTitle}>
+                  <h3 className="font-black text-gray-900 text-lg mb-4">{t.stepsTitle}</h3>
                   <ol className="space-y-3">
                     {activity.steps && activity.steps.map((step, i) => (
                       <li key={i} className="flex gap-3 items-start">
-                        <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 text-white text-xs font-black flex items-center justify-center mt-0.5 shadow-sm">
+                        <span
+                          aria-hidden="true"
+                          className="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-violet-700 to-pink-600
+                            text-white text-xs font-black flex items-center justify-center mt-0.5 shadow-sm"
+                        >
                           {i + 1}
                         </span>
-                        <span className="text-gray-600 text-sm leading-relaxed pt-1">{step}</span>
+                        <span className="text-gray-700 text-sm leading-relaxed pt-1">{step}</span>
                       </li>
                     ))}
                   </ol>
-                </div>
+                </section>
 
-                {/* Materials with Amazon links */}
+                {/* Materials */}
                 {activity.materials && activity.materials.length > 0 && (
-                  <div>
-                    <h3 className="font-black text-gray-800 text-lg mb-3">
-                      🛒 {t.materialsTitle}
-                    </h3>
-                    <div className="space-y-2">
+                  <section aria-label={t.materialsTitle}>
+                    <h3 className="font-black text-gray-900 text-lg mb-4">{t.materialsTitle}</h3>
+                    <ul className="space-y-2">
                       {activity.materials.map((mat, i) => (
-                        <a
-                          key={i}
-                          href={`https://www.amazon.com/s?k=${encodeURIComponent(mat.amazonSearch)}&tag=${affiliateTag}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between bg-orange-50 hover:bg-orange-100 border border-orange-100 rounded-2xl px-4 py-3 transition-all group"
-                        >
-                          <div className="flex items-center gap-2.5">
-                            <span className="text-xl">🛍️</span>
-                            <span className="text-sm font-bold text-gray-700">{mat.name}</span>
-                          </div>
-                          <span className="text-xs text-orange-600 font-black group-hover:underline whitespace-nowrap">
-                            {t.buyOnAmazon} →
-                          </span>
-                        </a>
+                        <li key={i}>
+                          <a
+                            href={`https://www.amazon.com/s?k=${encodeURIComponent(mat.amazonSearch)}&tag=${affiliateTag}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${mat.name} — ${t.buyOnAmazon}`}
+                            className="flex items-center justify-between bg-orange-50 hover:bg-orange-100
+                              border border-orange-200 rounded-2xl px-4 py-3 transition-all group
+                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span aria-hidden="true" className="text-xl">🛍️</span>
+                              <span className="text-sm font-bold text-gray-800">{mat.name}</span>
+                            </div>
+                            <span className="text-xs text-orange-700 font-black group-hover:underline whitespace-nowrap">
+                              {t.buyOnAmazon} →
+                            </span>
+                          </a>
+                        </li>
                       ))}
-                    </div>
-                  </div>
+                    </ul>
+                  </section>
                 )}
 
-                {/* Generate Another */}
+                {/* Generate another */}
                 <button
                   onClick={generateActivity}
                   disabled={loading}
                   className="w-full py-4 rounded-2xl text-base font-black text-white
-                    bg-gradient-to-r from-violet-500 to-pink-500
-                    hover:from-violet-600 hover:to-pink-600
+                    bg-gradient-to-r from-violet-700 to-pink-600
+                    hover:from-violet-800 hover:to-pink-700
                     active:scale-95 transition-all duration-200
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-violet-600
                     disabled:opacity-60 disabled:cursor-not-allowed shadow-md"
                 >
-                  🔄 {t.generateAnother}
+                  {t.generateAnother}
                 </button>
               </div>
-            </div>
+            </article>
           )}
-
-          {/* ── AD SLOT BOTTOM ── */}
-          {/*
-          <div className="mt-8 flex justify-center">
-            <ins className="adsbygoogle"
-              style={{ display: 'block' }}
-              data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-              data-ad-slot="XXXXXXXXXX"
-              data-ad-format="auto"
-              data-full-width-responsive="true" />
-          </div>
-          */}
-
         </main>
 
-        {/* ── FOOTER ── */}
-        <footer className="text-center py-8 text-gray-400 text-sm">
-          {t.footerText}
+        {/* FOOTER */}
+        <footer className="text-center py-8 text-gray-500 text-sm">
+          {t.footerCredits}
         </footer>
       </div>
     </>
