@@ -42,6 +42,8 @@ const translations = {
           { label: 'Cocina', emoji: '👨‍🍳' },
           { label: 'Música', emoji: '🎵' },
           { label: 'Teatro', emoji: '🎭' },
+          { label: 'Experimentos', emoji: '🧪' },
+          { label: 'Deporte', emoji: '🏃' },
         ],
       },
       {
@@ -53,6 +55,8 @@ const translations = {
           { label: 'Ciencias', emoji: '🔬' },
           { label: 'Historia', emoji: '🏛️' },
           { label: 'Idiomas', emoji: '🌍' },
+          { label: 'Geografía', emoji: '🗺️' },
+          { label: 'Lógica', emoji: '🧩' },
         ],
       },
     ],
@@ -107,6 +111,8 @@ const translations = {
           { label: 'Cooking', emoji: '👨‍🍳' },
           { label: 'Music', emoji: '🎵' },
           { label: 'Theater', emoji: '🎭' },
+          { label: 'Experiments', emoji: '🧪' },
+          { label: 'Sports', emoji: '🏃' },
         ],
       },
       {
@@ -118,6 +124,8 @@ const translations = {
           { label: 'Science', emoji: '🔬' },
           { label: 'History', emoji: '🏛️' },
           { label: 'Languages', emoji: '🌍' },
+          { label: 'Geography', emoji: '🗺️' },
+          { label: 'Logic', emoji: '🧩' },
         ],
       },
     ],
@@ -171,6 +179,8 @@ const translations = {
           { label: 'Cuisine', emoji: '👨‍🍳' },
           { label: 'Musique', emoji: '🎵' },
           { label: 'Théâtre', emoji: '🎭' },
+          { label: 'Expériences', emoji: '🧪' },
+          { label: 'Sport', emoji: '🏃' },
         ],
       },
       {
@@ -182,6 +192,8 @@ const translations = {
           { label: 'Sciences', emoji: '🔬' },
           { label: 'Histoire', emoji: '🏛️' },
           { label: 'Langues', emoji: '🌍' },
+          { label: 'Géographie', emoji: '🗺️' },
+          { label: 'Logique', emoji: '🧩' },
         ],
       },
     ],
@@ -235,6 +247,8 @@ const translations = {
           { label: 'Cucina', emoji: '👨‍🍳' },
           { label: 'Musica', emoji: '🎵' },
           { label: 'Teatro', emoji: '🎭' },
+          { label: 'Esperimenti', emoji: '🧪' },
+          { label: 'Sport', emoji: '🏃' },
         ],
       },
       {
@@ -246,6 +260,8 @@ const translations = {
           { label: 'Scienze', emoji: '🔬' },
           { label: 'Storia', emoji: '🏛️' },
           { label: 'Lingue', emoji: '🌍' },
+          { label: 'Geografia', emoji: '🗺️' },
+          { label: 'Logica', emoji: '🧩' },
         ],
       },
     ],
@@ -299,6 +315,8 @@ const translations = {
           { label: 'Kochen', emoji: '👨‍🍳' },
           { label: 'Musik', emoji: '🎵' },
           { label: 'Theater', emoji: '🎭' },
+          { label: 'Experimente', emoji: '🧪' },
+          { label: 'Sport', emoji: '🏃' },
         ],
       },
       {
@@ -310,6 +328,8 @@ const translations = {
           { label: 'Wissenschaft', emoji: '🔬' },
           { label: 'Geschichte', emoji: '🏛️' },
           { label: 'Sprachen', emoji: '🌍' },
+          { label: 'Geographie', emoji: '🗺️' },
+          { label: 'Logik', emoji: '🧩' },
         ],
       },
     ],
@@ -328,29 +348,10 @@ const translations = {
 };
 
 // ─── WCAG COLOUR TOKENS ──────────────────────────────────────────────────────
-// All combos verified ≥ 4.5:1 contrast ratio (WCAG AA)
-const pill = {
-  purple: {
-    active:   'bg-purple-700 text-white',
-    inactive: 'bg-purple-50 text-purple-900 hover:bg-purple-100',
-    focus:    'focus-visible:ring-purple-600',
-  },
-  pink: {
-    active:   'bg-pink-700 text-white',
-    inactive: 'bg-pink-50 text-pink-900 hover:bg-pink-100',
-    focus:    'focus-visible:ring-pink-600',
-  },
-  amber: {
-    active:   'bg-amber-500 text-amber-950',
-    inactive: 'bg-amber-50 text-amber-900 hover:bg-amber-100',
-    focus:    'focus-visible:ring-amber-600',
-  },
-  green: {
-    active:   'bg-green-700 text-white',
-    inactive: 'bg-green-50 text-green-900 hover:bg-green-100',
-    focus:    'focus-visible:ring-green-600',
-  },
-};
+// Single violet family — verified ≥ 4.5:1 contrast ratio (WCAG AA)
+const pillActive   = 'bg-violet-700 text-white scale-105 shadow-md';
+const pillInactive = 'bg-violet-50 text-violet-900 hover:bg-violet-100';
+const pillFocus    = 'focus-visible:ring-violet-600';
 
 const difficultyColors = {
   easy:   { bg: 'bg-green-100',  text: 'text-green-800' },
@@ -359,8 +360,7 @@ const difficultyColors = {
 };
 
 // ─── COMPONENTS ──────────────────────────────────────────────────────────────
-function PillButton({ active, onClick, emoji, label, color, ariaLabel }) {
-  const c = pill[color];
+function PillButton({ active, onClick, emoji, label, ariaLabel }) {
   return (
     <button
       onClick={onClick}
@@ -368,8 +368,8 @@ function PillButton({ active, onClick, emoji, label, color, ariaLabel }) {
       aria-label={ariaLabel || label}
       className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold
         transition-all duration-150 focus-visible:outline-none focus-visible:ring-2
-        focus-visible:ring-offset-2 ${c.focus}
-        ${active ? c.active + ' scale-105 shadow-md' : c.inactive}`}
+        focus-visible:ring-offset-2 ${pillFocus}
+        ${active ? pillActive : pillInactive}`}
     >
       <span aria-hidden="true">{emoji}</span>
       <span>{label}</span>
@@ -571,7 +571,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-3" role="group">
                 {t.ages.map((a, i) => (
                   <PillButton key={i} active={age === i} onClick={() => setAge(i)}
-                    emoji={a.emoji} label={a.label} color="purple" />
+                    emoji={a.emoji} label={a.label} />
                 ))}
               </div>
             </fieldset>
@@ -583,18 +583,18 @@ export default function Home() {
               </legend>
 
               {/* Tab selector: Ocio / Educación */}
-              <div className="flex gap-2 p-1 bg-gray-100 rounded-full mb-4" role="tablist">
+              <div className="flex gap-1.5 p-1.5 bg-violet-100 rounded-full mb-5" role="tablist">
                 {t.categoryGroups.map((group, gi) => (
                   <button
                     key={gi}
                     role="tab"
                     aria-selected={catGroup === gi}
                     onClick={() => { setCatGroup(gi); setCatItem(0); setActivity(null); }}
-                    className={`flex-1 py-2 px-4 rounded-full text-sm font-black transition-all duration-200
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-1
+                    className={`flex-1 py-2.5 px-5 rounded-full text-sm font-black transition-all duration-200
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-1
                       ${catGroup === gi
-                        ? 'bg-white text-gray-900 shadow-sm'
-                        : 'text-gray-500 hover:text-gray-700'
+                        ? 'bg-gradient-to-r from-violet-600 to-pink-500 text-white shadow-md'
+                        : 'text-violet-700 hover:text-violet-900 hover:bg-violet-50'
                       }`}
                   >
                     {group.groupLabel}
@@ -611,7 +611,6 @@ export default function Home() {
                     onClick={() => { setCatItem(ii); setActivity(null); }}
                     emoji={item.emoji}
                     label={item.label}
-                    color={catGroup === 0 ? 'pink' : 'purple'}
                   />
                 ))}
               </div>
@@ -643,31 +642,31 @@ export default function Home() {
               )}
             </fieldset>
 
-            {/* TIME */}
-            <fieldset>
+            {/* TIME — only for Ocio */}
+            {!isEducation && <fieldset>
               <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3">
                 {t.timeLabel}
               </legend>
               <div className="flex flex-wrap gap-3" role="group">
                 {t.times.map((tm, i) => (
                   <PillButton key={i} active={time === i} onClick={() => setTime(i)}
-                    emoji={tm.emoji} label={tm.label} color="amber" />
+                    emoji={tm.emoji} label={tm.label} />
                 ))}
               </div>
-            </fieldset>
+            </fieldset>}
 
-            {/* LOCATION */}
-            <fieldset>
+            {/* LOCATION — only for Ocio */}
+            {!isEducation && <fieldset>
               <legend className="text-xs font-black text-gray-500 uppercase tracking-widest mb-3">
                 {t.locationLabel}
               </legend>
               <div className="flex flex-wrap gap-3" role="group">
                 {t.locations.map((loc, i) => (
                   <PillButton key={i} active={location === i} onClick={() => setLocation(i)}
-                    emoji={loc.emoji} label={loc.label} color="green" />
+                    emoji={loc.emoji} label={loc.label} />
                 ))}
               </div>
-            </fieldset>
+            </fieldset>}
           </section>
 
           {/* GENERATE BUTTON */}
