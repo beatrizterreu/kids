@@ -582,24 +582,29 @@ export default function Home() {
                 Actividad
               </legend>
 
-              {/* Tab selector: Ocio / Educación */}
-              <div className="flex gap-1.5 p-1.5 bg-violet-100 rounded-full mb-5" role="tablist">
-                {t.categoryGroups.map((group, gi) => (
-                  <button
-                    key={gi}
-                    role="tab"
-                    aria-selected={catGroup === gi}
-                    onClick={() => { setCatGroup(gi); setCatItem(0); setActivity(null); }}
-                    className={`flex-1 py-2.5 px-5 rounded-full text-sm font-black transition-all duration-200
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-1
-                      ${catGroup === gi
-                        ? 'bg-gradient-to-r from-violet-600 to-pink-500 text-white shadow-md'
-                        : 'text-violet-700 hover:text-violet-900 hover:bg-violet-50'
-                      }`}
-                  >
-                    {group.groupLabel}
-                  </button>
-                ))}
+              {/* Tab selector: Ocio / Educación — Opción C */}
+              <div className="flex gap-3 mb-5" role="tablist">
+                {t.categoryGroups.map((group, gi) => {
+                  const icons = ['🎡', '📚'];
+                  const isActive = catGroup === gi;
+                  return (
+                    <button
+                      key={gi}
+                      role="tab"
+                      aria-selected={isActive}
+                      onClick={() => { setCatGroup(gi); setCatItem(0); setActivity(null); }}
+                      className={`flex-1 flex flex-col items-center gap-1 py-4 rounded-2xl font-black
+                        transition-all duration-200 focus-visible:outline-none focus-visible:ring-2
+                        focus-visible:ring-violet-600 focus-visible:ring-offset-2
+                        ${isActive
+                          ? 'bg-gradient-to-br from-violet-600 to-pink-500 text-white shadow-lg scale-[1.02]'
+                          : 'bg-violet-50 text-violet-400 hover:bg-violet-100 hover:text-violet-600'
+                        }`}
+                    >
+                      <span className="text-3xl" aria-hidden="false" role="img" aria-label={group.groupLabel}>{icons[gi]}</span>
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Items for selected group */}
@@ -615,31 +620,6 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* PDF button — inside card, only for education */}
-              {isEducation && (
-                <button
-                  onClick={downloadWorksheet}
-                  disabled={loading || loadingPdf}
-                  aria-busy={loadingPdf}
-                  className="mt-4 w-full py-3 rounded-full text-sm font-black text-purple-800
-                    bg-purple-50 border-2 border-purple-200 hover:bg-purple-100 hover:border-purple-300
-                    active:scale-95 transition-all duration-200
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2
-                    disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {loadingPdf ? (
-                    <>
-                      <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                      {t.generatingWorksheet}
-                    </>
-                  ) : (
-                    <>📄 {t.generateWorksheet}</>
-                  )}
-                </button>
-              )}
             </fieldset>
 
             {/* TIME — only for Ocio */}
