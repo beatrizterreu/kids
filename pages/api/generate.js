@@ -14,7 +14,14 @@ export default async function handler(req, res) {
     });
   }
 
-  const isSpanish = lang === 'es';
+  const langMap = {
+    es: 'SPANISH',
+    en: 'ENGLISH',
+    fr: 'FRENCH',
+    it: 'ITALIAN',
+    de: 'GERMAN',
+  };
+  const responseLang = langMap[lang] || 'ENGLISH';
 
   const prompt = `You are a creative children's activity expert. Generate a fun, safe, and age-appropriate activity.
 
@@ -23,7 +30,7 @@ Parameters:
 - Activity type: ${category}
 - Duration: ${time}
 - Location: ${location}
-- Response language: ${isSpanish ? 'SPANISH' : 'ENGLISH'}
+- Response language: ${responseLang}
 
 Return ONLY a valid JSON object. No markdown, no code blocks, no extra text. Just the raw JSON.
 The JSON must have this exact structure:
@@ -40,17 +47,17 @@ The JSON must have this exact structure:
   ],
   "materials": [
     {
-      "name": "Material name in ${isSpanish ? 'SPANISH' : 'ENGLISH'}",
+      "name": "Material name in ${responseLang}",
       "amazonSearch": "search term in ENGLISH for Amazon"
     }
   ],
   "imagePrompt": "Detailed visual description in ENGLISH for AI image generation. Describe the scene, colors, style.",
-  "duration": "Realistic duration estimate in ${isSpanish ? 'Spanish' : 'English'} (e.g. '${isSpanish ? '20 minutos' : '20 minutes'}')",
+  "duration": "Realistic duration estimate in ${responseLang}",
   "difficulty": "easy"
 }
 
 Rules:
-- title, description, steps, materials.name, duration in ${isSpanish ? 'SPANISH' : 'ENGLISH'}
+- title, description, steps, materials.name, duration MUST be in ${responseLang}
 - imagePrompt and materials.amazonSearch ALWAYS in English
 - difficulty must be one of: easy, medium, hard
 - steps between 4 and 7 items
@@ -116,10 +123,15 @@ Rules:
 
   } catch (err) {
     console.error('[KidSpark] Generation error:', err.message);
+    const errorMessages = {
+      es: 'Error al generar la actividad. ¡Inténtalo de nuevo!',
+      en: 'Error generating activity. Please try again!',
+      fr: "Erreur lors de la génération. Réessayez !",
+      it: "Errore nella generazione. Riprova!",
+      de: 'Fehler beim Generieren. Bitte versuche es erneut!',
+    };
     return res.status(500).json({
-      error: isSpanish
-        ? 'Error al generar la actividad. ¡Inténtalo de nuevo!'
-        : 'Error generating activity. Please try again!',
+      error: errorMessages[lang] || errorMessages.en,
     });
   }
 }
