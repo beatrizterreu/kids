@@ -1,999 +1,620 @@
-// Static blog articles for SEO — KidSpark
-// 20 articles: 10 Spanish + 10 English
+// KidSpark — 20 bilingual articles (ES + EN)
+// Each article has both language versions; slug is language-agnostic
+
+function imgUrl(prompt) {
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(
+    prompt + ', real photograph, warm natural light, lifestyle editorial photography, no text no logos'
+  )}?width=800&height=520&nologo=true&seed=42`;
+}
 
 export const articles = [
-  // ── SPANISH ──────────────────────────────────────────────────────────────────
-
   {
-    slug: 'actividades-ninos-dias-lluvia',
-    lang: 'es',
-    title: '15 actividades para niños en días de lluvia (sin pantallas)',
-    excerpt: 'Cuando llueve y los niños no pueden salir, el aburrimiento puede aparecer rápido. Descubre 15 ideas creativas para mantenerlos activos, felices y aprendiendo en casa.',
-    category: 'Ocio',
-    emoji: '🌧️',
-    readTime: '5 min',
+    slug: 'rainy-day-activities',
+    category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-03-15',
-    content: [
-      {
-        type: 'intro',
-        text: 'Los días de lluvia no tienen por qué ser aburridos. Con un poco de creatividad y materiales que seguramente ya tienes en casa, puedes convertir una tarde gris en una aventura memorable para tus hijos.',
-      },
-      {
-        type: 'h2',
-        text: 'Por qué evitar las pantallas cuando llueve',
-      },
-      {
-        type: 'text',
-        text: 'Es tentador poner una película o dejar el tablet cuando el tiempo no acompaña, pero los expertos en desarrollo infantil recomiendan limitar el tiempo de pantalla, especialmente en edades tempranas. Las actividades manuales y creativas estimulan la imaginación, la motricidad fina y la capacidad de resolución de problemas.',
-      },
-      {
-        type: 'h2',
-        text: '15 ideas para un día de lluvia perfecto',
-      },
-      {
-        type: 'list',
-        items: [
-          '🎨 **Pintar con acuarelas** — Prepara un espacio en la mesa con papel de acuarela y deja que se expresen libremente.',
-          '🏠 **Construir una tienda de campaña interior** — Usa sábanas viejas y sillas para crear una base secreta.',
-          '🍪 **Hornear galletas juntos** — Una actividad deliciosa que trabaja la matemática (proporciones) y la paciencia.',
-          '🧩 **Montar un puzzle grande** — Ideal para edades de 5 en adelante; fomenta la concentración.',
-          '🎭 **Teatro de sombras** — Con una linterna y las manos, crea un espectáculo en la pared.',
-          '📖 **Crear un libro ilustrado** — Que inventen una historia y la dibujen página a página.',
-          '🔬 **Experimentos de cocina** — Bicarbonato + vinagre: el volcán más sencillo del mundo.',
-          '🎵 **Concierto en casa** — Con instrumentos de juguete o improvisados (botes, cucharas).',
-          '🌱 **Plantar semillas** — Cada niño tiene su maceta y se responsabiliza de regarla.',
-          '✂️ **Collage de revistas** — Recortar imágenes y crear una historia visual.',
-          '🎲 **Juegos de mesa en familia** — El clásico que nunca falla.',
-          '🧸 **Montar un hospital de peluches** — Rol de médico o veterinario.',
-          '🗺️ **Crear un mapa del tesoro** — Esconde algo en casa y dibuja las pistas.',
-          '💃 **Clase de baile improvisada** — Pon música y deja que el cuerpo se mueva.',
-          '📸 **Fotógrafo por un día** — Dale una cámara o móvil viejo y que capture la casa.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Consejo de padres',
-      },
-      {
-        type: 'text',
-        text: 'No necesitas preparar todo tú. Involucra a los niños en la elección de la actividad. Cuando sienten que tienen voz, su nivel de implicación y disfrute se multiplica. Un día de lluvia puede convertirse en uno de sus recuerdos favoritos de la infancia.',
-      },
-    ],
+    readTime: '5 min',
+    imagePrompt: 'mother and young child doing crafts at kitchen table on rainy day, cardboard and paint, cozy warm home, smiling',
+    es: {
+      title: '15 actividades para días de lluvia sin pantallas',
+      excerpt: 'Cuando llueve y los niños no pueden salir, el aburrimiento llega rápido. Aquí tienes 15 ideas creativas para mantenerlos activos, felices y aprendiendo sin pantallas.',
+      content: [
+        { type: 'intro', text: 'Los días de lluvia no tienen por qué ser aburridos. Con materiales que ya tienes en casa puedes convertir una tarde gris en una aventura memorable.' },
+        { type: 'h2', text: '15 ideas para un día de lluvia perfecto' },
+        { type: 'list', items: ['🎨 Pintar con acuarelas en papel grande', '🏠 Construir una tienda de campaña con sábanas y sillas', '🍪 Hornear galletas juntos', '🧩 Montar un puzzle en familia', '🎭 Teatro de sombras con linterna', '📖 Crear un libro ilustrado propio', '🔬 Experimentos con bicarbonato y vinagre', '🎵 Concierto con instrumentos improvisados', '🌱 Plantar semillas en macetas pequeñas', '✂️ Collage con revistas viejas', '🎲 Juegos de mesa en familia', '🧸 Hospital de peluches (juego de rol)', '🗺️ Crear un mapa del tesoro en casa', '💃 Clase de baile improvisada', '📸 Fotógrafo del día con móvil viejo'] },
+        { type: 'h2', text: 'Consejo de padres' },
+        { type: 'text', text: 'Involucra a los niños en la elección de la actividad. Cuando sienten que tienen voz, su implicación y disfrute se multiplican.' },
+      ],
+    },
+    en: {
+      title: '15 rainy day activities for kids without screens',
+      excerpt: "When rain keeps kids indoors, boredom can strike fast. Here are 15 creative ideas to keep them active, happy, and learning without any screens.",
+      content: [
+        { type: 'intro', text: "Rainy days don't have to be boring. With materials you already have at home, you can turn a grey afternoon into a memorable adventure." },
+        { type: 'h2', text: '15 ideas for the perfect rainy day' },
+        { type: 'list', items: ['🎨 Watercolor painting on large paper', '🏠 Build an indoor fort with sheets and chairs', '🍪 Bake cookies together', '🧩 Put together a family puzzle', '🎭 Shadow puppet theater with a flashlight', '📖 Create your own illustrated book', '🔬 Baking soda and vinegar experiments', '🎵 Improvised instrument concert', '🌱 Plant seeds in small pots', '✂️ Magazine collage', '🎲 Family board games', '🧸 Stuffed animal hospital (role play)', '🗺️ Create an indoor treasure map', '💃 Impromptu dance class', '📸 Photographer for the day with an old phone'] },
+        { type: 'h2', text: 'Parent tip' },
+        { type: 'text', text: 'Let kids choose the activity. When they have a voice in what happens, their engagement and enjoyment multiply.' },
+      ],
+    },
   },
 
   {
-    slug: 'matematicas-jugando-sin-aburrirse',
-    lang: 'es',
-    title: 'Cómo enseñar matemáticas a través del juego (sin que lo noten)',
-    excerpt: 'Las matemáticas no tienen que ser sinónimo de deberes aburridos. Aprende a integrar conceptos matemáticos en el juego cotidiano para que tus hijos aprendan sin darse cuenta.',
-    category: 'Educación',
-    emoji: '🔢',
-    readTime: '6 min',
+    slug: 'math-through-play',
+    category: { es: 'Educación', en: 'Education' },
     date: '2026-03-20',
-    content: [
-      {
-        type: 'intro',
-        text: 'Uno de los mayores retos para los padres es que sus hijos desarrollen una relación positiva con las matemáticas desde pequeños. La buena noticia: el juego cotidiano está lleno de oportunidades matemáticas naturales.',
-      },
-      {
-        type: 'h2',
-        text: 'El juego como vehículo del aprendizaje',
-      },
-      {
-        type: 'text',
-        text: 'Investigaciones en pedagogía muestran que los niños aprenden conceptos abstractos mucho mejor cuando los experimentan de forma concreta y jugando. Las matemáticas no son una excepción: contar escalones, medir ingredientes al cocinar, o dividir una pizza son experiencias matemáticas reales y significativas.',
-      },
-      {
-        type: 'h2',
-        text: 'Ideas por edad',
-      },
-      {
-        type: 'list',
-        items: [
-          '👶 **0–3 años**: Contar objetos mientras los recoges, clasificar por colores o tamaños, nombrar formas en el entorno.',
-          '🧒 **3–5 años**: Juegos de memoria con cartas numeradas, recetas de cocina sencillas, puzzles de formas.',
-          '🧑 **6–8 años**: Juegos de mesa con dados y sumas, construcciones con bloques y medidas, tiendas de juguete con dinero.',
-          '👦 **9–12 años**: Estrategia con ajedrez o damas, calcular el precio en el supermercado, proyectos de geometría con papel.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Los mejores juegos matemáticos',
-      },
-      {
-        type: 'list',
-        items: [
-          '**Monopoly** — Gestión de dinero, sumas, restas y pensamiento estratégico.',
-          '**Uno** — Secuencias, colores y concentración para los más pequeños.',
-          '**Blokus** — Geometría espacial y estrategia para mayores de 7.',
-          '**Juegos de cartas** — Guerra, Rummy o simplemente ordenar una baraja trabaja el número.',
-          '**Sudoku** — Perfecto desde los 8 años para el pensamiento lógico.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'El papel de los padres',
-      },
-      {
-        type: 'text',
-        text: 'No hace falta ser un experto en matemáticas para ayudar a tus hijos. Lo más importante es mostrar curiosidad y entusiasmo. Cuando un padre dice "qué interesante, ¿cómo lo haríamos?" en lugar de "no sé", está enseñando algo mucho más valioso: que los problemas se pueden resolver con calma y creatividad.',
-      },
-    ],
+    readTime: '6 min',
+    imagePrompt: 'father helping young child count wooden blocks and toys, warm home interior, morning sunlight, smiling',
+    es: {
+      title: 'Cómo enseñar matemáticas jugando sin que lo noten',
+      excerpt: 'Las matemáticas no tienen que ser sinónimo de deberes aburridos. Aprende a integrar conceptos matemáticos en el juego cotidiano para que tus hijos aprendan sin darse cuenta.',
+      content: [
+        { type: 'intro', text: 'Los niños aprenden conceptos abstractos mejor cuando los viven de forma concreta y jugando. Contar escalones, medir ingredientes o dividir una pizza son experiencias matemáticas reales.' },
+        { type: 'h2', text: 'Ideas por edad' },
+        { type: 'list', items: ['👶 0–3 años: contar objetos, clasificar por colores y tamaños', '🧒 3–5 años: recetas sencillas, puzzles de formas, cartas numeradas', '🧑 6–8 años: juegos con dados, construir con bloques y medir, tiendita con dinero de juguete', '👦 9–12 años: ajedrez, calcular precios en el súper, geometría con papel'] },
+        { type: 'h2', text: 'Los mejores juegos matemáticos' },
+        { type: 'list', items: ['**Monopoly** — dinero, sumas y estrategia', '**Uno** — secuencias y concentración', '**Blokus** — geometría espacial desde los 7', '**Juegos de cartas** — ordenar y comparar números', '**Sudoku** — lógica desde los 8 años'] },
+      ],
+    },
+    en: {
+      title: 'Teaching math through play: they will not even notice',
+      excerpt: "Math doesn't have to mean boring homework. Learn how to weave math into everyday play so your kids learn without even realizing it.",
+      content: [
+        { type: 'intro', text: 'Children learn abstract concepts better when they experience them concretely through play. Counting steps, measuring ingredients, or splitting a pizza are real, meaningful math experiences.' },
+        { type: 'h2', text: 'Ideas by age' },
+        { type: 'list', items: ['👶 0–3 years: count objects, sort by color and size', '🧒 3–5 years: simple recipes, shape puzzles, numbered cards', '🧑 6–8 years: dice games, building with blocks, toy store with play money', '👦 9–12 years: chess, grocery price calculations, paper geometry'] },
+        { type: 'h2', text: 'Best math games' },
+        { type: 'list', items: ['**Monopoly** — money, addition, strategy', '**Uno** — sequences and concentration', '**Blokus** — spatial geometry from age 7', '**Card games** — ordering and comparing numbers', '**Sudoku** — logic from age 8'] },
+      ],
+    },
   },
 
   {
-    slug: 'yoga-ninos-beneficios-y-posturas',
-    lang: 'es',
-    title: 'Yoga para niños: beneficios probados y 8 posturas para empezar hoy',
-    excerpt: 'El yoga infantil es mucho más que estirarse: reduce el estrés, mejora la concentración y fortalece el vínculo familiar. Aquí tienes todo lo que necesitas para empezar en casa.',
-    category: 'Yoga',
-    emoji: '🧘',
-    readTime: '7 min',
+    slug: 'yoga-for-kids',
+    category: { es: 'Yoga', en: 'Yoga' },
     date: '2026-03-25',
-    content: [
-      {
-        type: 'intro',
-        text: 'El yoga para niños ha crecido enormemente en popularidad, y no es casualidad. Cada vez más estudios demuestran sus beneficios tanto físicos como emocionales. Lo mejor: no necesitas equipamiento ni experiencia previa para practicarlo en casa.',
-      },
-      {
-        type: 'h2',
-        text: 'Beneficios del yoga infantil respaldados por la ciencia',
-      },
-      {
-        type: 'list',
-        items: [
-          '🧠 Mejora la concentración y el rendimiento escolar',
-          '😴 Favorece el sueño y reduce la ansiedad',
-          '💪 Fortalece la musculatura y mejora el equilibrio',
-          '❤️ Desarrolla la empatía y la gestión emocional',
-          '🌬️ Enseña técnicas de respiración para momentos de estrés',
-        ],
-      },
-      {
-        type: 'h2',
-        text: '8 posturas perfectas para niños',
-      },
-      {
-        type: 'list',
-        items: [
-          '🐱 **Gato-Vaca** — Mueve la columna y relaja la tensión de la espalda.',
-          '🐶 **Perro boca abajo** — Estira piernas, espalda y hombros.',
-          '🦁 **León** — Perfecta para sacar tensiones: cara de monstruo y rugido.',
-          '🌳 **Árbol** — Trabaja el equilibrio y la concentración.',
-          '🦋 **Mariposa** — Estiramiento de caderas en posición sentada.',
-          '🐍 **Cobra** — Abre el pecho y fortalece la espalda.',
-          '🧘 **Niño** — La postura de descanso definitiva para calmar y centrar.',
-          '⭐ **Estrella de mar** — Postura final: relajación total tumbados.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Cómo crear una rutina de 10 minutos',
-      },
-      {
-        type: 'text',
-        text: 'Lo ideal es practicar a la misma hora cada día para crear hábito. La rutina más sencilla: 3 minutos de respiración, 5 minutos de posturas divertidas y 2 minutos de relajación. Añade música suave de fondo y convierte el yoga en un ritual especial entre padres e hijos.',
-      },
-    ],
+    readTime: '7 min',
+    imagePrompt: 'young girl doing tree pose yoga in sunny living room, calm focused expression, natural light through window',
+    es: {
+      title: 'Yoga para niños: beneficios probados y 8 posturas para empezar',
+      excerpt: 'El yoga infantil reduce el estrés, mejora la concentración y fortalece el vínculo familiar. Todo lo que necesitas para empezar en casa hoy mismo.',
+      content: [
+        { type: 'intro', text: 'El yoga para niños ha crecido enormemente en popularidad, y no es casualidad. Cada vez más estudios demuestran sus beneficios físicos y emocionales, y no necesitas equipamiento ni experiencia para practicarlo en casa.' },
+        { type: 'h2', text: 'Beneficios respaldados por la ciencia' },
+        { type: 'list', items: ['🧠 Mejora la concentración y el rendimiento escolar', '😴 Favorece el sueño y reduce la ansiedad', '💪 Fortalece la musculatura y mejora el equilibrio', '❤️ Desarrolla la empatía y la gestión emocional', '🌬️ Enseña técnicas de respiración para momentos de estrés'] },
+        { type: 'h2', text: '8 posturas perfectas para niños' },
+        { type: 'list', items: ['🐱 **Gato-Vaca** — mueve la columna y relaja la espalda', '🐶 **Perro boca abajo** — estira piernas y hombros', '🦁 **León** — perfecta para sacar tensiones con un buen rugido', '🌳 **Árbol** — trabaja el equilibrio y la concentración', '🦋 **Mariposa** — estiramiento de caderas sentados', '🐍 **Cobra** — abre el pecho y fortalece la espalda', '🧘 **Niño** — la postura de descanso definitiva', '⭐ **Estrella de mar** — relajación total al final'] },
+      ],
+    },
+    en: {
+      title: 'Yoga for kids: science-backed benefits and 8 poses to start today',
+      excerpt: "Kids yoga reduces stress, improves focus, and strengthens family bonds. Everything you need to start at home today.",
+      content: [
+        { type: 'intro', text: "Children's yoga has grown enormously in popularity. A growing body of research confirms its physical and emotional benefits — and you need no equipment or experience to start at home." },
+        { type: 'h2', text: 'Science-backed benefits' },
+        { type: 'list', items: ['🧠 Improves concentration and school performance', '😴 Promotes sleep and reduces anxiety', '💪 Strengthens muscles and improves balance', '❤️ Develops empathy and emotional regulation', '🌬️ Teaches breathing techniques for stressful moments'] },
+        { type: 'h2', text: '8 perfect poses for kids' },
+        { type: 'list', items: ['🐱 **Cat-Cow** — moves the spine and eases back tension', '🐶 **Downward Dog** — stretches legs and shoulders', '🦁 **Lion** — release tension with a good roar', '🌳 **Tree** — works balance and concentration', '🦋 **Butterfly** — hip stretch from a seated position', '🐍 **Cobra** — opens the chest and strengthens the back', '🧘 **Child\'s Pose** — the ultimate rest pose', '⭐ **Starfish** — complete relaxation at the end'] },
+      ],
+    },
   },
 
   {
-    slug: 'manualidades-reciclaje-ninos',
-    lang: 'es',
-    title: '12 manualidades con materiales reciclados para niños de todas las edades',
-    excerpt: 'Da una segunda vida a cajas de cereales, rollos de papel y botellas de plástico. Estas manualidades enseñan creatividad, responsabilidad ambiental y horas de diversión.',
-    category: 'Manualidades',
-    emoji: '♻️',
-    readTime: '5 min',
+    slug: 'recycled-crafts',
+    category: { es: 'Manualidades', en: 'Crafts' },
     date: '2026-04-01',
-    content: [
-      {
-        type: 'intro',
-        text: 'Las mejores manualidades no siempre requieren materiales caros. Con lo que tienes en casa para reciclar, puedes crear proyectos increíbles que además enseñan a los niños el valor del cuidado del medioambiente.',
-      },
-      {
-        type: 'h2',
-        text: 'Materiales reciclados que no debes tirar',
-      },
-      {
-        type: 'list',
-        items: [
-          'Rollos de papel higiénico y de cocina',
-          'Cajas de cartón (cereales, zapatos, Amazon)',
-          'Botellas y tapones de plástico',
-          'Telas y ropa vieja',
-          'Revistas y periódicos',
-          'Hueveras de cartón',
-          'Tarros de cristal',
-        ],
-      },
-      {
-        type: 'h2',
-        text: '12 proyectos paso a paso',
-      },
-      {
-        type: 'list',
-        items: [
-          '🎭 **Teatro de marionetas con calcetines** — Cada calcetín sin pareja se convierte en un personaje.',
-          '🚀 **Cohete espacial con botellas** — Una botella de plástico grande, papel de aluminio y mucha imaginación.',
-          '🦚 **Mariposa de huevera** — Corta la huevera, pinta y añade antenas de limpiapipas.',
-          '🎨 **Cuadro con tapones de colores** — Llena un marco con tapones ordenados por colores.',
-          '🏰 **Castillo de cajas de cereales** — Varias cajas unidas, pintadas y decoradas.',
-          '🐢 **Tortuga con plato de papel** — Plato = caparazón, cartulina = cabeza y patas.',
-          '🌊 **Pecera de botella** — Botella de plástico con peces de papel dentro y agua azul pintada.',
-          '🦋 **Móvil de mariposas de papel** — Con periódicos doblados y cuerda.',
-          '📦 **Organizador de rollos** — Rollos en una caja para guardar lápices y tijeras.',
-          '🎁 **Portafotos de pinzas** — Una cuerda con pinzas decoradas para colgar fotos.',
-          '🌻 **Maceta de lata pintada** — Latas de conserva limpiadas y decoradas.',
-          '🎸 **Guitarra de caja** — Una caja de zapatos con gomas elásticas como cuerdas.',
-        ],
-      },
-    ],
+    readTime: '5 min',
+    imagePrompt: 'child making crafts from cardboard boxes and recycled materials, colorful paint and glue, happy creative expression, kitchen table',
+    es: {
+      title: '12 manualidades con materiales reciclados para todas las edades',
+      excerpt: 'Da una segunda vida a cajas de cereales, rollos de papel y botellas de plástico. Estas manualidades enseñan creatividad, responsabilidad ambiental y horas de diversión.',
+      content: [
+        { type: 'intro', text: 'Las mejores manualidades no siempre requieren materiales caros. Con lo que tienes para reciclar puedes crear proyectos increíbles que también enseñan a cuidar el medioambiente.' },
+        { type: 'h2', text: 'Materiales que no debes tirar' },
+        { type: 'list', items: ['Rollos de papel higiénico y de cocina', 'Cajas de cartón de cereales, zapatos o paquetes', 'Botellas y tapones de plástico', 'Telas y ropa vieja', 'Revistas y periódicos', 'Hueveras de cartón', 'Tarros de cristal'] },
+        { type: 'h2', text: '12 proyectos fáciles' },
+        { type: 'list', items: ['🎭 **Marionetas de calcetín** — cada calcetín sin pareja es un personaje', '🚀 **Cohete con botella** — plástico + papel de aluminio + imaginación', '🦚 **Mariposa de huevera** — corta, pinta y añade antenas de limpiapipas', '🎨 **Cuadro de tapones** — tapones de colores en un marco', '🏰 **Castillo de cajas** — varias cajas unidas y pintadas', '🐢 **Tortuga de plato de papel** — plato = caparazón', '🌊 **Pecera de botella** — peces de papel dentro', '🦋 **Móvil de mariposas** — periódicos doblados y cuerda', '📦 **Organizador de lápices** — rollos en una caja decorada', '🎁 **Portafotos con pinzas** — cuerda + pinzas pintadas', '🌻 **Maceta de lata** — lata limpia + pintura', '🎸 **Guitarra de caja de zapatos** — gomas elásticas como cuerdas'] },
+      ],
+    },
+    en: {
+      title: '12 DIY crafts from recycled materials for all ages',
+      excerpt: 'Give a second life to cereal boxes, paper rolls, and plastic bottles. These crafts teach creativity, environmental responsibility, and provide hours of fun.',
+      content: [
+        { type: 'intro', text: "The best crafts don't always need expensive materials. With what you have to recycle, you can create incredible projects that also teach children to care for the environment." },
+        { type: 'h2', text: 'Materials not to throw away' },
+        { type: 'list', items: ['Toilet paper and kitchen rolls', 'Cardboard boxes from cereal, shoes, or deliveries', 'Plastic bottles and bottle caps', 'Old fabric and clothing', 'Magazines and newspapers', 'Egg cartons', 'Glass jars'] },
+        { type: 'h2', text: '12 easy projects' },
+        { type: 'list', items: ['🎭 **Sock puppets** — every lonely sock becomes a character', '🚀 **Bottle rocket** — plastic + foil + imagination', '🦚 **Egg carton butterfly** — cut, paint, add pipe cleaner antennae', '🎨 **Bottle cap mosaic** — colorful caps in a frame', '🏰 **Cardboard castle** — boxes joined and painted', '🐢 **Paper plate turtle** — plate = shell', '🌊 **Bottle aquarium** — paper fish inside', '🦋 **Newspaper butterfly mobile** — folded newspaper and string', '📦 **Pencil organizer** — rolls in a decorated box', '🎁 **Clothespin photo display** — string + painted clips', '🌻 **Tin can planter** — clean tin + paint', '🎸 **Shoebox guitar** — rubber bands as strings'] },
+      ],
+    },
   },
 
   {
-    slug: 'cocinar-con-ninos-recetas-faciles',
-    lang: 'es',
-    title: 'Cocinar con niños: 8 recetas fáciles y lo que aprenden en la cocina',
-    excerpt: 'La cocina es uno de los mejores laboratorios de aprendizaje para los niños. Matemáticas, ciencias, responsabilidad... y unas galletas riquísimas al final.',
-    category: 'Cocina',
-    emoji: '👨‍🍳',
-    readTime: '6 min',
+    slug: 'cooking-with-kids',
+    category: { es: 'Cocina', en: 'Cooking' },
     date: '2026-04-05',
-    content: [
-      {
-        type: 'intro',
-        text: 'Cocinar con tus hijos puede parecer complicado al principio, pero los beneficios van mucho más allá de lo culinario. Es una actividad multisensorial que trabaja la lectura (seguir recetas), la matemática (medir), la ciencia (reacciones químicas) y la autoestima.',
-      },
-      {
-        type: 'h2',
-        text: 'Qué aprenden los niños en la cocina',
-      },
-      {
-        type: 'list',
-        items: [
-          '📐 Fracciones y medidas al pesar ingredientes',
-          '⏱️ Gestión del tiempo y secuenciación',
-          '🔬 Ciencia: por qué sube el bizcocho, cómo se derrite el chocolate',
-          '🥗 Hábitos alimenticios saludables',
-          '🤝 Trabajo en equipo y seguir instrucciones',
-          '😊 Satisfacción de crear algo con sus manos',
-        ],
-      },
-      {
-        type: 'h2',
-        text: '8 recetas por edad',
-      },
-      {
-        type: 'list',
-        items: [
-          '👶 **3–5 años**: Untar tostadas, mezclar ingredientes, decorar galletas.',
-          '🧒 **5–7 años**: Ensalada de frutas, batidos, pizza con bases prehechas.',
-          '🧑 **8–10 años**: Tortilla de patata, sándwiches elaborados, granola.',
-          '👦 **10–12 años**: Pasta con salsa, huevos revueltos, bizcocho básico.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Normas de seguridad básicas',
-      },
-      {
-        type: 'text',
-        text: 'Adapta siempre las tareas a la edad. Los más pequeños pueden lavar, mezclar y decorar. El uso de cuchillos o el contacto con el fuego se reserva para mayores de 10 años y siempre con supervisión adulta directa. Crea un delantal personalizado para cada niño: ese detalle hace que se sientan verdaderos chefs.',
-      },
-    ],
-  },
-
-  {
-    slug: 'experimentos-cientificos-en-casa',
-    lang: 'es',
-    title: '10 experimentos científicos caseros que harán alucinar a tus hijos',
-    excerpt: 'Ciencia con materiales que ya tienes en casa. Estos experimentos son seguros, visuales y perfectos para despertar la curiosidad científica desde pequeños.',
-    category: 'Ciencias',
-    emoji: '🔬',
-    readTime: '5 min',
-    date: '2026-04-08',
-    content: [
-      {
-        type: 'intro',
-        text: 'La ciencia no es solo para laboratorios. Con bicarbonato, vinagre, leche y un poco de curiosidad, puedes crear momentos "¡wow!" que tus hijos recordarán durante años y que, de paso, les explican cómo funciona el mundo.',
-      },
-      {
-        type: 'h2',
-        text: '10 experimentos para hacer ahora mismo',
-      },
-      {
-        type: 'list',
-        items: [
-          '🌋 **Volcán de bicarbonato** — Mezcla bicarbonato y vinagre con colorante rojo. Clásico infalible.',
-          '🌈 **Arcoíris en un vaso** — Capas de líquidos de distintas densidades (agua con azúcar, aceite, agua).',
-          '🥛 **Pegamento casero con leche** — La reacción entre leche y vinagre crea una proteína plástica.',
-          '💧 **Tensión superficial** — Cuántos clips caben en un vaso lleno de agua?',
-          '🌱 **Semilla en algodón** — Observa germinar una semilla en un vaso de cristal.',
-          '❄️ **Agua supercaliente que se congela** — El efecto Mpemba con agua destilada.',
-          '🎨 **Pintura de leche** — Leche entera + colorante + jabón: los colores bailan solos.',
-          '🧲 **Compás casero** — Una aguja imantada en un corcho flotando sobre agua señala el norte.',
-          '🫧 **Lava lámpara** — Aceite + agua + pastilla efervescente = lámpara hipnótica.',
-          '🔭 **Sombras de tamaño** — Estudia cómo cambia el tamaño de la sombra según la distancia.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Cómo potenciar el aprendizaje',
-      },
-      {
-        type: 'text',
-        text: 'Antes de cada experimento, pregunta a tus hijos qué creen que va a pasar (hipótesis). Después, observad juntos el resultado. Hablar sobre por qué ocurrió lo que ocurrió convierte una actividad divertida en una lección de método científico que recorrerá toda su educación.',
-      },
-    ],
-  },
-
-  {
-    slug: 'habito-lectura-ninos',
-    lang: 'es',
-    title: 'Cómo crear el hábito de la lectura en niños que no quieren leer',
-    excerpt: 'No todos los niños se enamoran de los libros de inmediato. Con las estrategias correctas y los libros adecuados, cualquier niño puede convertirse en lector apasionado.',
-    category: 'Lectura',
-    emoji: '📚',
-    readTime: '7 min',
-    date: '2026-04-09',
-    content: [
-      {
-        type: 'intro',
-        text: 'Si tu hijo dice que los libros son aburridos, no estás solo. Muchos padres enfrentan esta resistencia, especialmente cuando compiten con pantallas y videojuegos. La clave no es forzar, sino encontrar la puerta de entrada correcta.',
-      },
-      {
-        type: 'h2',
-        text: 'Por qué algunos niños rechazan los libros',
-      },
-      {
-        type: 'text',
-        text: 'A menudo el rechazo no es a la lectura en sí, sino a los libros que se les han ofrecido. Un niño obsesionado con los dinosaurios al que le dan una novela romántica va a rechazarla. La personalización es clave: el libro correcto para el lector correcto en el momento correcto.',
-      },
-      {
-        type: 'h2',
-        text: 'Estrategias que funcionan',
-      },
-      {
-        type: 'list',
-        items: [
-          '📖 **Lee en voz alta** — Aunque sean mayores. La lectura compartida crea vínculos y modelos positivos.',
-          '🏠 **Crea un rincón de lectura acogedor** — Un sitio especial, con luz y cojines, invita a quedarse.',
-          '🎯 **Deja que elijan** — Aunque sea un libro de chistes o un cómic. Lo que importa es que lean.',
-          '⏱️ **Empieza con 10 minutos** — Un objetivo pequeño y alcanzable es más motivador.',
-          '🌟 **No compitas con pantallas, usa las pantallas** — Audiolibros, e-readers, libros de su serie favorita.',
-          '🎁 **Llévalo a la librería** — Que elija su propio libro es una experiencia especial.',
-          '👨‍👩‍👧 **Modela el hábito** — Si ven que tú lees, leer se convierte en algo que hacen los adultos que admiran.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Libros recomendados por edad (en español)',
-      },
-      {
-        type: 'list',
-        items: [
-          '🧒 **3–5 años**: "El grúfalo", "Elmer el elefante", "Adivina cuánto te quiero"',
-          '🧑 **6–8 años**: "Diario de Greg", "El pequeño Nicolás", serie "Geronimo Stilton"',
-          '👦 **9–12 años**: "Harry Potter", "El Hobbit", "El Principito", "Charlie y la fábrica de chocolate"',
-        ],
-      },
-    ],
-  },
-
-  {
-    slug: 'actividades-aire-libre-ninos',
-    lang: 'es',
-    title: 'Actividades al aire libre para niños: 20 ideas para explorar la naturaleza',
-    excerpt: 'El contacto con la naturaleza es esencial para el desarrollo infantil. Estas actividades al aire libre combinan aventura, aprendizaje y desconexión digital.',
-    category: 'Naturaleza',
-    emoji: '🌿',
     readTime: '6 min',
-    date: '2026-04-10',
-    content: [
-      {
-        type: 'intro',
-        text: 'Cada vez más estudios confirman lo que los abuelos ya sabían: los niños necesitan tiempo al aire libre. Reduce el estrés, mejora el estado de ánimo, fortalece el sistema inmune y desarrolla la creatividad. Y lo mejor: es gratis.',
-      },
-      {
-        type: 'h2',
-        text: '20 actividades al aire libre por categoría',
-      },
-      {
-        type: 'list',
-        items: [
-          '🔍 **Exploración**: Caza de bichos, búsqueda de hojas de distintas formas, noche de observación de estrellas.',
-          '🏗️ **Construcción**: Choza con palos, presa en un arroyo, castillos de arena.',
-          '🎨 **Arte**: Pintura con tierra y agua, mandalas con piedras, fotografía de naturaleza.',
-          '🏃 **Movimiento**: Circuito de obstáculos natural, escalada de árboles, carreras de relevos.',
-          '🌱 **Jardinería**: Huerto en macetas, sembrar flores silvestres, compostaje.',
-          '🐦 **Observación**: Diario de pájaros, seguir huellas de animales, cuaderno de plantas.',
-          '🏕️ **Aventura**: Acampada en el jardín, senderismo con mochila, orientación con brújula.',
-        ],
-      },
-    ],
+    imagePrompt: 'parent and child baking cookies together in kitchen, flour on hands, laughing, warm morning light, cozy home',
+    es: {
+      title: 'Cocinar con niños: recetas fáciles y lo que aprenden en la cocina',
+      excerpt: 'La cocina es uno de los mejores laboratorios de aprendizaje para los niños: matemáticas, ciencias, responsabilidad... y algo rico al final.',
+      content: [
+        { type: 'intro', text: 'Cocinar con tus hijos va mucho más allá de lo culinario. Es una actividad multisensorial que trabaja la lectura, la matemática, la ciencia y la autoestima.' },
+        { type: 'h2', text: 'Qué aprenden en la cocina' },
+        { type: 'list', items: ['📐 Fracciones y medidas al pesar ingredientes', '⏱️ Gestión del tiempo y secuenciación', '🔬 Ciencia: por qué sube el bizcocho, cómo se derrite el chocolate', '🥗 Hábitos alimenticios saludables', '🤝 Trabajo en equipo y seguir instrucciones', '😊 Satisfacción de crear algo con sus manos'] },
+        { type: 'h2', text: 'Recetas por edad' },
+        { type: 'list', items: ['👶 3–5 años: untar tostadas, mezclar, decorar galletas', '🧒 5–7 años: ensalada de frutas, batidos, pizza con base prehecha', '🧑 8–10 años: tortilla de patata, sándwiches, granola', '👦 10–12 años: pasta con salsa, huevos revueltos, bizcocho básico'] },
+      ],
+    },
+    en: {
+      title: 'Cooking with kids: easy recipes and what they learn in the kitchen',
+      excerpt: 'The kitchen is one of the best learning labs for children: math, science, responsibility — and something delicious at the end.',
+      content: [
+        { type: 'intro', text: "Cooking with your children goes far beyond the culinary. It's a multisensory activity that works literacy, math, science, and self-esteem." },
+        { type: 'h2', text: 'What they learn in the kitchen' },
+        { type: 'list', items: ['📐 Fractions and measurements when weighing ingredients', '⏱️ Time management and sequencing', '🔬 Science: why cake rises, how chocolate melts', '🥗 Healthy eating habits', '🤝 Teamwork and following instructions', '😊 Satisfaction of creating something with their hands'] },
+        { type: 'h2', text: 'Recipes by age' },
+        { type: 'list', items: ['👶 3–5 years: spread toast, mix, decorate cookies', '🧒 5–7 years: fruit salad, smoothies, pizza with a pre-made base', '🧑 8–10 years: omelette, sandwiches, granola', '👦 10–12 years: pasta with sauce, scrambled eggs, basic sponge cake'] },
+      ],
+    },
   },
 
   {
-    slug: 'juegos-sin-pantallas-ninos',
-    lang: 'es',
-    title: 'Los mejores juegos sin pantallas para niños (que también gustan a los padres)',
-    excerpt: 'Una selección de juegos clásicos y modernos que no necesitan cargador, wifi ni batería. Solo imaginación, risas y tiempo de calidad en familia.',
-    category: 'Juegos',
-    emoji: '🎲',
+    slug: 'science-experiments-home',
+    category: { es: 'Ciencias', en: 'Science' },
+    date: '2026-04-08',
     readTime: '5 min',
-    date: '2026-04-11',
-    content: [
-      {
-        type: 'intro',
-        text: 'En un mundo donde la pantalla siempre está a mano, los juegos analógicos tienen algo especial: crean conexión real, desarrollan habilidades sociales y no tienen publicidad. Esta es nuestra selección favorita.',
-      },
-      {
-        type: 'h2',
-        text: 'Juegos de mesa para toda la familia',
-      },
-      {
-        type: 'list',
-        items: [
-          '🎭 **Codenames** — Asociación de palabras y trabajo en equipo para mayores de 10.',
-          '🃏 **Dobble** — Velocidad de observación para todas las edades. Perfecto para 5 minutos.',
-          '🏙️ **Carcassonne** — Estrategia suave y construcción de mapas desde los 7 años.',
-          '📝 **Tabú Junior** — Descripciones sin usar ciertas palabras. Risas garantizadas.',
-          '🧩 **Dixit** — Arte, imaginación y comunicación. Precioso visual y conceptualmente.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Juegos de exterior sin material',
-      },
-      {
-        type: 'list',
-        items: [
-          '🏃 **El pañuelo** — Clásico que nunca falla con grupos.',
-          '🙈 **Escondite inglés** — Trabajar el autocontrol mientras te ríes.',
-          '🤚 **Pies quietos** — La pelota, un nombre y velocidad de reacción.',
-          '🔊 **El teléfono estropeado** — El chiste de los mensajes mal transmitidos.',
-        ],
-      },
-    ],
+    imagePrompt: 'excited child watching baking soda volcano eruption in kitchen, science experiment, parent watching nearby, colorful',
+    es: {
+      title: '10 experimentos científicos caseros que harán alucinar a tus hijos',
+      excerpt: 'Ciencia con materiales que ya tienes en casa. Experimentos seguros y espectaculares para despertar la curiosidad científica desde pequeños.',
+      content: [
+        { type: 'intro', text: 'Con bicarbonato, vinagre, leche y curiosidad puedes crear momentos de asombro que tus hijos recordarán durante años y que les explican cómo funciona el mundo.' },
+        { type: 'h2', text: '10 experimentos para hacer ahora' },
+        { type: 'list', items: ['🌋 **Volcán de bicarbonato** — bicarbonato + vinagre + colorante rojo', '🌈 **Arcoíris en un vaso** — capas de líquidos de distintas densidades', '🥛 **Pegamento de leche** — leche + vinagre crean una proteína plástica', '💧 **Tensión superficial** — ¿cuántos clips caben en un vaso lleno?', '🌱 **Semilla en algodón** — observa germinar en un vaso de cristal', '🎨 **Pintura de leche** — leche + colorante + jabón: los colores bailan', '🧲 **Brújula casera** — aguja imantada en corcho sobre agua', '🫧 **Lava lámpara** — aceite + agua + pastilla efervescente', '🔭 **Sombras gigantes** — cómo cambia la sombra según la distancia', '❄️ **Agua que se congela al instante** — efecto Mpemba con agua destilada'] },
+      ],
+    },
+    en: {
+      title: '10 easy science experiments for kids using household items',
+      excerpt: 'Real science with what you already have at home. Safe, spectacular experiments perfect for sparking scientific curiosity from a young age.',
+      content: [
+        { type: 'intro', text: "With baking soda, vinegar, milk, and curiosity you can create wow moments your children will remember for years — and that explain how the world works." },
+        { type: 'h2', text: '10 experiments to do right now' },
+        { type: 'list', items: ['🌋 **Baking soda volcano** — baking soda + vinegar + red food coloring', '🌈 **Rainbow in a glass** — layers of different-density liquids', '🥛 **Milk glue** — milk + vinegar creates a plastic protein', '💧 **Surface tension** — how many paper clips fit in a full glass?', '🌱 **Seed in cotton wool** — watch it sprout in a glass jar', '🎨 **Milk painting** — milk + food coloring + dish soap: colors dance', '🧲 **Homemade compass** — magnetized needle in cork on water', '🫧 **Lava lamp** — oil + water + effervescent tablet', '🔭 **Giant shadows** — how shadow size changes with distance', '❄️ **Instant-freeze water** — the Mpemba effect with distilled water'] },
+      ],
+    },
   },
 
   {
-    slug: 'aprender-idiomas-desde-pequeno',
-    lang: 'es',
-    title: 'Cómo aprender un segundo idioma desde pequeño: guía para padres',
-    excerpt: 'La ventana de oportunidad para aprender idiomas es real y poderosa. Todo lo que necesitas saber como padre para aprovecharla sin presionar ni aburrir a tus hijos.',
-    category: 'Idiomas',
-    emoji: '🌍',
-    readTime: '8 min',
+    slug: 'building-reading-habit',
+    category: { es: 'Lectura', en: 'Reading' },
+    date: '2026-04-09',
+    readTime: '7 min',
+    imagePrompt: 'mother reading picture book to young child on cozy sofa, warm lamp light, evening, soft blanket, peaceful',
+    es: {
+      title: 'Cómo crear el hábito de la lectura en niños que no quieren leer',
+      excerpt: 'No todos los niños se enamoran de los libros de inmediato. Con las estrategias correctas y los libros adecuados, cualquier niño puede convertirse en lector apasionado.',
+      content: [
+        { type: 'intro', text: 'A menudo el rechazo no es a la lectura en sí, sino a los libros que se les han ofrecido. La personalización es clave: el libro correcto para el lector correcto en el momento correcto.' },
+        { type: 'h2', text: 'Estrategias que funcionan' },
+        { type: 'list', items: ['📖 **Lee en voz alta** — aunque sean mayores, la lectura compartida crea vínculos', '🏠 **Crea un rincón acogedor** — luz y cojines invitan a quedarse', '🎯 **Deja que elijan** — aunque sea un libro de chistes o un cómic', '⏱️ **Empieza con 10 minutos** — un objetivo pequeño es más motivador', '🌟 **Usa audiolibros y e-readers** — son lectura también', '🎁 **Llévalo a la librería** — elegir su propio libro es una experiencia especial', '👨‍👩‍👧 **Modela el hábito** — si ven que tú lees, leer se vuelve deseable'] },
+        { type: 'h2', text: 'Recomendaciones por edad' },
+        { type: 'list', items: ['🧒 3–5 años: "El grúfalo", "Elmer", "Adivina cuánto te quiero"', '🧑 6–8 años: "Diario de Greg", "El pequeño Nicolás", serie "Geronimo Stilton"', '👦 9–12 años: "Harry Potter", "El Hobbit", "Charlie y la fábrica de chocolate"'] },
+      ],
+    },
+    en: {
+      title: 'How to build a reading habit in kids who do not want to read',
+      excerpt: 'Not every child falls in love with books right away. With the right strategies and the right books, any child can become a passionate reader.',
+      content: [
+        { type: 'intro', text: "Often the resistance isn't to reading itself but to the books they've been given. Personalization is key: the right book for the right reader at the right moment." },
+        { type: 'h2', text: 'Strategies that work' },
+        { type: 'list', items: ['📖 **Read aloud** — even with older kids, shared reading creates bonds', '🏠 **Create a cozy nook** — good light and cushions invite staying', '🎯 **Let them choose** — even if it\'s a joke book or comic', '⏱️ **Start with 10 minutes** — a small goal is more motivating', '🌟 **Use audiobooks and e-readers** — these count too', '🎁 **Take them to a bookshop** — choosing their own book is a special experience', '👨‍👩‍👧 **Model the habit** — if they see you reading, it becomes desirable'] },
+        { type: 'h2', text: 'Recommendations by age' },
+        { type: 'list', items: ['🧒 3–5 years: "The Gruffalo", "Elmer", "Guess How Much I Love You"', '🧑 6–8 years: "Diary of a Wimpy Kid", "Dog Man", "Captain Underpants"', '👦 9–12 years: "Harry Potter", "Percy Jackson", "Charlie and the Chocolate Factory"'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'outdoor-nature-activities',
+    category: { es: 'Naturaleza', en: 'Nature' },
+    date: '2026-04-10',
+    readTime: '6 min',
+    imagePrompt: 'children playing and exploring in forest, sunlight through trees, muddy boots, discovering nature, joyful',
+    es: {
+      title: '20 actividades al aire libre para explorar la naturaleza con tus hijos',
+      excerpt: 'El contacto con la naturaleza es esencial para el desarrollo infantil. Estas actividades combinan aventura, aprendizaje y desconexión digital.',
+      content: [
+        { type: 'intro', text: 'Cada vez más estudios confirman lo que los abuelos ya sabían: los niños necesitan tiempo al aire libre. Reduce el estrés, mejora el estado de ánimo, fortalece el sistema inmune y desarrolla la creatividad. Y es gratis.' },
+        { type: 'h2', text: '20 actividades al aire libre' },
+        { type: 'list', items: ['🔍 **Exploración**: caza de bichos, búsqueda de hojas, observación de estrellas', '🏗️ **Construcción**: choza con palos, presa en un arroyo, castillos de arena', '🎨 **Arte**: pintura con tierra, mandalas de piedras, fotografía de naturaleza', '🏃 **Movimiento**: circuito de obstáculos natural, trepar árboles, carreras de relevos', '🌱 **Jardinería**: huerto en macetas, sembrar flores silvestres', '🐦 **Observación**: diario de pájaros, seguir huellas de animales', '🏕️ **Aventura**: acampada en el jardín, senderismo, orientación con brújula'] },
+      ],
+    },
+    en: {
+      title: '20 outdoor nature activities to explore with your kids',
+      excerpt: 'Time in nature is essential for child development. These activities combine adventure, learning, and the digital detox children desperately need.',
+      content: [
+        { type: 'intro', text: 'Study after study confirms what grandparents always knew: children need time outdoors. It reduces stress, improves mood, strengthens the immune system, and develops creativity. And it is free.' },
+        { type: 'h2', text: '20 outdoor activities' },
+        { type: 'list', items: ['🔍 **Exploration**: bug hunting, leaf shape search, stargazing', '🏗️ **Building**: stick hut, stream dam, sandcastles', '🎨 **Art**: mud painting, stone mandalas, nature photography', '🏃 **Movement**: natural obstacle course, tree climbing, relay races', '🌱 **Gardening**: herb pots, planting wildflowers', '🐦 **Observation**: bird journal, animal track spotting', '🏕️ **Adventure**: backyard camping, hiking, compass orienteering'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'screen-free-games',
+    category: { es: 'Juegos', en: 'Games' },
+    date: '2026-04-11',
+    readTime: '5 min',
+    imagePrompt: 'family playing board game at dining table, all ages, laughing and excited, evening warm light, cozy home',
+    es: {
+      title: 'Los mejores juegos sin pantallas para niños que también gustan a los padres',
+      excerpt: 'Juegos que no necesitan cargador, wifi ni batería. Solo imaginación, risas y tiempo de calidad en familia.',
+      content: [
+        { type: 'intro', text: 'Los juegos analógicos tienen algo que las pantallas no pueden replicar: crean conexión real, desarrollan habilidades sociales y no tienen publicidad.' },
+        { type: 'h2', text: 'Juegos de mesa para toda la familia' },
+        { type: 'list', items: ['🎭 **Codenames** — asociación de palabras y trabajo en equipo, desde los 10', '🃏 **Dobble** — velocidad de observación para todas las edades', '🏙️ **Carcassonne** — estrategia y construcción de mapas desde los 7', '📝 **Tabú Junior** — describir sin usar ciertas palabras, risas garantizadas', '🧩 **Dixit** — arte, imaginación y comunicación, precioso'] },
+        { type: 'h2', text: 'Juegos al aire libre sin material' },
+        { type: 'list', items: ['🏃 **El pañuelo** — clásico con grupos', '🙈 **Escondite inglés** — autocontrol y risas', '🤚 **Pies quietos** — pelota, nombre y velocidad de reacción', '🔊 **El teléfono estropeado** — mensajes que se tuercen'] },
+      ],
+    },
+    en: {
+      title: 'Best screen-free games for kids that parents enjoy too',
+      excerpt: 'Games that need no charger, wifi, or battery. Just imagination, laughs, and quality family time.',
+      content: [
+        { type: 'intro', text: 'Analog games have something screens cannot replicate: they create real connection, develop social skills, and have no advertising.' },
+        { type: 'h2', text: 'Board games for the whole family' },
+        { type: 'list', items: ['🎭 **Codenames** — word association and teamwork, from age 10', '🃏 **Dobble (Spot It!)** — observation speed for all ages', '🏙️ **Carcassonne** — strategy and map building from age 7', '📝 **Taboo Junior** — describe without using certain words, guaranteed laughs', '🧩 **Dixit** — art, imagination, and communication, beautiful'] },
+        { type: 'h2', text: 'Outdoor games with no equipment' },
+        { type: 'list', items: ['🏃 **Capture the Flag** — classic group game', '🙈 **Grandmother\'s Footsteps** — self-control and laughs', '🤚 **Four Corners** — movement and reaction speed', '🔊 **Chinese Whispers** — messages that get gloriously mangled'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'learning-languages-young',
+    category: { es: 'Idiomas', en: 'Languages' },
     date: '2026-04-12',
-    content: [
-      {
-        type: 'intro',
-        text: 'La ciencia es clara: los niños que aprenden un segundo idioma antes de los 7 años lo adquieren de forma más natural y con menos esfuerzo. Pero la clave no es la cantidad de horas, sino la calidad de la exposición.',
-      },
-      {
-        type: 'h2',
-        text: 'Cuándo empezar',
-      },
-      {
-        type: 'text',
-        text: 'Cuanto antes, mejor — pero nunca es tarde. Los bebés pueden distinguir todos los sonidos de todos los idiomas del mundo. Con la exposición regular, el cerebro aprende a distinguir los patrones del nuevo idioma de forma completamente natural, igual que aprendió el primero.',
-      },
-      {
-        type: 'h2',
-        text: 'Métodos que funcionan en casa',
-      },
-      {
-        type: 'list',
-        items: [
-          '📺 **Cambiar el idioma de los dibujos** — Netflix y YouTube permiten cambiar el audio. Fácil y efectivo.',
-          '🎵 **Música en el idioma objetivo** — Las canciones son una de las formas más poderosas de adquirir vocabulario.',
-          '📚 **Libros bilingües** — Leer el mismo cuento en dos idiomas fija el vocabulario.',
-          '🤝 **Clases con nativos online** — Plataformas como iTalki o Preply tienen profesores para niños.',
-          '🎮 **Apps de idiomas** — Duolingo, Lingokids o Gus on the Go son perfectas para 4–10 años.',
-          '👨‍👩‍👧 **Un padre, un idioma** — Si uno de los padres habla otro idioma, que lo use exclusivamente con el niño.',
-        ],
-      },
-    ],
+    readTime: '8 min',
+    imagePrompt: 'parent and child looking at colorful language flashcards together, smiling, bright study space, natural light',
+    es: {
+      title: 'Cómo aprender un segundo idioma desde pequeño: guía para padres',
+      excerpt: 'La ventana de oportunidad para aprender idiomas es real y poderosa. Todo lo que necesitas saber para aprovecharla sin presionar a tus hijos.',
+      content: [
+        { type: 'intro', text: 'Los niños que aprenden un segundo idioma antes de los 7 años lo adquieren de forma más natural y con menos esfuerzo. La clave no es la cantidad de horas, sino la calidad de la exposición.' },
+        { type: 'h2', text: 'Métodos que funcionan en casa' },
+        { type: 'list', items: ['📺 **Cambia el idioma de los dibujos** — Netflix y YouTube permiten cambiar el audio', '🎵 **Música en el idioma objetivo** — una de las formas más poderosas de adquirir vocabulario', '📚 **Libros bilingües** — el mismo cuento en dos idiomas fija el vocabulario', '🤝 **Clases con nativos online** — iTalki y Preply tienen profesores para niños', '🎮 **Apps de idiomas** — Duolingo, Lingokids o Gus on the Go para 4–10 años', '👨‍👩‍👧 **Un padre, un idioma** — si hablas otro idioma, úsalo exclusivamente con tu hijo'] },
+      ],
+    },
+    en: {
+      title: 'How to learn a second language young: a parent\'s guide',
+      excerpt: 'The window of opportunity for language learning is real and powerful. Everything you need to know to make the most of it without putting pressure on your kids.',
+      content: [
+        { type: 'intro', text: 'Children who learn a second language before age 7 acquire it more naturally and with less effort. The key is not quantity of hours but quality of exposure.' },
+        { type: 'h2', text: 'Methods that work at home' },
+        { type: 'list', items: ['📺 **Switch the language on cartoons** — Netflix and YouTube let you change audio language', '🎵 **Music in the target language** — one of the most powerful ways to acquire vocabulary', '📚 **Bilingual books** — the same story in two languages anchors vocabulary', '🤝 **Online classes with native speakers** — iTalki and Preply have teachers for kids', '🎮 **Language apps** — Duolingo, Lingokids, or Gus on the Go for ages 4–10', '👨‍👩‍👧 **One parent, one language** — if you speak another language, use it exclusively with your child'] },
+      ],
+    },
   },
 
-  // ── ENGLISH ──────────────────────────────────────────────────────────────────
-
   {
-    slug: 'rainy-day-activities-kids-no-screens',
-    lang: 'en',
-    title: '15 rainy day activities for kids (no screens needed)',
-    excerpt: "When the rain keeps kids indoors, boredom can strike fast. Here are 15 creative ideas to keep them active, happy, and learning — no screens required.",
-    category: 'Leisure',
-    emoji: '🌧️',
+    slug: 'sensory-play-toddlers',
+    category: { es: 'Ocio', en: 'Leisure' },
+    date: '2026-03-10',
     readTime: '5 min',
-    date: '2026-03-15',
-    content: [
-      {
-        type: 'intro',
-        text: "Rainy days don't have to be boring. With a little creativity and materials you already have at home, you can turn a grey afternoon into a memorable adventure for your children.",
-      },
-      {
-        type: 'h2',
-        text: 'Why skip screens on rainy days',
-      },
-      {
-        type: 'text',
-        text: "It's tempting to put on a movie or hand over the tablet when the weather is bad, but child development experts recommend limiting screen time, especially at young ages. Hands-on and creative activities stimulate imagination, fine motor skills, and problem-solving abilities.",
-      },
-      {
-        type: 'h2',
-        text: '15 ideas for the perfect rainy day',
-      },
-      {
-        type: 'list',
-        items: [
-          '🎨 **Watercolor painting** — Set up a space at the table with watercolor paper and let them express themselves freely.',
-          '🏠 **Build an indoor fort** — Use old sheets and chairs to create a secret base.',
-          '🍪 **Bake cookies together** — A delicious activity that practices math (proportions) and patience.',
-          '🧩 **Put together a big puzzle** — Great for ages 5 and up; builds concentration.',
-          '🎭 **Shadow puppet theater** — With a flashlight and hands, create a show on the wall.',
-          '📖 **Create an illustrated book** — Have them invent a story and draw it page by page.',
-          '🔬 **Kitchen science** — Baking soda + vinegar: the simplest volcano in the world.',
-          '🎵 **Home concert** — With toy instruments or improvised ones (pots, spoons).',
-          '🌱 **Plant seeds** — Each child has their own pot and takes responsibility for watering it.',
-          '✂️ **Magazine collage** — Cut out images and create a visual story.',
-          '🎲 **Family board games** — The classic that never fails.',
-          '🧸 **Stuffed animal hospital** — Play doctor or vet.',
-          '🗺️ **Create a treasure map** — Hide something in the house and draw the clues.',
-          '💃 **Impromptu dance class** — Put on music and let bodies move.',
-          '📸 **Photographer for a day** — Give them an old camera or phone to capture the house.',
-        ],
-      },
-    ],
+    imagePrompt: 'toddler playing with colorful kinetic sand and water sensory bin, focused expression, closeup hands, bright playroom',
+    es: {
+      title: 'Juego sensorial para bebés y toddlers: beneficios y 8 ideas fáciles',
+      excerpt: 'El juego sensorial es fundamental en los primeros años de vida. Estas ideas no requieren materiales especiales y mantienen a los más pequeños fascinados durante horas.',
+      content: [
+        { type: 'intro', text: 'El juego sensorial estimula el desarrollo cognitivo, emocional y motor de los bebés y niños pequeños. Tocar, oler, escuchar y explorar texturas diferentes construye las conexiones neuronales fundamentales.' },
+        { type: 'h2', text: '8 ideas de juego sensorial fáciles' },
+        { type: 'list', items: ['🌊 **Bandeja de agua** — recipientes, embudos y cucharas para explorar', '🌾 **Arroz teñido** — arroz de colores para hundir las manos', '🎨 **Pintura de dedos** — la conexión más directa entre creatividad y manos', '🌿 **Caja de naturaleza** — hojas, piedras, piñas y cortezas para tocar', '🧊 **Cubitos de colores** — hielo con colorante para observar cómo se derrite', '🧁 **Masas sensoriales** — masa de sal, arcilla, slime casero', '🪶 **Texturas contrastadas** — telas ásperas, suaves, rugosas y lisas', '🔊 **Botellas de sonido** — mismos botes con diferentes rellenos'] },
+      ],
+    },
+    en: {
+      title: 'Sensory play for babies and toddlers: benefits and 8 easy ideas',
+      excerpt: 'Sensory play is fundamental in the first years of life. These ideas require no special materials and keep the youngest ones fascinated for hours.',
+      content: [
+        { type: 'intro', text: 'Sensory play stimulates cognitive, emotional, and motor development in babies and young children. Touching, smelling, hearing, and exploring different textures builds foundational neural connections.' },
+        { type: 'h2', text: '8 easy sensory play ideas' },
+        { type: 'list', items: ['🌊 **Water sensory bin** — containers, funnels, and spoons to explore', '🌾 **Dyed rice** — colored rice to plunge hands into', '🎨 **Finger painting** — the most direct connection between creativity and hands', '🌿 **Nature box** — leaves, stones, pine cones, and bark to touch', '🧊 **Colored ice cubes** — food-colored ice to watch melt', '🧁 **Sensory doughs** — salt dough, clay, homemade slime', '🪶 **Contrasting textures** — rough, soft, bumpy, and smooth fabrics', '🔊 **Sound bottles** — same containers with different fillings'] },
+      ],
+    },
   },
 
   {
-    slug: 'teaching-math-through-play',
-    lang: 'en',
-    title: 'Teaching math through play: ideas for every age (they will not even notice)',
-    excerpt: "Math doesn't have to mean boring homework. Learn how to weave math concepts into everyday play so your kids learn without even realizing it.",
-    category: 'Education',
-    emoji: '🔢',
-    readTime: '6 min',
-    date: '2026-03-22',
-    content: [
-      {
-        type: 'intro',
-        text: 'One of the greatest challenges for parents is helping children develop a positive relationship with math from an early age. The good news: everyday play is full of natural math opportunities.',
-      },
-      {
-        type: 'h2',
-        text: 'Play as a vehicle for learning',
-      },
-      {
-        type: 'text',
-        text: 'Research in pedagogy shows that children learn abstract concepts much better when they experience them concretely through play. Math is no exception: counting steps, measuring ingredients while cooking, or splitting a pizza are real, meaningful math experiences.',
-      },
-      {
-        type: 'h2',
-        text: 'Ideas by age group',
-      },
-      {
-        type: 'list',
-        items: [
-          '👶 **0–3 years**: Count objects as you pick them up, sort by color or size, name shapes in the environment.',
-          '🧒 **3–5 years**: Memory games with numbered cards, simple cooking recipes, shape puzzles.',
-          '🧑 **6–8 years**: Board games with dice and sums, constructions with blocks and measurements, toy stores with play money.',
-          '👦 **9–12 years**: Strategy with chess or checkers, calculating prices at the grocery store, geometry projects with paper.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Best math games',
-      },
-      {
-        type: 'list',
-        items: [
-          '**Monopoly** — Money management, addition, subtraction, and strategic thinking.',
-          '**Uno** — Sequences, colors, and concentration for the youngest.',
-          '**Blokus** — Spatial geometry and strategy for ages 7+.',
-          '**Card games** — War, Rummy, or simply sorting a deck works on number sense.',
-          '**Sudoku** — Perfect from age 8 for logical thinking.',
-        ],
-      },
-    ],
-  },
-
-  {
-    slug: 'benefits-yoga-children',
-    lang: 'en',
-    title: 'Benefits of yoga for children: science-backed reasons to start today',
-    excerpt: "Kids yoga is much more than stretching. It reduces stress, improves focus, and strengthens family bonds. Here's everything you need to start at home.",
-    category: 'Yoga',
-    emoji: '🧘',
-    readTime: '7 min',
-    date: '2026-03-26',
-    content: [
-      {
-        type: 'intro',
-        text: "Children's yoga has grown enormously in popularity, and for good reason. A growing body of research demonstrates its physical and emotional benefits. Best of all: you don't need equipment or prior experience to practice at home.",
-      },
-      {
-        type: 'h2',
-        text: 'Science-backed benefits of kids yoga',
-      },
-      {
-        type: 'list',
-        items: [
-          '🧠 Improves concentration and academic performance',
-          '😴 Promotes better sleep and reduces anxiety',
-          '💪 Strengthens muscles and improves balance',
-          '❤️ Develops empathy and emotional regulation',
-          '🌬️ Teaches breathing techniques for stressful moments',
-        ],
-      },
-      {
-        type: 'h2',
-        text: '8 perfect poses for kids',
-      },
-      {
-        type: 'list',
-        items: [
-          '🐱 **Cat-Cow** — Moves the spine and relieves back tension.',
-          '🐶 **Downward Dog** — Stretches legs, back, and shoulders.',
-          '🦁 **Lion** — Perfect for releasing tension: make a monster face and roar.',
-          '🌳 **Tree** — Works balance and concentration.',
-          '🦋 **Butterfly** — Hip stretch in a seated position.',
-          '🐍 **Cobra** — Opens the chest and strengthens the back.',
-          '🧘 **Child\'s Pose** — The ultimate rest pose to calm and center.',
-          '⭐ **Starfish** — Final pose: complete relaxation lying down.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'How to build a 10-minute daily routine',
-      },
-      {
-        type: 'text',
-        text: 'Practicing at the same time each day builds habit. The simplest routine: 3 minutes of breathing, 5 minutes of fun poses, and 2 minutes of relaxation. Add soft background music and turn yoga into a special ritual between parents and children.',
-      },
-    ],
-  },
-
-  {
-    slug: 'diy-crafts-recycled-materials-kids',
-    lang: 'en',
-    title: '12 DIY crafts from recycled materials for kids of all ages',
-    excerpt: 'Give a second life to cereal boxes, paper rolls, and plastic bottles. These crafts teach creativity, environmental responsibility, and provide hours of fun.',
-    category: 'Crafts',
-    emoji: '♻️',
+    slug: 'music-movement-kids',
+    category: { es: 'Música', en: 'Music' },
+    date: '2026-03-18',
     readTime: '5 min',
-    date: '2026-04-02',
-    content: [
-      {
-        type: 'intro',
-        text: "The best crafts don't always require expensive materials. With what you have at home to recycle, you can create incredible projects that also teach children the value of caring for the environment.",
-      },
-      {
-        type: 'h2',
-        text: 'Recycled materials not to throw away',
-      },
-      {
-        type: 'list',
-        items: [
-          'Toilet paper and kitchen rolls',
-          'Cardboard boxes (cereals, shoes, deliveries)',
-          'Plastic bottles and caps',
-          'Old fabric and clothing',
-          'Magazines and newspapers',
-          'Egg cartons',
-          'Glass jars',
-        ],
-      },
-      {
-        type: 'h2',
-        text: '12 step-by-step projects',
-      },
-      {
-        type: 'list',
-        items: [
-          '🎭 **Sock puppet theater** — Each lonely sock becomes a character.',
-          '🚀 **Space rocket from bottles** — A large plastic bottle, aluminum foil, and imagination.',
-          '🦚 **Butterfly from egg carton** — Cut the carton, paint it, and add pipe cleaner antennae.',
-          '🎨 **Bottle cap mosaic** — Fill a frame with caps arranged by color.',
-          '🏰 **Cereal box castle** — Several boxes joined, painted, and decorated.',
-          '🐢 **Paper plate turtle** — Plate = shell, cardstock = head and legs.',
-          '🌊 **Bottle aquarium** — A plastic bottle with paper fish and blue painted water inside.',
-          '🦋 **Newspaper butterfly mobile** — With folded newspapers and string.',
-          '📦 **Roll organizer** — Rolls in a box for storing pencils and scissors.',
-          '🎁 **Clothespin photo display** — A string with decorated clothespins to hang photos.',
-          '🌻 **Painted tin can planter** — Cleaned and decorated canned food tins.',
-          '🎸 **Shoebox guitar** — A shoebox with rubber bands as strings.',
-        ],
-      },
-    ],
+    imagePrompt: 'child happily playing xylophone or small keyboard, colorful music instruments around, sunny room, joyful expression',
+    es: {
+      title: 'Música y movimiento: cómo la música desarrolla el cerebro de tu hijo',
+      excerpt: 'La música no es solo entretenimiento: desarrolla el lenguaje, la coordinación, la memoria y la inteligencia emocional. Y lo mejor: puedes practicarla en casa sin saber música.',
+      content: [
+        { type: 'intro', text: 'Investigaciones en neurociencia confirman que la música activa más áreas del cerebro simultáneamente que cualquier otra actividad. Los niños que aprenden música desarrollan mejor el lenguaje, la concentración y las habilidades sociales.' },
+        { type: 'h2', text: 'Actividades musicales por edad' },
+        { type: 'list', items: ['👶 0–2 años: canciones de cuna, palmitas, danzas suaves en brazos', '🧒 3–5 años: xilófono, pandero, canciones con gestos', '🧑 6–8 años: recorder (flauta escolar), ritmos con percusión corporal', '👦 9–12 años: guitarra, piano, producción musical básica con apps'] },
+        { type: 'h2', text: 'Sin instrumentos también funciona' },
+        { type: 'list', items: ['🥁 **Percusión corporal** — palmas, rodillas y pies como instrumentos', '🎵 **Karaoke en casa** — la voz es el instrumento más accesible', '🎼 **Escucha activa** — identificar instrumentos en canciones conocidas', '💃 **Danza libre** — mover el cuerpo con intención musical'] },
+      ],
+    },
+    en: {
+      title: 'Music and movement: how music develops your child\'s brain',
+      excerpt: "Music isn't just entertainment: it develops language, coordination, memory, and emotional intelligence. And the best part: you can practice it at home without knowing how to play.",
+      content: [
+        { type: 'intro', text: "Neuroscience research confirms that music activates more brain areas simultaneously than any other activity. Children who learn music develop better language, concentration, and social skills." },
+        { type: 'h2', text: 'Music activities by age' },
+        { type: 'list', items: ['👶 0–2 years: lullabies, clapping games, gentle dancing in arms', '🧒 3–5 years: xylophone, tambourine, songs with gestures', '🧑 6–8 years: recorder, body percussion rhythms', '👦 9–12 years: guitar, piano, basic music production with apps'] },
+        { type: 'h2', text: 'No instruments needed' },
+        { type: 'list', items: ['🥁 **Body percussion** — claps, knees, and feet as instruments', '🎵 **Home karaoke** — the voice is the most accessible instrument', '🎼 **Active listening** — identify instruments in well-known songs', '💃 **Free dance** — moving the body with musical intention'] },
+      ],
+    },
   },
 
   {
-    slug: 'cooking-with-kids-easy-recipes',
-    lang: 'en',
-    title: 'Cooking with kids: 8 easy recipes and what they learn in the kitchen',
-    excerpt: 'The kitchen is one of the best learning laboratories for children. Math, science, responsibility — and some delicious cookies at the end.',
-    category: 'Cooking',
-    emoji: '👨‍🍳',
+    slug: 'mindfulness-kids',
+    category: { es: 'Bienestar', en: 'Wellness' },
+    date: '2026-03-28',
     readTime: '6 min',
-    date: '2026-04-06',
-    content: [
-      {
-        type: 'intro',
-        text: 'Cooking with your children might seem complicated at first, but the benefits go far beyond the culinary. It is a multisensory activity that works literacy (following recipes), math (measuring), science (chemical reactions), and self-esteem.',
-      },
-      {
-        type: 'h2',
-        text: 'What children learn in the kitchen',
-      },
-      {
-        type: 'list',
-        items: [
-          '📐 Fractions and measurements when weighing ingredients',
-          '⏱️ Time management and sequencing',
-          '🔬 Science: why cake rises, how chocolate melts',
-          '🥗 Healthy eating habits',
-          '🤝 Teamwork and following instructions',
-          '😊 Satisfaction of creating something with their hands',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Recipe ideas by age',
-      },
-      {
-        type: 'list',
-        items: [
-          '👶 **3–5 years**: Spreading toast, mixing ingredients, decorating cookies.',
-          '🧒 **5–7 years**: Fruit salad, smoothies, pizza with pre-made bases.',
-          '🧑 **8–10 years**: Simple pasta dishes, elaborate sandwiches, granola.',
-          '👦 **10–12 years**: Scrambled eggs, homemade soup, basic sponge cake.',
-        ],
-      },
-    ],
+    imagePrompt: 'parent and child meditating together cross-legged in sunlit living room, eyes closed, peaceful calm atmosphere',
+    es: {
+      title: 'Mindfulness para niños: técnicas para calmar la mente y gestionar emociones',
+      excerpt: 'El mindfulness infantil reduce la ansiedad, mejora la concentración y ayuda a los niños a manejar sus emociones. Estas técnicas simples se pueden practicar en cualquier momento del día.',
+      content: [
+        { type: 'intro', text: 'La atención plena no es solo para adultos. Los niños que aprenden a pausar y observar sus pensamientos y emociones desarrollan mayor resiliencia y bienestar emocional a largo plazo.' },
+        { type: 'h2', text: '5 técnicas fáciles para practicar' },
+        { type: 'list', items: ['🌬️ **Respiración de la flor** — inhala como si olieras una flor, exhala como si apagas una vela', '🖐️ **Respiración de los 5 dedos** — sigue el contorno de la mano al respirar', '👁️ **5-4-3-2-1** — nombra 5 cosas que ves, 4 que tocas, 3 que oyes, 2 que hueles, 1 que saboreas', '🧘 **Meditación del globo** — imagina que el abdomen es un globo al respirar', '🌊 **Escáner corporal** — recorrer mentalmente el cuerpo de pies a cabeza'] },
+        { type: 'h2', text: 'Cuándo practicarlo' },
+        { type: 'list', items: ['Antes de un examen o situación estresante', 'Cuando el niño está enfadado o ansioso', 'Como ritual de buenos días o buenas noches', 'Después de actividad física intensa'] },
+      ],
+    },
+    en: {
+      title: 'Mindfulness for kids: techniques to calm the mind and manage emotions',
+      excerpt: 'Mindfulness for children reduces anxiety, improves concentration, and helps kids handle their emotions. These simple techniques can be practiced at any time of day.',
+      content: [
+        { type: 'intro', text: "Mindfulness isn't just for adults. Children who learn to pause and observe their thoughts and emotions develop greater resilience and long-term emotional wellbeing." },
+        { type: 'h2', text: '5 easy techniques to practice' },
+        { type: 'list', items: ['🌬️ **Flower breathing** — inhale as if smelling a flower, exhale as if blowing out a candle', '🖐️ **Five finger breathing** — trace the outline of the hand while breathing', '👁️ **5-4-3-2-1** — name 5 things you see, 4 you touch, 3 you hear, 2 you smell, 1 you taste', '🧘 **Balloon meditation** — imagine the belly is a balloon when breathing', '🌊 **Body scan** — mentally travel through the body from feet to head'] },
+        { type: 'h2', text: 'When to practice' },
+        { type: 'list', items: ['Before a test or stressful situation', 'When the child is angry or anxious', 'As a morning or bedtime ritual', 'After intense physical activity'] },
+      ],
+    },
   },
 
   {
-    slug: 'science-experiments-at-home-kids',
-    lang: 'en',
-    title: '10 easy science experiments for kids using household items',
-    excerpt: 'Real science with what you already have at home. These safe, visual experiments are perfect for sparking scientific curiosity from a young age.',
-    category: 'Science',
-    emoji: '🔬',
-    readTime: '5 min',
-    date: '2026-04-08',
-    content: [
-      {
-        type: 'intro',
-        text: "Science isn't just for laboratories. With baking soda, vinegar, milk, and a little curiosity, you can create 'wow' moments your children will remember for years — and that explain how the world works.",
-      },
-      {
-        type: 'h2',
-        text: '10 experiments to do right now',
-      },
-      {
-        type: 'list',
-        items: [
-          '🌋 **Baking soda volcano** — Mix baking soda and vinegar with red food coloring. A classic.',
-          '🌈 **Rainbow in a glass** — Layers of liquids of different densities (sugar water, oil, plain water).',
-          '🥛 **Homemade glue from milk** — The reaction between milk and vinegar creates a plastic protein.',
-          '💧 **Surface tension** — How many paper clips can fit in a full glass of water?',
-          '🌱 **Seed in cotton wool** — Watch a seed sprout in a glass jar.',
-          '❄️ **Instant freeze water** — The Mpemba effect with distilled water.',
-          '🎨 **Milk painting** — Full-fat milk + food coloring + dish soap: colors dance by themselves.',
-          '🧲 **Homemade compass** — A magnetized needle in a cork floating on water points north.',
-          '🫧 **Lava lamp** — Oil + water + effervescent tablet = hypnotic lamp.',
-          '🔭 **Shadow size study** — Explore how shadow size changes with distance from the light source.',
-        ],
-      },
-    ],
-  },
-
-  {
-    slug: 'build-reading-habit-kids',
-    lang: 'en',
-    title: 'How to build a reading habit in kids who do not want to read',
-    excerpt: 'Not every child falls in love with books right away. With the right strategies and the right books, any child can become a passionate reader.',
-    category: 'Reading',
-    emoji: '📚',
-    readTime: '7 min',
-    date: '2026-04-09',
-    content: [
-      {
-        type: 'intro',
-        text: "If your child says books are boring, you're not alone. Many parents face this resistance, especially when competing with screens and video games. The key is not to force it, but to find the right entry point.",
-      },
-      {
-        type: 'h2',
-        text: 'Why some children reject books',
-      },
-      {
-        type: 'text',
-        text: "Often the resistance isn't to reading itself, but to the books they've been offered. A child obsessed with dinosaurs who is handed a romance novel will reject it. Personalization is key: the right book for the right reader at the right moment.",
-      },
-      {
-        type: 'h2',
-        text: 'Strategies that work',
-      },
-      {
-        type: 'list',
-        items: [
-          '📖 **Read aloud** — Even with older children. Shared reading creates bonds and positive role models.',
-          '🏠 **Create a cozy reading nook** — A special spot with good lighting and cushions invites staying.',
-          '🎯 **Let them choose** — Even if it is a joke book or a comic. What matters is that they read.',
-          '⏱️ **Start with 10 minutes** — A small, achievable goal is more motivating.',
-          '🌟 **Work with screens, not against them** — Audiobooks, e-readers, books tied to their favorite series.',
-          '🎁 **Take them to a bookshop** — Letting them choose their own book is a special experience.',
-          '👨‍👩‍👧 **Model the habit** — If they see you reading, reading becomes something admired adults do.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Recommended books by age (English)',
-      },
-      {
-        type: 'list',
-        items: [
-          '🧒 **3–5 years**: "The Very Hungry Caterpillar", "Where the Wild Things Are", "Guess How Much I Love You"',
-          '🧑 **6–8 years**: "Diary of a Wimpy Kid", "Dog Man", "Captain Underpants"',
-          '👦 **9–12 years**: "Harry Potter", "Percy Jackson", "The Hobbit", "Charlie and the Chocolate Factory"',
-        ],
-      },
-    ],
-  },
-
-  {
-    slug: 'outdoor-nature-activities-kids',
-    lang: 'en',
-    title: '20 outdoor nature activities for kids: explore, discover, and unplug',
-    excerpt: 'Time in nature is essential for child development. These outdoor activities combine adventure, learning, and the kind of digital detox children (and parents) desperately need.',
-    category: 'Nature',
-    emoji: '🌿',
-    readTime: '6 min',
-    date: '2026-04-10',
-    content: [
-      {
-        type: 'intro',
-        text: 'Study after study confirms what grandparents always knew: children need time outdoors. It reduces stress, improves mood, strengthens the immune system, and develops creativity. And the best part: it is completely free.',
-      },
-      {
-        type: 'h2',
-        text: '20 outdoor activities by category',
-      },
-      {
-        type: 'list',
-        items: [
-          '🔍 **Exploration**: Bug hunting, leaf shape search, nighttime stargazing.',
-          '🏗️ **Building**: Stick hut, dam in a stream, sandcastles.',
-          '🎨 **Art**: Painting with mud and water, stone mandalas, nature photography.',
-          '🏃 **Movement**: Natural obstacle course, tree climbing, relay races.',
-          '🌱 **Gardening**: Pots of herbs, planting wildflowers, composting.',
-          '🐦 **Observation**: Bird journal, animal track spotting, plant notebook.',
-          '🏕️ **Adventure**: Backyard camping, hiking with a backpack, compass orienteering.',
-        ],
-      },
-    ],
-  },
-
-  {
-    slug: 'screen-free-games-family',
-    lang: 'en',
-    title: 'Best screen-free games for kids (that parents actually enjoy too)',
-    excerpt: 'A selection of classic and modern games that need no charger, wifi, or battery. Just imagination, laughter, and quality family time.',
-    category: 'Games',
-    emoji: '🎲',
-    readTime: '5 min',
-    date: '2026-04-11',
-    content: [
-      {
-        type: 'intro',
-        text: 'In a world where screens are always within reach, analog games have something special: they create real connection, develop social skills, and have no advertisements. Here is our favorite selection.',
-      },
-      {
-        type: 'h2',
-        text: 'Board games for the whole family',
-      },
-      {
-        type: 'list',
-        items: [
-          '🎭 **Codenames** — Word association and teamwork for ages 10+.',
-          '🃏 **Dobble (Spot It!)** — Observation speed for all ages. Perfect for 5 minutes.',
-          '🏙️ **Carcassonne** — Gentle strategy and map building from age 7.',
-          '📝 **Taboo Junior** — Describe words without using certain phrases. Guaranteed laughs.',
-          '🧩 **Dixit** — Art, imagination, and communication. Beautiful visually and conceptually.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'Outdoor games with no equipment',
-      },
-      {
-        type: 'list',
-        items: [
-          '🏃 **Capture the Flag** — The classic that never fails with groups.',
-          '🙈 **Grandmother\'s Footsteps** — Building self-control while laughing.',
-          '🤚 **Four Corners** — Movement and reaction speed for indoor and outdoor play.',
-          '🔊 **Chinese Whispers** — The joke of badly transmitted messages.',
-        ],
-      },
-    ],
-  },
-
-  {
-    slug: 'creative-activities-ages-3-5',
-    lang: 'en',
-    title: 'Creative activities for ages 3–5: spark imagination at every turn',
-    excerpt: 'The preschool years are a golden window for creativity. These activities are perfectly calibrated for little hands and big imaginations.',
-    category: 'Crafts',
-    emoji: '🌈',
-    readTime: '6 min',
+    slug: 'creative-play-ages-3-5',
+    category: { es: 'Manualidades', en: 'Crafts' },
     date: '2026-04-13',
-    content: [
-      {
-        type: 'intro',
-        text: 'Children aged 3–5 are at a magical developmental stage: their imagination is limitless, but their attention span is short. The key is activities that are easy to set up, visually engaging, and open-ended enough to hold their interest.',
-      },
-      {
-        type: 'h2',
-        text: 'What makes a great activity for this age group',
-      },
-      {
-        type: 'list',
-        items: [
-          '✅ Takes under 5 minutes to set up',
-          '✅ Involves sensory elements (texture, color, sound)',
-          '✅ Has no "wrong" outcome — only exploration',
-          '✅ Can be done alongside a parent or independently',
-          '✅ Leads to a physical creation they feel proud of',
-        ],
-      },
-      {
-        type: 'h2',
-        text: '12 perfect activities for 3–5 year olds',
-      },
-      {
-        type: 'list',
-        items: [
-          '🎨 **Finger painting** — The most direct connection between creativity and hands.',
-          '🧱 **DUPLO free build** — No instructions, just imagination.',
-          '🎭 **Dress-up box** — Old clothes, hats, and accessories for hours of role play.',
-          '🌊 **Water play** — Bowls, cups, funnels. Simple sensory magic.',
-          '🌿 **Nature collage** — Glue leaves, petals, and stones onto paper.',
-          '🎵 **Shaker instruments** — Fill containers with rice or pasta, seal, and shake.',
-          '🏠 **Playdough city** — Roll, squish, build, and demolish.',
-          '📖 **Story stones** — Paint pictures on smooth stones, then use them to invent stories.',
-          '🖍️ **Giant floor drawing** — Tape large paper to the floor and draw a whole world.',
-          '🫧 **Bubble play** — Homemade bubble solution and a variety of wands.',
-          '🧪 **Color mixing** — Primary colors in water: watch what happens when they combine.',
-          '🍃 **Leaf rubbings** — Place leaves under paper and rub with crayons for instant art.',
-        ],
-      },
-      {
-        type: 'h2',
-        text: 'The role of the parent',
-      },
-      {
-        type: 'text',
-        text: "At this age, your job is to set up the invitation to play and then step back. Resist the urge to direct or correct. A 4-year-old's purple sun is as valid as a yellow one. When you react with genuine curiosity rather than evaluation, children learn that their ideas have value — one of the most important lessons of early childhood.",
-      },
-    ],
+    readTime: '6 min',
+    imagePrompt: 'young child finger painting joyfully, colorful paint on hands and paper, happy messy creative expression, bright daylight',
+    es: {
+      title: 'Juego creativo para niños de 3 a 5 años: guía completa',
+      excerpt: 'Los años preescolares son una ventana de oro para la creatividad. Estas actividades están perfectamente calibradas para manos pequeñas e imaginaciones enormes.',
+      content: [
+        { type: 'intro', text: 'Los niños de 3 a 5 años están en una etapa mágica: su imaginación es ilimitada pero su atención es corta. La clave son actividades fáciles de preparar, sensorialmente atractivas y abiertas — sin resultado correcto ni incorrecto.' },
+        { type: 'h2', text: '12 actividades perfectas para esta edad' },
+        { type: 'list', items: ['🎨 **Pintura de dedos** — la conexión más directa entre creatividad y manos', '🧱 **DUPLO libre** — sin instrucciones, solo imaginación', '🎭 **Caja de disfraces** — ropa vieja, sombreros y accesorios', '🌊 **Juego de agua** — recipientes, embudos y cucharas', '🌿 **Collage de naturaleza** — pegar hojas, flores y piedras en papel', '🎵 **Instrumentos caseros** — botes con arroz o pasta sellados', '🏠 **Ciudad de plastilina** — amasar, construir y demoler', '📖 **Piedras de historia** — pinta imágenes en piedras y cuéntalas', '🖍️ **Dibujo en el suelo** — papel grande pegado con cinta y lápices grandes', '🫧 **Burbujas** — solución casera y varitas de distintas formas', '🧪 **Mezcla de colores** — colores primarios en agua: ¿qué pasa?', '🍃 **Frotados de hojas** — hoja bajo papel + cera = arte instantáneo'] },
+      ],
+    },
+    en: {
+      title: 'Creative play for ages 3 to 5: the complete guide',
+      excerpt: 'The preschool years are a golden window for creativity. These activities are perfectly calibrated for little hands and enormous imaginations.',
+      content: [
+        { type: 'intro', text: "Children aged 3–5 are at a magical stage: imagination is limitless but attention span is short. The key is activities that are quick to set up, sensorially engaging, and open-ended — with no right or wrong outcome." },
+        { type: 'h2', text: '12 perfect activities for this age' },
+        { type: 'list', items: ['🎨 **Finger painting** — the most direct connection between creativity and hands', '🧱 **Free DUPLO play** — no instructions, just imagination', '🎭 **Dress-up box** — old clothes, hats, and accessories', '🌊 **Water play** — containers, funnels, and spoons', '🌿 **Nature collage** — glue leaves, petals, and stones onto paper', '🎵 **Homemade instruments** — sealed containers filled with rice or pasta', '🏠 **Playdough city** — roll, build, and demolish', '📖 **Story stones** — paint images on stones and tell stories with them', '🖍️ **Giant floor drawing** — large paper taped down with chunky crayons', '🫧 **Bubbles** — homemade solution and wands of different shapes', '🧪 **Color mixing** — primary colors in water: what happens?', '🍃 **Leaf rubbings** — leaf under paper + crayon = instant art'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'stem-activities-home',
+    category: { es: 'Ciencias', en: 'STEM' },
+    date: '2026-03-30',
+    readTime: '6 min',
+    imagePrompt: 'child building colorful block tower or LEGO construction, concentrated focused expression, bright room, engineering mindset',
+    es: {
+      title: 'Actividades STEM en casa: ciencia, tecnología, ingeniería y matemáticas sin aburrir',
+      excerpt: 'El pensamiento STEM se desarrolla desde pequeño con actividades cotidianas. Estas ideas despiertan la curiosidad científica sin necesidad de laboratorio ni materiales especiales.',
+      content: [
+        { type: 'intro', text: 'STEM no es solo para el colegio. La mentalidad de explorar, probar, fallar y probar de nuevo se puede cultivar en casa desde los 3 años con materiales sencillos.' },
+        { type: 'h2', text: 'Proyectos STEM por categoría' },
+        { type: 'list', items: ['🔬 **Ciencia**: volcanes, cristales de sal, papel de tornasol casero con repollo rojo', '⚙️ **Ingeniería**: construir el puente más resistente con palillos y gominolas', '💻 **Tecnología**: Scratch Jr para programar animaciones desde los 5 años', '📐 **Matemáticas**: geometría con tangram, origami, puzzles espaciales'] },
+        { type: 'h2', text: 'El error como parte del proceso' },
+        { type: 'text', text: 'Lo más valioso de los proyectos STEM es que enseñan a fallar sin drama. Cuando el puente se cae, el niño aprende a analizar por qué y probar de nuevo — una habilidad que vale más que cualquier respuesta correcta.' },
+      ],
+    },
+    en: {
+      title: 'STEM activities at home: science, tech, engineering, and math made fun',
+      excerpt: 'STEM thinking develops from a young age through everyday activities. These ideas spark scientific curiosity without needing a lab or special materials.',
+      content: [
+        { type: 'intro', text: "STEM isn't just for school. The mindset of exploring, testing, failing, and trying again can be cultivated at home from age 3 with simple materials." },
+        { type: 'h2', text: 'STEM projects by category' },
+        { type: 'list', items: ['🔬 **Science**: volcanoes, salt crystals, homemade pH paper with red cabbage', '⚙️ **Engineering**: build the strongest bridge using toothpicks and marshmallows', '💻 **Technology**: Scratch Jr for coding animations from age 5', '📐 **Math**: tangram geometry, origami, spatial puzzles'] },
+        { type: 'h2', text: 'Failure as part of the process' },
+        { type: 'text', text: "The most valuable thing about STEM projects is that they teach children to fail without drama. When the bridge collapses, the child learns to analyze why and try again — a skill worth more than any correct answer." },
+      ],
+    },
+  },
+
+  {
+    slug: 'gardening-with-kids',
+    category: { es: 'Naturaleza', en: 'Nature' },
+    date: '2026-04-03',
+    readTime: '5 min',
+    imagePrompt: 'child watering small plants in garden with tiny watering can, dirty hands, proud smile, sunny afternoon, green plants',
+    es: {
+      title: 'Jardinería con niños: cómo crear un huerto en casa (con balcón o sin él)',
+      excerpt: 'Cultivar una planta enseña a los niños responsabilidad, paciencia y el ciclo de la vida. Y no necesitas jardín: un alféizar de ventana es suficiente para empezar.',
+      content: [
+        { type: 'intro', text: 'La jardinería con niños no es solo plantar semillas: es desarrollar la responsabilidad, conectar con los ciclos naturales y entender de dónde vienen los alimentos. Y la satisfacción de comer lo que has cultivado tú mismo no tiene precio.' },
+        { type: 'h2', text: 'Por dónde empezar según el espacio' },
+        { type: 'list', items: ['🪟 **Alféizar**: albahaca, menta, cebollino — crecen rápido y huelen bien', '🪣 **Balcón**: tomates cherry, fresas, lechugas en macetas grandes', '🌱 **Jardín o patio**: huerto completo con turnos de riego y desherbado', '🧪 **Interior**: germinador de legumbres, jardín de cristal, terrario'] },
+        { type: 'h2', text: 'Plantas ideales para empezar con niños' },
+        { type: 'list', items: ['🌻 Girasol — crece rápido y es espectacular', '🍓 Fresas — las pueden comer directamente de la planta', '🌿 Albahaca — la ven crecer y la usan en la cocina', '🥕 Rabanitos — listos en solo 25 días'] },
+      ],
+    },
+    en: {
+      title: 'Gardening with kids: how to create a home garden (with or without a yard)',
+      excerpt: "Growing a plant teaches children responsibility, patience, and the cycle of life. And you don't need a garden — a windowsill is enough to start.",
+      content: [
+        { type: 'intro', text: "Gardening with children isn't just about planting seeds: it develops responsibility, connects them with natural cycles, and teaches where food comes from. And the satisfaction of eating what you've grown yourself is priceless." },
+        { type: 'h2', text: 'Where to start based on your space' },
+        { type: 'list', items: ['🪟 **Windowsill**: basil, mint, chives — fast-growing and fragrant', '🪣 **Balcony**: cherry tomatoes, strawberries, lettuce in large pots', '🌱 **Garden or patio**: full vegetable plot with watering and weeding turns', '🧪 **Indoor**: sprout jar, glass garden, terrarium'] },
+        { type: 'h2', text: 'Best plants to start with kids' },
+        { type: 'list', items: ['🌻 Sunflower — fast-growing and spectacular', '🍓 Strawberries — can eat directly from the plant', '🌿 Basil — they watch it grow and use it in cooking', '🥕 Radishes — ready in just 25 days'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'healthy-bedtime-routine',
+    category: { es: 'Bienestar', en: 'Wellness' },
+    date: '2026-04-06',
+    readTime: '6 min',
+    imagePrompt: 'parent reading bedtime story to child tucked in bed, soft warm lamp, peaceful cozy bedroom, evening routine',
+    es: {
+      title: 'Rutina de noche para niños: cómo crear una transición al sueño que funcione',
+      excerpt: 'Una rutina de sueño consistente mejora la calidad del descanso, reduce los conflictos a la hora de acostarse y hace que los niños duerman más tranquilos.',
+      content: [
+        { type: 'intro', text: 'El cerebro de los niños responde muy bien a las rutinas predecibles. Cuando la misma secuencia de actividades se repite cada noche, el cuerpo empieza a prepararse para dormir de forma automática.' },
+        { type: 'h2', text: 'Rutina de 30 minutos por edad' },
+        { type: 'list', items: ['👶 0–2 años: baño tibio → pijama → canción de cuna → cuna', '🧒 3–5 años: baño → pijama → cuento → breve charla del día → luces apagadas', '🧑 6–8 años: higiene → lectura propia o compartida → respiración → buenas noches', '👦 9–12 años: higiene → lectura → diario o gratitud del día → sin pantallas 1h antes'] },
+        { type: 'h2', text: 'Señales de que la rutina funciona' },
+        { type: 'list', items: ['El niño pide la rutina él mismo', 'Se duerme antes de los 20 minutos', 'Se levanta descansado y de buen humor', 'Hay menos conflictos en el proceso'] },
+      ],
+    },
+    en: {
+      title: 'Healthy bedtime routine for kids: how to create a sleep transition that works',
+      excerpt: 'A consistent bedtime routine improves sleep quality, reduces bedtime conflicts, and helps children sleep more soundly.',
+      content: [
+        { type: 'intro', text: "Children's brains respond very well to predictable routines. When the same sequence of activities is repeated every night, the body starts preparing for sleep automatically." },
+        { type: 'h2', text: '30-minute routine by age' },
+        { type: 'list', items: ['👶 0–2 years: warm bath → pajamas → lullaby → crib', '🧒 3–5 years: bath → pajamas → story → brief chat about the day → lights off', '🧑 6–8 years: hygiene → solo or shared reading → breathing exercise → good night', '👦 9–12 years: hygiene → reading → journal or gratitude → no screens 1h before'] },
+        { type: 'h2', text: 'Signs the routine is working' },
+        { type: 'list', items: ['The child requests the routine themselves', 'Falls asleep within 20 minutes', 'Wakes up rested and in a good mood', 'Fewer conflicts during the process'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'emotional-intelligence-kids',
+    category: { es: 'Educación', en: 'Education' },
+    date: '2026-04-07',
+    readTime: '7 min',
+    imagePrompt: 'parent and child sitting on floor face to face having warm conversation, hands touching, natural light, connected and attentive',
+    es: {
+      title: 'Cómo desarrollar la inteligencia emocional en niños: actividades y conversaciones',
+      excerpt: 'La inteligencia emocional es el predictor más fiable del éxito y el bienestar en la vida adulta. Estas actividades y preguntas ayudan a desarrollarla desde pequeños.',
+      content: [
+        { type: 'intro', text: 'Un niño que sabe nombrar lo que siente, gestionar sus impulsos y empatizar con los demás tiene una ventaja enorme en la vida. Y esta habilidad se puede enseñar y entrenar.' },
+        { type: 'h2', text: 'Actividades para desarrollar la inteligencia emocional' },
+        { type: 'list', items: ['😊 **Rueda de emociones** — un póster con emociones y caras para identificar cómo se sienten', '📖 **Libros sobre emociones** — personajes que sienten y gestionan sus sentimientos', '🎭 **Juego de rol** — representar situaciones conflictivas y buscar soluciones', '📓 **Diario emocional** — escribir o dibujar cómo se han sentido cada día', '🌡️ **Termómetro emocional** — ¿del 1 al 10 cómo de tranquilo/enfadado estás?'] },
+        { type: 'h2', text: 'Preguntas que abren conversaciones' },
+        { type: 'list', items: ['¿Cómo te has sentido hoy?', '¿Qué fue lo más difícil del día?', '¿Qué harías diferente si pudieras repetirlo?', '¿Cómo crees que se sentía la otra persona?'] },
+      ],
+    },
+    en: {
+      title: 'How to develop emotional intelligence in kids: activities and conversations',
+      excerpt: "Emotional intelligence is the most reliable predictor of success and wellbeing in adult life. These activities and questions help develop it from an early age.",
+      content: [
+        { type: 'intro', text: "A child who can name what they feel, manage their impulses, and empathize with others has an enormous advantage in life. And this skill can be taught and practiced." },
+        { type: 'h2', text: 'Activities to develop emotional intelligence' },
+        { type: 'list', items: ['😊 **Emotion wheel** — a poster with emotions and faces to identify how they feel', '📖 **Books about emotions** — characters who feel and manage their feelings', '🎭 **Role play** — act out conflicting situations and find solutions', '📓 **Emotion journal** — write or draw how they felt each day', '🌡️ **Emotion thermometer** — on a scale of 1 to 10, how calm or upset are you?'] },
+        { type: 'h2', text: 'Questions that open conversations' },
+        { type: 'list', items: ['How did you feel today?', 'What was the hardest part of your day?', 'What would you do differently if you could repeat it?', 'How do you think the other person felt?'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'travel-activities-kids',
+    category: { es: 'Ocio', en: 'Leisure' },
+    date: '2026-04-04',
+    readTime: '5 min',
+    imagePrompt: 'family playing games together at airport or in car during road trip, children laughing, travel bags, adventure mood',
+    es: {
+      title: 'Actividades para niños en viajes: cómo sobrevivir al aeropuerto y los trayectos largos',
+      excerpt: 'Los viajes con niños pueden ser agotadores o divertidos — depende de la preparación. Estas ideas convierten las esperas y trayectos en momentos de juego y aprendizaje.',
+      content: [
+        { type: 'intro', text: 'El secreto de los viajes en familia no está en llegar al destino, sino en disfrutar el camino. Con unas pocas ideas y materiales mínimos, incluso el aeropuerto puede ser un parque de atracciones.' },
+        { type: 'h2', text: 'Ideas para el trayecto (sin pantallas)' },
+        { type: 'list', items: ['🎒 **Mochila mágica** — déjale preparar su propia mochila con libros, juguetes pequeños y snacks', '🔢 **Bingo de viaje** — ficha con cosas a encontrar por el camino (vaca, semáforo, etc.)', '📖 **Cuaderno de viaje** — dibujar o anotar todo lo que ven', '🎯 **20 preguntas** — uno piensa en algo y los demás hacen preguntas con respuesta sí/no', '🗺️ **Copiloto de mapas** — que sigan la ruta en un mapa real o de papel', '🎵 **Spotify playlist del viaje** — música por países que van a visitar', '🧩 **Juegos de palabras** — basta, ahorcado, categorías'] },
+        { type: 'h2', text: 'En el aeropuerto' },
+        { type: 'list', items: ['Conta los aviones que ven por la ventana', 'Busca 10 objetos de distintos colores en la terminal', 'Inventa historias sobre los otros viajeros'] },
+      ],
+    },
+    en: {
+      title: 'Activities for kids while traveling: how to survive airports and long journeys',
+      excerpt: 'Traveling with children can be exhausting or fun — it depends on preparation. These ideas turn waits and journeys into play and learning moments.',
+      content: [
+        { type: 'intro', text: "The secret of family travel isn't about reaching the destination, but enjoying the journey. With a few ideas and minimal materials, even the airport can become an amusement park." },
+        { type: 'h2', text: 'Journey ideas (screen-free)' },
+        { type: 'list', items: ['🎒 **Magic backpack** — let them pack their own with small toys, books, and snacks', '🔢 **Travel bingo** — card with things to spot along the way (cow, traffic light, etc.)', '📖 **Travel journal** — draw or note everything they see', '🎯 **20 questions** — one thinks of something, others ask yes/no questions', '🗺️ **Map co-pilot** — follow the route on a real or paper map', '🎵 **Journey playlist** — music from countries they will visit', '🧩 **Word games** — categories, hangman, alphabet names'] },
+        { type: 'h2', text: 'At the airport' },
+        { type: 'list', items: ['Count the planes they can see through the window', 'Find 10 objects of different colors in the terminal', 'Invent stories about other travelers'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'holiday-crafts-kids',
+    category: { es: 'Manualidades', en: 'Crafts' },
+    date: '2026-04-02',
+    readTime: '5 min',
+    imagePrompt: 'parent and child making holiday decorations and ornaments together at table, glitter and colored paper, joyful festive mood',
+    es: {
+      title: 'Manualidades navideñas y de temporada: 10 ideas para hacer en familia',
+      excerpt: 'Las manualidades estacionales crean recuerdos y tradiciones familiares que duran toda la vida. Estas ideas son fáciles, económicas y perfectas para todas las edades.',
+      content: [
+        { type: 'intro', text: 'Las manualidades de temporada tienen un poder especial: conectan a los niños con el ritmo del año y crean rituales familiares que esperan con ilusión. No hace falta gastar mucho — lo que importa es hacerlas juntos.' },
+        { type: 'h2', text: '10 ideas para cada época del año' },
+        { type: 'list', items: ['🍂 **Otoño**: corona de hojas secas, animales de castaña, linterna de papel reciclado', '❄️ **Invierno/Navidad**: bolas de papel maché, tarjetas pop-up, muñecos de nieve de calcetín', '🌸 **Primavera**: macetas de semillas de regalo, móvil de flores de papel', '☀️ **Verano**: atrapasueños, cuadros de arena y conchas, velas de parafina'] },
+        { type: 'h2', text: 'Cómo convertirlo en tradición' },
+        { type: 'list', items: ['Reserva un fin de semana fijo al año para cada manualidad', 'Guarda las creaciones para comparar cómo mejoran cada año', 'Regala las manualidades a abuelos y amigos — refuerza el valor del esfuerzo'] },
+      ],
+    },
+    en: {
+      title: 'Holiday and seasonal crafts for kids: 10 family ideas',
+      excerpt: 'Seasonal crafts create memories and family traditions that last a lifetime. These ideas are easy, affordable, and perfect for all ages.',
+      content: [
+        { type: 'intro', text: "Seasonal crafts have special power: they connect children to the rhythm of the year and create family rituals they look forward to eagerly. You don't need to spend a lot — what matters is doing them together." },
+        { type: 'h2', text: '10 ideas for every season' },
+        { type: 'list', items: ['🍂 **Autumn**: dried leaf wreath, chestnut animals, recycled paper lantern', '❄️ **Winter/Christmas**: papier-mâché baubles, pop-up cards, sock snowmen', '🌸 **Spring**: seed planting pots as gifts, paper flower mobile', '☀️ **Summer**: dream catchers, sand and shell art, paraffin candles'] },
+        { type: 'h2', text: 'How to turn it into a tradition' },
+        { type: 'list', items: ['Reserve a fixed weekend each year for each craft', 'Keep the creations to compare how they improve each year', 'Gift the crafts to grandparents and friends — reinforces the value of effort'] },
+      ],
+    },
   },
 ];
 
-// Helper to get articles by language
-export function getArticlesByLang(lang) {
-  return articles.filter(a => a.lang === lang);
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+
+export function getArticleInLang(article, lang = 'es') {
+  const content = article[lang] || article.es;
+  const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(
+    article.imagePrompt + ', real photograph, warm natural lighting, lifestyle editorial photography, no text no logos no watermark'
+  )}?width=800&height=520&nologo=true`;
+
+  return {
+    slug: article.slug,
+    category: article.category[lang] || article.category.es,
+    date: article.date,
+    readTime: article.readTime,
+    imageUrl,
+    ...content,
+  };
 }
 
-// Helper to get article by slug
+export function getAllArticlesInLang(lang = 'es') {
+  return articles.map(a => getArticleInLang(a, lang));
+}
+
 export function getArticleBySlug(slug) {
   return articles.find(a => a.slug === slug) || null;
 }
 
-// Get all slugs (for getStaticPaths)
 export function getAllSlugs() {
   return articles.map(a => a.slug);
 }

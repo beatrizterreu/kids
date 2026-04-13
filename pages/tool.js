@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Header from '../components/Header';
 
 // ─── TRANSLATIONS (ES + EN only) ─────────────────────────────────────────────
 const translations = {
@@ -305,38 +306,9 @@ export default function Tool() {
         Saltar al contenido
       </a>
 
-      <div className="min-h-screen bg-stone-50">
+      <div className="min-h-screen bg-white">
 
-        {/* ── HEADER ── */}
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-stone-200">
-          <div className="max-w-2xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div className="flex items-center gap-4">
-              <Link href="/" aria-label="KidSpark — inicio"
-                className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 rounded-lg">
-                <span className="text-xl font-black text-amber-800">KidSpark</span>
-              </Link>
-              <Link href="/blog"
-                className="hidden sm:block text-sm font-semibold text-stone-500 hover:text-amber-800 transition-colors">
-                Blog
-              </Link>
-            </div>
-
-            <label htmlFor="lang-select" className="sr-only">{t.langLabel}</label>
-            <select
-              id="lang-select"
-              value={lang}
-              onChange={(e) => setLang(e.target.value)}
-              className="bg-white border border-stone-300 rounded-full pl-4 pr-8 py-1.5
-                text-sm font-bold text-stone-800 hover:border-amber-600 cursor-pointer
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700
-                focus-visible:ring-offset-2 appearance-none transition-colors shadow-sm"
-              style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2392400e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
-            >
-              <option value="es">Español</option>
-              <option value="en">English</option>
-            </select>
-          </div>
-        </header>
+        <Header lang={lang} setLang={setLang} />
 
         {/* ── MAIN ── */}
         <main id="main-content" className="max-w-2xl mx-auto px-4 pb-16">
@@ -373,8 +345,8 @@ export default function Tool() {
                 Actividad
               </legend>
 
-              {/* Material-style tabs — earthy */}
-              <div className="flex mb-5 border-b-2 border-amber-100" role="tablist">
+              {/* Segmented control — pill style, warm brown */}
+              <div className="flex bg-amber-100 rounded-full p-1 mb-5 gap-1" role="tablist">
                 {t.categoryGroups.map((group, gi) => {
                   const icons = ['🎡', '📚'];
                   const isActive = catGroup === gi;
@@ -384,16 +356,15 @@ export default function Tool() {
                       role="tab"
                       aria-selected={isActive}
                       onClick={() => { setCatGroup(gi); setCatItem(0); setActivity(null); }}
-                      className={`flex-1 flex flex-col items-center gap-1.5 pt-3 pb-3 px-4 font-black
-                        text-sm transition-all duration-200 border-b-2 -mb-0.5 rounded-t-xl
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset
-                        focus-visible:ring-amber-700
+                      className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full
+                        font-bold text-sm transition-all duration-200
+                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2
                         ${isActive
-                          ? 'border-amber-700 text-amber-800'
-                          : 'border-transparent text-stone-400 hover:text-amber-700 hover:bg-amber-50'
+                          ? 'bg-amber-800 text-white shadow-sm'
+                          : 'text-stone-600 hover:text-amber-900'
                         }`}
                     >
-                      <span className="text-xl" aria-hidden="true">{icons[gi]}</span>
+                      <span aria-hidden="true">{icons[gi]}</span>
                       <span>{group.groupLabel}</span>
                     </button>
                   );
@@ -618,12 +589,13 @@ export default function Tool() {
         </main>
 
         {/* FOOTER */}
-        <footer className="text-center py-8 text-stone-500 text-sm border-t border-stone-100">
-          <p>{t.footerCredits}</p>
-          <nav className="mt-2 flex justify-center gap-4 text-xs">
-            <Link href="/" className="hover:text-amber-800 transition-colors">Inicio</Link>
+        <footer className="text-center py-8 text-stone-400 text-sm border-t border-stone-100">
+          <nav className="flex justify-center gap-6 mb-2">
+            <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
+            <Link href="/tool" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
             <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
           </nav>
+          <p>{t.footerCredits}</p>
         </footer>
       </div>
     </>
