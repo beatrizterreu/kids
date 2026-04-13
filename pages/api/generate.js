@@ -17,9 +17,6 @@ export default async function handler(req, res) {
   const langMap = {
     es: 'SPANISH',
     en: 'ENGLISH',
-    fr: 'FRENCH',
-    it: 'ITALIAN',
-    de: 'GERMAN',
   };
   const responseLang = langMap[lang] || 'ENGLISH';
 
@@ -126,9 +123,6 @@ Rules:
     const errorMessages = {
       es: 'Error al generar la actividad. ¡Inténtalo de nuevo!',
       en: 'Error generating activity. Please try again!',
-      fr: "Erreur lors de la génération. Réessayez !",
-      it: "Errore nella generazione. Riprova!",
-      de: 'Fehler beim Generieren. Bitte versuche es erneut!',
     };
     return res.status(500).json({
       error: errorMessages[lang] || errorMessages.en,
