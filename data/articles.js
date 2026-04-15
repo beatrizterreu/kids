@@ -587,7 +587,6 @@ export const articles = [
       ],
     },
   },
-];
 
   {
     slug: 'paper-crafts-origami',
@@ -648,6 +647,7 @@ export const articles = [
       ],
     },
   },
+];
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 
