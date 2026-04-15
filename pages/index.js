@@ -71,7 +71,7 @@ const ui = {
 
 const appImgUrl = () =>
   `https://image.pollinations.ai/prompt/${encodeURIComponent(
-    'overhead flat lay of colorful children craft supplies on white wood table, paint brushes, scissors, colored paper, crayons, stickers, small hands reaching in, warm golden morning light, editorial lifestyle photography, vibrant colors, no text, no labels'
+    'overhead flat lay of colorful children craft supplies on white wood table, paint brushes, scissors, colored paper, crayons, stickers, professional product photography, vibrant saturated colors, bright natural light, sharp focus, no people, no faces, no text, no logos'
   )}?width=720&height=820&nologo=true&seed=42`;
 
 export default function Home() {

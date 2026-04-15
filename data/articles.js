@@ -13,7 +13,7 @@ export const articles = [
     category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-03-15',
     readTime: '5 min',
-    imagePrompt: 'mother and young child doing crafts at kitchen table on rainy day, cardboard and paint, cozy warm home, smiling',
+    imagePrompt: 'colorful craft supplies flatlay on wooden table, paint pots, cardboard, scissors, glue stick, paper rolls, rainy window in background, cozy kitchen, top-down view',
     es: {
       title: '15 actividades para días de lluvia sin pantallas',
       excerpt: 'Cuando llueve y los niños no pueden salir, el aburrimiento llega rápido. Aquí tienes 15 ideas creativas para mantenerlos activos, felices y aprendiendo sin pantallas.',
@@ -43,7 +43,7 @@ export const articles = [
     category: { es: 'Educación', en: 'Education' },
     date: '2026-03-20',
     readTime: '6 min',
-    imagePrompt: 'father helping young child count wooden blocks and toys, warm home interior, morning sunlight, smiling',
+    imagePrompt: 'colorful wooden counting blocks, abacus, number tiles and math puzzles arranged on bright floor, morning sunlight, top-down flat lay, vivid primary colors',
     es: {
       title: 'Cómo enseñar matemáticas jugando sin que lo noten',
       excerpt: 'Las matemáticas no tienen que ser sinónimo de deberes aburridos. Aprende a integrar conceptos matemáticos en el juego cotidiano para que tus hijos aprendan sin darse cuenta.',
@@ -73,7 +73,7 @@ export const articles = [
     category: { es: 'Bienestar', en: 'Wellness' },
     date: '2026-03-25',
     readTime: '7 min',
-    imagePrompt: 'young girl doing tree pose yoga in sunny living room, calm focused expression, natural light through window',
+    imagePrompt: 'colorful children yoga mat unrolled on wooden floor, small yoga blocks and bolster, green plant nearby, bright natural window light, serene calm space, no people',
     es: {
       title: 'Yoga para niños: beneficios probados y 8 posturas para empezar',
       excerpt: 'El yoga infantil reduce el estrés, mejora la concentración y fortalece el vínculo familiar. Todo lo que necesitas para empezar en casa hoy mismo.',
@@ -103,7 +103,7 @@ export const articles = [
     category: { es: 'Manualidades', en: 'Crafts' },
     date: '2026-04-01',
     readTime: '5 min',
-    imagePrompt: 'child making crafts from cardboard boxes and recycled materials, colorful paint and glue, happy creative expression, kitchen table',
+    imagePrompt: 'recycled craft materials flatlay, cardboard tubes, bottle caps, egg cartons, paint brushes, colored tape, bright craft table, top-down overhead shot, vivid colors',
     es: {
       title: '12 manualidades con materiales reciclados para todas las edades',
       excerpt: 'Da una segunda vida a cajas de cereales, rollos de papel y botellas de plástico. Estas manualidades enseñan creatividad, responsabilidad ambiental y horas de diversión.',
@@ -133,7 +133,7 @@ export const articles = [
     category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-05',
     readTime: '6 min',
-    imagePrompt: 'parent and child baking cookies together in kitchen, flour on hands, laughing, warm morning light, cozy home',
+    imagePrompt: 'baking ingredients flatlay on kitchen counter, flour, eggs, cookie cutters, rolling pin, colorful mixing bowls, warm morning light, overhead top-down view, cozy kitchen',
     es: {
       title: 'Cocinar con niños: recetas fáciles y lo que aprenden en la cocina',
       excerpt: 'La cocina es uno de los mejores laboratorios de aprendizaje para los niños: matemáticas, ciencias, responsabilidad... y algo rico al final.',
@@ -163,7 +163,7 @@ export const articles = [
     category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-08',
     readTime: '5 min',
-    imagePrompt: 'excited child watching baking soda volcano eruption in kitchen, science experiment, parent watching nearby, colorful',
+    imagePrompt: 'colorful science experiment supplies on table, baking soda, vinegar bottle, food coloring drops, small beakers, safety goggles, bubbling foam, bright lab-style setup, vivid colors',
     es: {
       title: '10 experimentos científicos caseros que harán alucinar a tus hijos',
       excerpt: 'Ciencia con materiales que ya tienes en casa. Experimentos seguros y espectaculares para despertar la curiosidad científica desde pequeños.',
@@ -189,7 +189,7 @@ export const articles = [
     category: { es: 'Educación', en: 'Education' },
     date: '2026-04-09',
     readTime: '7 min',
-    imagePrompt: 'mother reading picture book to young child on cozy sofa, warm lamp light, evening, soft blanket, peaceful',
+    imagePrompt: 'stack of colorful childrens picture books on cozy reading nook, soft cushions, warm lamp light, small stuffed animal, wooden shelf, inviting atmosphere, no people',
     es: {
       title: 'Cómo crear el hábito de la lectura en niños que no quieren leer',
       excerpt: 'No todos los niños se enamoran de los libros de inmediato. Con las estrategias correctas y los libros adecuados, cualquier niño puede convertirse en lector apasionado.',
@@ -219,7 +219,7 @@ export const articles = [
     category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-10',
     readTime: '6 min',
-    imagePrompt: 'children playing and exploring in forest, sunlight through trees, muddy boots, discovering nature, joyful',
+    imagePrompt: 'nature treasures collection flatlay on wooden surface, colorful autumn leaves, pinecones, smooth pebbles, feathers, acorns, green moss, sunlit forest floor, macro detail',
     es: {
       title: '20 actividades al aire libre para explorar la naturaleza con tus hijos',
       excerpt: 'El contacto con la naturaleza es esencial para el desarrollo infantil. Estas actividades combinan aventura, aprendizaje y desconexión digital.',
@@ -245,7 +245,7 @@ export const articles = [
     category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-04-11',
     readTime: '5 min',
-    imagePrompt: 'family playing board game at dining table, all ages, laughing and excited, evening warm light, cozy home',
+    imagePrompt: 'colorful board games, card decks, dice and game pieces spread on wooden table, warm evening light, cozy home atmosphere, overhead flat lay, vivid colors',
     es: {
       title: 'Los mejores juegos sin pantallas para niños que también gustan a los padres',
       excerpt: 'Juegos que no necesitan cargador, wifi ni batería. Solo imaginación, risas y tiempo de calidad en familia.',
@@ -275,7 +275,7 @@ export const articles = [
     category: { es: 'Educación', en: 'Education' },
     date: '2026-04-12',
     readTime: '8 min',
-    imagePrompt: 'parent and child looking at colorful language flashcards together, smiling, bright study space, natural light',
+    imagePrompt: 'colorful language learning flashcards spread on white desk, small globe, multilingual alphabet letters, pencils, bright natural light, top-down view, vibrant saturated colors',
     es: {
       title: 'Cómo aprender un segundo idioma desde pequeño: guía para padres',
       excerpt: 'La ventana de oportunidad para aprender idiomas es real y poderosa. Todo lo que necesitas saber para aprovecharla sin presionar a tus hijos.',
@@ -301,7 +301,7 @@ export const articles = [
     category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-03-10',
     readTime: '5 min',
-    imagePrompt: 'toddler playing with colorful kinetic sand and water sensory bin, focused expression, closeup hands, bright playroom',
+    imagePrompt: 'colorful sensory play bin close-up, kinetic sand, water beads, small scoops and toys, bright saturated colors, macro texture shot, overhead view, vivid playroom light',
     es: {
       title: 'Juego sensorial para bebés y toddlers: beneficios y 8 ideas fáciles',
       excerpt: 'El juego sensorial es fundamental en los primeros años de vida. Estas ideas no requieren materiales especiales y mantienen a los más pequeños fascinados durante horas.',
@@ -327,7 +327,7 @@ export const articles = [
     category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-03-18',
     readTime: '5 min',
-    imagePrompt: 'child happily playing xylophone or small keyboard, colorful music instruments around, sunny room, joyful expression',
+    imagePrompt: 'colorful childrens musical instruments flatlay, xylophone, maracas, small drum, tambourine, rainbow colors, bright sunny floor, overhead view, vivid and cheerful',
     es: {
       title: 'Música y movimiento: cómo la música desarrolla el cerebro de tu hijo',
       excerpt: 'La música no es solo entretenimiento: desarrolla el lenguaje, la coordinación, la memoria y la inteligencia emocional. Y lo mejor: puedes practicarla en casa sin saber música.',
@@ -357,7 +357,7 @@ export const articles = [
     category: { es: 'Bienestar', en: 'Wellness' },
     date: '2026-03-28',
     readTime: '6 min',
-    imagePrompt: 'parent and child meditating together cross-legged in sunlit living room, eyes closed, peaceful calm atmosphere',
+    imagePrompt: 'peaceful meditation corner setup, soft cushion, small plant, smooth stones, candle, natural light from window, serene minimalist interior, calm neutral tones, no people',
     es: {
       title: 'Mindfulness para niños: técnicas para calmar la mente y gestionar emociones',
       excerpt: 'El mindfulness infantil reduce la ansiedad, mejora la concentración y ayuda a los niños a manejar sus emociones. Estas técnicas simples se pueden practicar en cualquier momento del día.',
@@ -387,7 +387,7 @@ export const articles = [
     category: { es: 'Manualidades', en: 'Crafts' },
     date: '2026-04-13',
     readTime: '6 min',
-    imagePrompt: 'young child finger painting joyfully, colorful paint on hands and paper, happy messy creative expression, bright daylight',
+    imagePrompt: 'colorful finger painting art supplies flatlay, open paint pots in rainbow colors, painted paper with swirls, brushes, sponges, bright white table, overhead view, vivid saturated',
     es: {
       title: 'Juego creativo para niños de 3 a 5 años: guía completa',
       excerpt: 'Los años preescolares son una ventana de oro para la creatividad. Estas actividades están perfectamente calibradas para manos pequeñas e imaginaciones enormes.',
@@ -413,7 +413,7 @@ export const articles = [
     category: { es: 'Educación', en: 'Education' },
     date: '2026-03-30',
     readTime: '6 min',
-    imagePrompt: 'child building colorful block tower or LEGO construction, concentrated focused expression, bright room, engineering mindset',
+    imagePrompt: 'colorful LEGO bricks and building blocks spread on bright floor, gears, wheels, half-built construction, engineering toys, overhead flat lay, vivid primary colors',
     es: {
       title: 'Actividades STEM en casa: ciencia, tecnología, ingeniería y matemáticas sin aburrir',
       excerpt: 'El pensamiento STEM se desarrolla desde pequeño con actividades cotidianas. Estas ideas despiertan la curiosidad científica sin necesidad de laboratorio ni materiales especiales.',
@@ -443,7 +443,7 @@ export const articles = [
     category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-03',
     readTime: '5 min',
-    imagePrompt: 'child watering small plants in garden with tiny watering can, dirty hands, proud smile, sunny afternoon, green plants',
+    imagePrompt: 'small terracotta pots with seedlings on sunny windowsill, watering can, seed packets, gardening trowel, fresh soil, green sprouts, warm afternoon light, close-up',
     es: {
       title: 'Jardinería con niños: cómo crear un huerto en casa (con balcón o sin él)',
       excerpt: 'Cultivar una planta enseña a los niños responsabilidad, paciencia y el ciclo de la vida. Y no necesitas jardín: un alféizar de ventana es suficiente para empezar.',
@@ -473,7 +473,7 @@ export const articles = [
     category: { es: 'Bienestar', en: 'Wellness' },
     date: '2026-04-06',
     readTime: '6 min',
-    imagePrompt: 'parent reading bedtime story to child tucked in bed, soft warm lamp, peaceful cozy bedroom, evening routine',
+    imagePrompt: 'cozy children bedroom nightstand with open storybook, soft warm lamp glow, small stuffed animals, smooth bed sheets, peaceful evening atmosphere, no people',
     es: {
       title: 'Rutina de noche para niños: cómo crear una transición al sueño que funcione',
       excerpt: 'Una rutina de sueño consistente mejora la calidad del descanso, reduce los conflictos a la hora de acostarse y hace que los niños duerman más tranquilos.',
@@ -503,7 +503,7 @@ export const articles = [
     category: { es: 'Educación', en: 'Education' },
     date: '2026-04-07',
     readTime: '7 min',
-    imagePrompt: 'parent and child sitting on floor face to face having warm conversation, hands touching, natural light, connected and attentive',
+    imagePrompt: 'colorful emotion cards and feelings chart spread on floor, heart-shaped objects, small journal, crayons, soft natural light, overhead flat lay, warm pastel tones',
     es: {
       title: 'Cómo desarrollar la inteligencia emocional en niños: actividades y conversaciones',
       excerpt: 'La inteligencia emocional es el predictor más fiable del éxito y el bienestar en la vida adulta. Estas actividades y preguntas ayudan a desarrollarla desde pequeños.',
@@ -533,7 +533,7 @@ export const articles = [
     category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-04-04',
     readTime: '5 min',
-    imagePrompt: 'family playing games together at airport or in car during road trip, children laughing, travel bags, adventure mood',
+    imagePrompt: 'travel flatlay on bright surface, childrens travel toys, small backpack, colorful map, snacks, headphones, activity book, passport, adventure accessories, overhead view',
     es: {
       title: 'Actividades para niños en viajes: cómo sobrevivir al aeropuerto y los trayectos largos',
       excerpt: 'Los viajes con niños pueden ser agotadores o divertidos — depende de la preparación. Estas ideas convierten las esperas y trayectos en momentos de juego y aprendizaje.',
@@ -563,7 +563,7 @@ export const articles = [
     category: { es: 'Manualidades', en: 'Crafts' },
     date: '2026-04-02',
     readTime: '5 min',
-    imagePrompt: 'parent and child making holiday decorations and ornaments together at table, glitter and colored paper, joyful festive mood',
+    imagePrompt: 'holiday craft supplies flatlay, glitter, colored paper, ribbon, scissors, half-finished ornaments, pine branches, festive table, overhead view, bright cheerful colors',
     es: {
       title: 'Manualidades navideñas y de temporada: 10 ideas para hacer en familia',
       excerpt: 'Las manualidades estacionales crean recuerdos y tradiciones familiares que duran toda la vida. Estas ideas son fáciles, económicas y perfectas para todas las edades.',
@@ -593,7 +593,7 @@ export const articles = [
     category: { es: 'Manualidades', en: 'Crafts' },
     date: '2026-03-12',
     readTime: '5 min',
-    imagePrompt: 'child carefully folding colorful origami paper, small hands, cozy home, focused expression, bright natural light',
+    imagePrompt: 'colorful origami paper squares in rainbow colors, small finished origami crane and frog, folding lines visible, bright white background, overhead flat lay, clean minimal',
     es: {
       title: 'Origami para niños: beneficios y las 5 figuras más fáciles para empezar',
       excerpt: 'El origami desarrolla concentración, motricidad fina y geometría espacial. Solo necesitas papel y ganas de explorar. Estas figuras sencillas son perfectas para empezar.',
@@ -623,7 +623,7 @@ export const articles = [
     category: { es: 'Bienestar', en: 'Wellness' },
     date: '2026-03-05',
     readTime: '5 min',
-    imagePrompt: 'children running and jumping joyfully in sunny park, colorful clothes, laughing, active outdoor play, energetic movement',
+    imagePrompt: 'colorful outdoor sports equipment flatlay on green grass, jump rope, hula hoop, soft ball, cones, bright sunny day, vibrant saturated colors, overhead view',
     es: {
       title: 'Juego activo para niños: por qué el movimiento importa tanto como el estudio',
       excerpt: 'El juego activo no es solo quemar energía: desarrolla el sistema nervioso, mejora el aprendizaje y fortalece la salud mental de los niños. Ideas para cada día.',
@@ -655,7 +655,7 @@ export function getArticleInLang(article, lang = 'es') {
   const content = article[lang] || article.es;
   const seed = article.slug.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % 9999;
   const basePrompt = encodeURIComponent(
-    article.imagePrompt + ', real photograph, vibrant warm colors, golden natural light, lifestyle editorial photography, no text no logos no watermark'
+    article.imagePrompt + ', professional product photography, vibrant saturated colors, bright natural light, sharp focus, no people, no faces, no text, no logos, no watermarks, clean background'
   );
 
   const imageUrl     = `https://image.pollinations.ai/prompt/${basePrompt}?width=800&height=450&nologo=true&seed=${seed}`;
