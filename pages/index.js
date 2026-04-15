@@ -69,10 +69,10 @@ const ui = {
   },
 };
 
-const appImgUrl = (lang) =>
+const appImgUrl = () =>
   `https://image.pollinations.ai/prompt/${encodeURIComponent(
-    'parent using smartphone app to look at children activities, cozy kitchen background, child playing with toys nearby, warm morning light, lifestyle photography, soft focus, no text'
-  )}?width=500&height=620&nologo=true&seed=7`;
+    'overhead flat lay of colorful children craft supplies on white wood table, paint brushes, scissors, colored paper, crayons, stickers, small hands reaching in, warm golden morning light, editorial lifestyle photography, vibrant colors, no text, no labels'
+  )}?width=720&height=820&nologo=true&seed=42`;
 
 export default function Home() {
   const [lang, setLang] = useState('es');
@@ -115,7 +115,7 @@ export default function Home() {
                 <span className="block text-amber-800">{t.heroLine2}</span>
               </h1>
               <p className="text-lg text-stone-500 mb-1">{t.heroSub1}</p>
-              <p className="text-lg text-stone-500 mb-10">{t.heroSub2}</p>
+              <p className="text-lg text-stone-500 mb-5">{t.heroSub2}</p>
 
               <Link
                 href="/tool"
@@ -131,73 +131,58 @@ export default function Home() {
 
           {/* ── HOW IT WORKS ── */}
           <section className="w-full bg-stone-50 border-t border-stone-100 border-b">
-            <div className="max-w-5xl mx-auto px-4 py-16">
-              <h2 className="text-3xl font-black text-stone-900 text-center mb-12">{t.howTitle}</h2>
+            <div className="max-w-5xl mx-auto px-4 py-14">
 
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                {/* App mockup image */}
-                <div className="flex-shrink-0 w-full md:w-64 lg:w-72">
-                  <div className="relative rounded-3xl overflow-hidden shadow-xl bg-amber-50 aspect-[4/5]">
+              <div className="flex flex-col md:flex-row gap-10 items-center">
+                {/* Creative flatlay photo — bigger */}
+                <div className="flex-shrink-0 w-full md:w-80 lg:w-96">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-amber-50 aspect-[3/4]">
                     <img
-                      src={appImgUrl(lang)}
+                      src={appImgUrl()}
                       alt={t.appAlt}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      onError={e => { e.currentTarget.src = 'https://placehold.co/720x820/fef3c7/92400e?text=KidSpark'; }}
                     />
                   </div>
                 </div>
 
-                {/* Steps */}
-                <div className="flex-1 space-y-6">
-                  {t.steps.map((step) => (
-                    <div key={step.n} className="flex gap-5 items-start">
-                      <span className="flex-shrink-0 text-3xl font-black text-amber-200 w-12 text-right leading-none pt-1">
-                        {step.n}
-                      </span>
-                      <div>
-                        <h3 className="font-black text-stone-900 text-lg leading-snug">{step.title}</h3>
-                        <p className="text-stone-500 text-sm mt-1 leading-relaxed">{step.desc}</p>
+                {/* Steps — title aligned with content */}
+                <div className="flex-1">
+                  <h2 className="text-3xl font-black text-stone-900 mb-8">{t.howTitle}</h2>
+                  <div className="space-y-6">
+                    {t.steps.map((step) => (
+                      <div key={step.n} className="flex gap-5 items-start">
+                        <span className="flex-shrink-0 text-3xl font-black text-amber-200 w-12 text-right leading-none pt-1">
+                          {step.n}
+                        </span>
+                        <div>
+                          <h3 className="font-black text-stone-900 text-lg leading-snug">{step.title}</h3>
+                          <p className="text-stone-500 text-sm mt-1 leading-relaxed">{step.desc}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* ── FEATURES — bento grid ── */}
-          <section className="w-full bg-amber-800">
+          <section className="w-full bg-stone-900">
             <div className="max-w-5xl mx-auto px-4 py-16">
               <h2 className="text-3xl font-black text-white text-center mb-10">{t.featuresTitle}</h2>
 
-              {/* Bento grid */}
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {/* Feature 1 — large */}
-                <div className="col-span-2 lg:col-span-1 lg:row-span-2 bg-amber-700/50 border border-amber-600 rounded-2xl p-7 flex flex-col justify-end min-h-48">
-                  <span className="text-5xl mb-4" aria-hidden="true">{t.features[0].emoji}</span>
-                  <h3 className="font-black text-white text-lg mb-1">{t.features[0].title}</h3>
-                  <p className="text-amber-200 text-sm leading-relaxed">{t.features[0].desc}</p>
-                </div>
-                {/* Feature 2 */}
-                <div className="bg-amber-700/50 border border-amber-600 rounded-2xl p-6">
-                  <span className="text-4xl mb-3 block" aria-hidden="true">{t.features[1].emoji}</span>
-                  <h3 className="font-black text-white text-base mb-1">{t.features[1].title}</h3>
-                  <p className="text-amber-200 text-sm leading-relaxed">{t.features[1].desc}</p>
-                </div>
-                {/* Feature 3 */}
-                <div className="bg-amber-700/50 border border-amber-600 rounded-2xl p-6">
-                  <span className="text-4xl mb-3 block" aria-hidden="true">{t.features[2].emoji}</span>
-                  <h3 className="font-black text-white text-base mb-1">{t.features[2].title}</h3>
-                  <p className="text-amber-200 text-sm leading-relaxed">{t.features[2].desc}</p>
-                </div>
-                {/* Feature 4 — spans 2 on lg */}
-                <div className="col-span-2 lg:col-span-2 bg-white/10 border border-amber-600 rounded-2xl p-6 flex items-center gap-5">
-                  <span className="text-5xl flex-shrink-0" aria-hidden="true">{t.features[3].emoji}</span>
-                  <div>
-                    <h3 className="font-black text-white text-lg mb-1">{t.features[3].title}</h3>
-                    <p className="text-amber-200 text-sm leading-relaxed">{t.features[3].desc}</p>
+              {/* Bento grid — all uniform cards */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {t.features.map((feature, i) => (
+                  <div key={i} className={`bg-stone-800 border border-stone-700 rounded-2xl p-6 flex flex-col
+                    ${i === 3 ? 'col-span-2 lg:col-span-1 bg-amber-900/60 border-amber-800' : ''}`}>
+                    <span className="text-4xl mb-4" aria-hidden="true">{feature.emoji}</span>
+                    <h3 className="font-black text-white text-base mb-2 leading-snug">{feature.title}</h3>
+                    <p className="text-stone-400 text-sm leading-relaxed">{feature.desc}</p>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </section>
@@ -219,28 +204,29 @@ export default function Home() {
                     <Link
                       key={article.slug}
                       href={`/blog/${article.slug}`}
-                      className="group bg-stone-50 border border-stone-200 rounded-2xl overflow-hidden
-                        hover:border-amber-300 hover:shadow-md transition-all
+                      className="group bg-amber-50 border border-amber-100 rounded-2xl overflow-hidden
+                        hover:shadow-md transition-all
                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
                     >
-                      {/* Photo */}
-                      <div className="h-40 bg-amber-50 overflow-hidden">
+                      {/* Photo — 16:9 */}
+                      <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
                         <img
                           src={article.imageUrl}
                           alt={article.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
+                          onError={e => { e.currentTarget.src = 'https://placehold.co/800x450/fef3c7/92400e?text=KidSpark'; }}
                         />
                       </div>
                       <div className="p-5">
-                        <span className="text-xs font-black text-amber-700 uppercase tracking-wide">
+                        <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-2">
                           {article.category}
                         </span>
-                        <h3 className="font-black text-stone-900 text-sm leading-snug mt-1.5 mb-2
-                          group-hover:text-amber-800 transition-colors">
+                        <h3 className="font-black text-stone-900 text-sm leading-snug mb-2
+                          group-hover:text-amber-800 group-hover:underline transition-colors">
                           {article.title}
                         </h3>
-                        <span className="text-xs font-bold text-amber-700">{t.readMore}</span>
+                        <span className="text-xs font-bold text-amber-700 group-hover:underline">{t.readMore}</span>
                       </div>
                     </Link>
                   ))}

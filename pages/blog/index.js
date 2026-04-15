@@ -83,26 +83,33 @@ export default function BlogIndex() {
 
           {/* HERO */}
           <section className="bg-white border-b border-stone-100">
-            <div className="max-w-5xl mx-auto px-4 pt-12 pb-10">
+            <div className="max-w-5xl mx-auto px-4 pt-12 pb-10 text-center">
               <h1 className="text-4xl md:text-5xl font-black text-stone-900 mb-3 leading-tight">
                 {t.hero}
               </h1>
-              <p className="text-stone-500 text-lg max-w-xl">{t.subtitle}</p>
+              <p className="text-stone-500 text-lg max-w-xl mx-auto">{t.subtitle}</p>
             </div>
           </section>
 
-          {/* FILTERS */}
+          {/* FILTERS — gradient hint for horizontal scroll */}
           <section className="sticky top-[57px] z-40 bg-white border-b border-stone-100 shadow-sm">
-            <div className="max-w-5xl mx-auto px-4 py-3 overflow-x-auto">
-              <div className="flex gap-2 min-w-max" role="group" aria-label={lang === 'es' ? 'Filtrar por categoría' : 'Filter by category'}>
+            <div className="max-w-5xl mx-auto px-4 py-3 relative">
+              {/* Fade hint on right edge */}
+              <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" aria-hidden="true" />
+              <div
+                className="flex gap-2 overflow-x-auto pb-0.5"
+                role="group"
+                aria-label={lang === 'es' ? 'Filtrar por categoría' : 'Filter by category'}
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
                 <button
                   onClick={() => setActiveFilter('all')}
                   aria-pressed={activeFilter === 'all'}
-                  className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all whitespace-nowrap
+                  className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-bold transition-all
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700
                     ${activeFilter === 'all'
-                      ? 'bg-amber-800 text-white'
-                      : 'bg-stone-100 text-stone-600 hover:bg-amber-50 hover:text-amber-800'
+                      ? 'bg-amber-800 text-white shadow-sm'
+                      : 'bg-amber-50 text-stone-600 hover:bg-amber-100 hover:text-amber-800'
                     }`}
                 >
                   {t.filterAll}
@@ -112,16 +119,18 @@ export default function BlogIndex() {
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
                     aria-pressed={activeFilter === cat}
-                    className={`px-4 py-1.5 rounded-full text-sm font-bold transition-all whitespace-nowrap
+                    className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-bold transition-all
                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700
                       ${activeFilter === cat
-                        ? 'bg-amber-800 text-white'
-                        : 'bg-stone-100 text-stone-600 hover:bg-amber-50 hover:text-amber-800'
+                        ? 'bg-amber-800 text-white shadow-sm'
+                        : 'bg-amber-50 text-stone-600 hover:bg-amber-100 hover:text-amber-800'
                       }`}
                   >
                     {cat}
                   </button>
                 ))}
+                {/* Spacer so last item isn't behind the fade */}
+                <div className="flex-shrink-0 w-6" aria-hidden="true" />
               </div>
             </div>
           </section>
@@ -133,17 +142,18 @@ export default function BlogIndex() {
             {filtered[0] && (
               <Link
                 href={`/blog/${filtered[0].slug}`}
-                className="group block bg-stone-50 border border-stone-200 rounded-3xl overflow-hidden
-                  hover:border-amber-300 hover:shadow-lg transition-all mb-8
+                className="group block bg-amber-50 border border-amber-100 rounded-3xl overflow-hidden
+                  hover:shadow-lg transition-all mb-8
                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
               >
                 <div className="md:flex">
-                  <div className="md:w-80 flex-shrink-0 h-52 md:h-auto overflow-hidden bg-amber-50">
+                  <div className="md:w-80 flex-shrink-0 overflow-hidden" style={{ aspectRatio: '16/9' }}>
                     <img
                       src={filtered[0].imageUrl}
                       alt={filtered[0].title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="eager"
+                      onError={e => { e.currentTarget.src = 'https://placehold.co/800x450/fef3c7/92400e?text=KidSpark'; }}
                     />
                   </div>
                   <div className="p-7 flex flex-col justify-center">
@@ -173,27 +183,28 @@ export default function BlogIndex() {
                 <Link
                   key={article.slug}
                   href={`/blog/${article.slug}`}
-                  className="group bg-stone-50 border border-stone-200 rounded-2xl overflow-hidden
-                    hover:border-amber-300 hover:shadow-md transition-all
+                  className="group bg-amber-50 border border-amber-100 rounded-2xl overflow-hidden
+                    hover:shadow-md transition-all
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
                 >
-                  {/* Photo */}
-                  <div className="h-44 bg-amber-50 overflow-hidden">
+                  {/* Photo — 16:9 */}
+                  <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
                     <img
                       src={article.imageUrl}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
+                      onError={e => { e.currentTarget.src = 'https://placehold.co/800x450/fef3c7/92400e?text=KidSpark'; }}
                     />
                   </div>
                   <div className="p-5">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="bg-amber-50 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full border border-amber-200">
+                      <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full">
                         {article.category}
                       </span>
                       <span className="text-stone-400 text-xs">{article.readTime}</span>
                     </div>
-                    <h3 className="font-black text-stone-900 text-sm leading-snug mb-2 group-hover:text-amber-800 transition-colors">
+                    <h3 className="font-black text-stone-900 text-sm leading-snug mb-2 group-hover:text-amber-800 transition-colors group-hover:underline">
                       {article.title}
                     </h3>
                     <p className="text-stone-500 text-xs leading-relaxed line-clamp-2">
@@ -215,15 +226,15 @@ export default function BlogIndex() {
           </section>
 
           {/* CTA — full width */}
-          <section className="w-full bg-amber-800">
+          <section className="w-full bg-stone-900">
             <div className="max-w-2xl mx-auto px-4 py-16 text-center">
               <h2 className="text-2xl font-black text-white mb-2">{t.ctaTitle}</h2>
-              <p className="text-amber-200 mb-7 text-base">{t.ctaSub}</p>
+              <p className="text-stone-300 mb-7 text-base">{t.ctaSub}</p>
               <Link
                 href="/tool"
-                className="inline-block bg-white text-amber-900 font-bold px-8 py-3.5 rounded-full
-                  hover:bg-amber-50 transition-colors shadow-md
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-amber-800"
+                className="inline-block bg-amber-400 text-stone-900 font-bold px-8 py-3.5 rounded-full
+                  hover:bg-amber-300 transition-colors shadow-md
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-900"
               >
                 {t.ctaBtn}
               </Link>

@@ -348,7 +348,6 @@ export default function Tool() {
               {/* Segmented control — pill style, warm brown */}
               <div className="flex bg-amber-100 rounded-full p-1 mb-5 gap-1" role="tablist">
                 {t.categoryGroups.map((group, gi) => {
-                  const icons = ['🎡', '📚'];
                   const isActive = catGroup === gi;
                   return (
                     <button
@@ -356,7 +355,7 @@ export default function Tool() {
                       role="tab"
                       aria-selected={isActive}
                       onClick={() => { setCatGroup(gi); setCatItem(0); setActivity(null); }}
-                      className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full
+                      className={`flex-1 py-2.5 px-4 rounded-full
                         font-bold text-sm transition-all duration-200
                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2
                         ${isActive
@@ -364,8 +363,7 @@ export default function Tool() {
                           : 'text-stone-600 hover:text-amber-900'
                         }`}
                     >
-                      <span aria-hidden="true">{icons[gi]}</span>
-                      <span>{group.groupLabel}</span>
+                      {group.groupLabel}
                     </button>
                   );
                 })}
@@ -421,7 +419,7 @@ export default function Tool() {
               onClick={generateActivity}
               disabled={loading || loadingPdf}
               aria-busy={loading}
-              className="w-full py-5 rounded-full text-xl font-black text-white shadow-lg
+              className="w-full py-3.5 rounded-full text-base font-black text-white shadow-lg
                 bg-amber-800 hover:bg-amber-900
                 active:scale-95 transition-all duration-200
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-700
@@ -443,7 +441,7 @@ export default function Tool() {
               disabled={!isEducation || loading || loadingPdf}
               aria-busy={loadingPdf}
               aria-disabled={!isEducation}
-              className={`w-full py-5 rounded-full text-xl font-black transition-all duration-200
+              className={`w-full py-3.5 rounded-full text-base font-black transition-all duration-200
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
                 active:scale-95
                 ${isEducation

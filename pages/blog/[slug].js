@@ -130,13 +130,14 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
             </Link>
           </nav>
 
-          {/* Hero image */}
-          <div className="w-full h-64 md:h-80 rounded-3xl overflow-hidden bg-amber-50 mb-8">
+          {/* Hero image — 16:9 */}
+          <div className="w-full rounded-3xl overflow-hidden bg-amber-50 mb-8" style={{ aspectRatio: '16/9' }}>
             <img
-              src={article.imageUrl}
+              src={article.heroImageUrl || article.imageUrl}
               alt={article.title}
               className="w-full h-full object-cover"
               loading="eager"
+              onError={e => { e.currentTarget.src = 'https://placehold.co/1200x675/fef3c7/92400e?text=KidSpark'; }}
             />
           </div>
 
@@ -191,12 +192,13 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
                       hover:border-amber-300 hover:shadow-md transition-all
                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
                   >
-                    <div className="h-28 bg-amber-50 overflow-hidden">
+                    <div className="w-full overflow-hidden bg-amber-50" style={{ aspectRatio: '16/9' }}>
                       <img
                         src={rel.imageUrl}
                         alt={rel.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        onError={e => { e.currentTarget.src = 'https://placehold.co/800x450/fef3c7/92400e?text=KidSpark'; }}
                       />
                     </div>
                     <div className="p-4">

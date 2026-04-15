@@ -70,7 +70,7 @@ export const articles = [
 
   {
     slug: 'yoga-for-kids',
-    category: { es: 'Yoga', en: 'Yoga' },
+    category: { es: 'Bienestar', en: 'Wellness' },
     date: '2026-03-25',
     readTime: '7 min',
     imagePrompt: 'young girl doing tree pose yoga in sunny living room, calm focused expression, natural light through window',
@@ -130,7 +130,7 @@ export const articles = [
 
   {
     slug: 'cooking-with-kids',
-    category: { es: 'Cocina', en: 'Cooking' },
+    category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-05',
     readTime: '6 min',
     imagePrompt: 'parent and child baking cookies together in kitchen, flour on hands, laughing, warm morning light, cozy home',
@@ -160,7 +160,7 @@ export const articles = [
 
   {
     slug: 'science-experiments-home',
-    category: { es: 'Ciencias', en: 'Science' },
+    category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-08',
     readTime: '5 min',
     imagePrompt: 'excited child watching baking soda volcano eruption in kitchen, science experiment, parent watching nearby, colorful',
@@ -186,7 +186,7 @@ export const articles = [
 
   {
     slug: 'building-reading-habit',
-    category: { es: 'Lectura', en: 'Reading' },
+    category: { es: 'Educación', en: 'Education' },
     date: '2026-04-09',
     readTime: '7 min',
     imagePrompt: 'mother reading picture book to young child on cozy sofa, warm lamp light, evening, soft blanket, peaceful',
@@ -216,7 +216,7 @@ export const articles = [
 
   {
     slug: 'outdoor-nature-activities',
-    category: { es: 'Naturaleza', en: 'Nature' },
+    category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-10',
     readTime: '6 min',
     imagePrompt: 'children playing and exploring in forest, sunlight through trees, muddy boots, discovering nature, joyful',
@@ -242,7 +242,7 @@ export const articles = [
 
   {
     slug: 'screen-free-games',
-    category: { es: 'Juegos', en: 'Games' },
+    category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-04-11',
     readTime: '5 min',
     imagePrompt: 'family playing board game at dining table, all ages, laughing and excited, evening warm light, cozy home',
@@ -272,7 +272,7 @@ export const articles = [
 
   {
     slug: 'learning-languages-young',
-    category: { es: 'Idiomas', en: 'Languages' },
+    category: { es: 'Educación', en: 'Education' },
     date: '2026-04-12',
     readTime: '8 min',
     imagePrompt: 'parent and child looking at colorful language flashcards together, smiling, bright study space, natural light',
@@ -324,7 +324,7 @@ export const articles = [
 
   {
     slug: 'music-movement-kids',
-    category: { es: 'Música', en: 'Music' },
+    category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-03-18',
     readTime: '5 min',
     imagePrompt: 'child happily playing xylophone or small keyboard, colorful music instruments around, sunny room, joyful expression',
@@ -410,7 +410,7 @@ export const articles = [
 
   {
     slug: 'stem-activities-home',
-    category: { es: 'Ciencias', en: 'STEM' },
+    category: { es: 'Educación', en: 'Education' },
     date: '2026-03-30',
     readTime: '6 min',
     imagePrompt: 'child building colorful block tower or LEGO construction, concentrated focused expression, bright room, engineering mindset',
@@ -440,7 +440,7 @@ export const articles = [
 
   {
     slug: 'gardening-with-kids',
-    category: { es: 'Naturaleza', en: 'Nature' },
+    category: { es: 'Explorar', en: 'Explore' },
     date: '2026-04-03',
     readTime: '5 min',
     imagePrompt: 'child watering small plants in garden with tiny watering can, dirty hands, proud smile, sunny afternoon, green plants',
@@ -589,13 +589,77 @@ export const articles = [
   },
 ];
 
+  {
+    slug: 'paper-crafts-origami',
+    category: { es: 'Manualidades', en: 'Crafts' },
+    date: '2026-03-12',
+    readTime: '5 min',
+    imagePrompt: 'child carefully folding colorful origami paper, small hands, cozy home, focused expression, bright natural light',
+    es: {
+      title: 'Origami para niños: beneficios y las 5 figuras más fáciles para empezar',
+      excerpt: 'El origami desarrolla concentración, motricidad fina y geometría espacial. Solo necesitas papel y ganas de explorar. Estas figuras sencillas son perfectas para empezar.',
+      content: [
+        { type: 'intro', text: 'El origami es una de las actividades más completas para niños: sin tijeras, sin pegamento, solo papel y paciencia. Y los beneficios van mucho más allá de las figuras bonitas.' },
+        { type: 'h2', text: 'Por qué el origami es tan valioso' },
+        { type: 'list', items: ['✋ Desarrolla la motricidad fina y la precisión manual', '🧠 Trabaja la geometría espacial de forma práctica', '😌 Mejora la concentración y la paciencia', '🎁 Las creaciones son regalos perfectos', '📐 Introduce simetría, fracciones y ángulos de forma natural'] },
+        { type: 'h2', text: '5 figuras perfectas para empezar' },
+        { type: 'list', items: ['🐦 **Pajarita** — la figura clásica, perfecta desde los 6 años', '🐸 **Rana saltadora** — favorita de los niños, ¡salta de verdad!', '🚢 **Barco** — solo 3 dobleces, ideal para los más pequeños', '💌 **Sobre de carta** — funcional y elegante, desde los 5 años', '🦊 **Zorro** — sencillo y reconocible, muy satisfactorio de hacer'] },
+      ],
+    },
+    en: {
+      title: 'Origami for kids: benefits and the 5 easiest folds to start with',
+      excerpt: 'Origami develops concentration, fine motor skills, and spatial geometry. All you need is paper and curiosity. These simple figures are perfect for beginners.',
+      content: [
+        { type: 'intro', text: "Origami is one of the most complete activities for children: no scissors, no glue, just paper and patience. And the benefits go far beyond the pretty figures." },
+        { type: 'h2', text: 'Why origami is so valuable' },
+        { type: 'list', items: ['✋ Develops fine motor skills and manual precision', '🧠 Practices spatial geometry hands-on', '😌 Improves concentration and patience', '🎁 Creations make perfect gifts', '📐 Introduces symmetry, fractions, and angles naturally'] },
+        { type: 'h2', text: '5 perfect figures to start with' },
+        { type: 'list', items: ['🐦 **Paper crane** — the classic, perfect from age 6', '🐸 **Jumping frog** — a favourite, it really jumps!', '🚢 **Boat** — just 3 folds, ideal for little ones', '💌 **Envelope** — functional and elegant, from age 5', '🦊 **Fox** — simple and recognizable, very satisfying to make'] },
+      ],
+    },
+  },
+
+  {
+    slug: 'active-play-movement',
+    category: { es: 'Bienestar', en: 'Wellness' },
+    date: '2026-03-05',
+    readTime: '5 min',
+    imagePrompt: 'children running and jumping joyfully in sunny park, colorful clothes, laughing, active outdoor play, energetic movement',
+    es: {
+      title: 'Juego activo para niños: por qué el movimiento importa tanto como el estudio',
+      excerpt: 'El juego activo no es solo quemar energía: desarrolla el sistema nervioso, mejora el aprendizaje y fortalece la salud mental de los niños. Ideas para cada día.',
+      content: [
+        { type: 'intro', text: 'La OMS recomienda al menos 60 minutos de actividad física al día para niños de 5 a 17 años. No hace falta ir al gimnasio: el juego activo en casa o el parque es igual de eficaz.' },
+        { type: 'h2', text: 'Beneficios del juego activo' },
+        { type: 'list', items: ['🧠 Mejora la concentración y la memoria — el ejercicio activa la proteína del aprendizaje', '😴 Regula el sueño y reduce la hiperactividad', '💪 Fortalece músculos, huesos y sistema cardiovascular', '😊 Reduce la ansiedad y mejora el estado de ánimo', '🤝 Desarrolla habilidades sociales al jugar en grupo'] },
+        { type: 'h2', text: 'Ideas para cada día' },
+        { type: 'list', items: ['🏃 **Circuito de obstáculos** — sillas, cojines y túneles de mantas', '🎯 **Tiro al blanco** — pelotas blandas y dianas de papel', '💃 **Flash dance** — pausa de baile de 5 minutos', '🏐 **Catch en el pasillo** — una pelota blanda y espacio libre', '🧗 **Montaña de cojines** — escalar y saltar sin salir de casa'] },
+      ],
+    },
+    en: {
+      title: 'Active play for kids: why movement matters as much as studying',
+      excerpt: "Active play is not just about burning energy: it develops the nervous system, improves learning, and strengthens children's mental health. Ideas for every day.",
+      content: [
+        { type: 'intro', text: "The WHO recommends at least 60 minutes of physical activity per day for children aged 5–17. No gym needed: active play at home or in the park is just as effective." },
+        { type: 'h2', text: 'Benefits of active play' },
+        { type: 'list', items: ['🧠 Improves concentration and memory — exercise activates the learning protein', '😴 Regulates sleep and reduces hyperactivity', '💪 Strengthens muscles, bones, and cardiovascular system', '😊 Reduces anxiety and improves mood', '🤝 Develops social skills when playing in groups'] },
+        { type: 'h2', text: 'Ideas for every day' },
+        { type: 'list', items: ['🏃 **Indoor obstacle course** — chairs, cushions, blanket tunnels', '🎯 **Target practice** — soft balls and paper targets', '💃 **Flash dance** — 5-minute dance break', '🏐 **Hallway catch** — soft ball and open space', '🧗 **Cushion mountain** — climb and jump without leaving home'] },
+      ],
+    },
+  },
+
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 
 export function getArticleInLang(article, lang = 'es') {
   const content = article[lang] || article.es;
-  const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(
-    article.imagePrompt + ', real photograph, warm natural lighting, lifestyle editorial photography, no text no logos no watermark'
-  )}?width=800&height=520&nologo=true`;
+  const seed = article.slug.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % 9999;
+  const basePrompt = encodeURIComponent(
+    article.imagePrompt + ', real photograph, vibrant warm colors, golden natural light, lifestyle editorial photography, no text no logos no watermark'
+  );
+
+  const imageUrl     = `https://image.pollinations.ai/prompt/${basePrompt}?width=800&height=450&nologo=true&seed=${seed}`;
+  const heroImageUrl = `https://image.pollinations.ai/prompt/${basePrompt}?width=1200&height=675&nologo=true&seed=${seed}`;
 
   return {
     slug: article.slug,
@@ -603,6 +667,7 @@ export function getArticleInLang(article, lang = 'es') {
     date: article.date,
     readTime: article.readTime,
     imageUrl,
+    heroImageUrl,
     ...content,
   };
 }
