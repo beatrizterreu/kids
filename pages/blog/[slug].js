@@ -215,10 +215,12 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
         </main>
 
         <footer className="bg-white border-t border-stone-100 py-8 text-center text-stone-400 text-sm">
-          <nav className="flex justify-center gap-6 mb-2">
+          <nav className="flex justify-center gap-4 mb-2 flex-wrap">
             <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
             <Link href="/tool" className="hover:text-amber-800 transition-colors">{isEs ? 'Generador' : 'Generator'}</Link>
             <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-amber-800 transition-colors">{isEs ? 'Sobre nosotros' : 'About'}</Link>
+            <Link href="/privacy" className="hover:text-amber-800 transition-colors">{isEs ? 'Privacidad' : 'Privacy'}</Link>
           </nav>
           <p>{copy.footerCredits}</p>
         </footer>
