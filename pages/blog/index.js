@@ -153,7 +153,14 @@ export default function BlogIndex() {
                       alt={filtered[0].title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="eager"
-                      onError={e => { e.currentTarget.src = 'https://placehold.co/800x450/fef3c7/92400e?text=KidSpark'; }}
+                      onError={e => {
+                        if (!e.currentTarget.dataset.tried) {
+                          e.currentTarget.dataset.tried = '1';
+                          e.currentTarget.src = filtered[0].pollinationsCard;
+                        } else {
+                          e.currentTarget.src = 'https://placehold.co/800x450/d1fae5/065f46?text=KidSpark';
+                        }
+                      }}
                     />
                   </div>
                   <div className="p-7 flex flex-col justify-center">
@@ -194,7 +201,14 @@ export default function BlogIndex() {
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
-                      onError={e => { e.currentTarget.src = 'https://placehold.co/800x450/fef3c7/92400e?text=KidSpark'; }}
+                      onError={e => {
+                        if (!e.currentTarget.dataset.tried) {
+                          e.currentTarget.dataset.tried = '1';
+                          e.currentTarget.src = article.pollinationsCard;
+                        } else {
+                          e.currentTarget.src = 'https://placehold.co/800x450/d1fae5/065f46?text=KidSpark';
+                        }
+                      }}
                     />
                   </div>
                   <div className="p-5">

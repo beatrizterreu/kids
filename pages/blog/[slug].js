@@ -82,6 +82,8 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
     toolDesc: isEs ? 'Genera actividades personalizadas para tus hijos en segundos, gratis.' : 'Generate personalized activities for your kids in seconds, free.',
     toolBtn: isEs ? 'Probar el generador →' : 'Try the generator →',
     footerCredits: isEs ? 'Hecho con ❤️ para padres creativos' : 'Made with ❤️ for creative parents',
+    socialBtn: isEs ? '📲 Descargar imagen para redes' : '📲 Download image for social media',
+    socialDesc: isEs ? 'Imagen cuadrada 1080×1080 lista para Instagram y Facebook.' : 'Square 1080×1080 image ready for Instagram and Facebook.',
   };
 
   return (
@@ -133,11 +135,18 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
           {/* Hero image — 16:9 */}
           <div className="w-full rounded-3xl overflow-hidden bg-teal-50 mb-8" style={{ aspectRatio: '16/9' }}>
             <img
-              src={article.heroImageUrl || article.imageUrl}
+              src={article.heroImageUrl}
               alt={article.title}
               className="w-full h-full object-cover"
               loading="eager"
-              onError={e => { e.currentTarget.src = 'https://placehold.co/1200x675/fef3c7/92400e?text=KidSpark'; }}
+              onError={e => {
+                if (!e.currentTarget.dataset.tried) {
+                  e.currentTarget.dataset.tried = '1';
+                  e.currentTarget.src = article.pollinationsHero;
+                } else {
+                  e.currentTarget.src = 'https://placehold.co/1200x675/d1fae5/065f46?text=KidSpark';
+                }
+              }}
             />
           </div>
 
@@ -179,6 +188,36 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
             </Link>
           </div>
 
+          {/* Social media image download */}
+          {article.socialImageUrl && (
+            <div className="mt-6 border border-stone-200 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-5">
+              <div className="w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden bg-teal-50">
+                <img
+                  src={article.socialImageUrl}
+                  alt=""
+                  aria-hidden="true"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  onError={e => { e.currentTarget.style.display = 'none'; }}
+                />
+              </div>
+              <div className="flex-1 text-center sm:text-left">
+                <p className="font-black text-stone-900 text-sm mb-1">{copy.socialBtn}</p>
+                <p className="text-stone-500 text-xs">{copy.socialDesc}</p>
+              </div>
+              <a
+                href={article.socialImageUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 bg-stone-900 text-white text-sm font-bold px-6 py-2.5 rounded-full
+                  hover:bg-stone-700 transition-colors
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-700 focus-visible:ring-offset-2"
+              >
+                {isEs ? 'Abrir imagen →' : 'Open image →'}
+              </a>
+            </div>
+          )}
+
           {/* Related */}
           {related.length > 0 && (
             <section className="mt-14" aria-label={copy.relatedTitle}>
@@ -198,7 +237,14 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
                         alt={rel.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
-                        onError={e => { e.currentTarget.src = 'https://placehold.co/800x450/fef3c7/92400e?text=KidSpark'; }}
+                        onError={e => {
+                          if (!e.currentTarget.dataset.tried) {
+                            e.currentTarget.dataset.tried = '1';
+                            e.currentTarget.src = rel.pollinationsCard;
+                          } else {
+                            e.currentTarget.src = 'https://placehold.co/800x450/d1fae5/065f46?text=KidSpark';
+                          }
+                        }}
                       />
                     </div>
                     <div className="p-4">

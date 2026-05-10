@@ -794,12 +794,22 @@ export const articles = [
 export function getArticleInLang(article, lang = 'es') {
   const content = article[lang] || article.es;
   const seed = article.slug.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0) % 9999;
-  const basePrompt = encodeURIComponent(
-    article.imagePrompt + ', professional product photography, vibrant saturated colors, bright natural light, sharp focus, no people, no faces, no text, no logos, no watermarks, clean background'
-  );
 
-  const imageUrl     = `https://image.pollinations.ai/prompt/${basePrompt}?width=800&height=450&nologo=true&seed=${seed}`;
-  const heroImageUrl = `https://image.pollinations.ai/prompt/${basePrompt}?width=1200&height=675&nologo=true&seed=${seed}`;
+  const baseSuffix   = ', professional product photography, vibrant saturated colors, bright natural light, sharp focus, no people, no faces, no text, no logos, no watermarks, clean background';
+  const socialSuffix = ', flat lay photography, vivid colors, high contrast, white clean background, Instagram editorial style, sharp focus, no people, no faces, no text, no logos';
+
+  const basePrompt   = encodeURIComponent(article.imagePrompt + baseSuffix);
+  const socialPrompt = encodeURIComponent(article.imagePrompt + socialSuffix);
+
+  // Prefer local pre-generated images; fall back to Pollinations if not downloaded yet
+  const imageUrl       = `/images/articles/${article.slug}-card.jpg`;
+  const heroImageUrl   = `/images/articles/${article.slug}-hero.jpg`;
+  const socialImageUrl = `/images/articles/${article.slug}-social.jpg`;
+
+  // Pollinations fallback URLs (used in onError handlers in JSX)
+  const pollinationsCard   = `https://image.pollinations.ai/prompt/${basePrompt}?width=800&height=450&nologo=true&seed=${seed}`;
+  const pollinationsHero   = `https://image.pollinations.ai/prompt/${basePrompt}?width=1200&height=675&nologo=true&seed=${seed}`;
+  const pollinationsSocial = `https://image.pollinations.ai/prompt/${socialPrompt}?width=1080&height=1080&nologo=true&seed=${seed + 1}`;
 
   return {
     slug: article.slug,
@@ -808,6 +818,10 @@ export function getArticleInLang(article, lang = 'es') {
     readTime: article.readTime,
     imageUrl,
     heroImageUrl,
+    socialImageUrl,
+    pollinationsCard,
+    pollinationsHero,
+    pollinationsSocial,
     ...content,
   };
 }
