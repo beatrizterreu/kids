@@ -13,6 +13,7 @@ export const articles = [
     category: { es: 'Ocio', en: 'Leisure' },
     date: '2026-03-15',
     readTime: '5 min',
+    imagePosition: 'center 65%',
     imagePrompt: 'colorful craft supplies flatlay on wooden table, paint pots, cardboard, scissors, glue stick, paper rolls, rainy window in background, cozy kitchen, top-down view',
     es: {
       title: '15 actividades para días de lluvia sin pantallas',
@@ -816,6 +817,7 @@ export function getArticleInLang(article, lang = 'es') {
     category: article.category[lang] || article.category.es,
     date: article.date,
     readTime: article.readTime,
+    imagePosition: article.imagePosition || 'center center',
     imageUrl,
     heroImageUrl,
     socialImageUrl,

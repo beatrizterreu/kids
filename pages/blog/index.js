@@ -152,6 +152,7 @@ export default function BlogIndex() {
                       src={filtered[0].imageUrl}
                       alt={filtered[0].title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={{ objectPosition: filtered[0].imagePosition || 'center center' }}
                       loading="eager"
                       onError={e => {
                         if (!e.currentTarget.dataset.tried) {
@@ -200,6 +201,7 @@ export default function BlogIndex() {
                       src={article.imageUrl}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      style={{ objectPosition: article.imagePosition || 'center center' }}
                       loading="lazy"
                       onError={e => {
                         if (!e.currentTarget.dataset.tried) {

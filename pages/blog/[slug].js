@@ -138,6 +138,7 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
               src={article.heroImageUrl}
               alt={article.title}
               className="w-full h-full object-cover"
+              style={{ objectPosition: article.imagePosition || 'center center' }}
               loading="eager"
               onError={e => {
                 if (!e.currentTarget.dataset.tried) {
@@ -162,7 +163,7 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
               {article.title}
             </h1>
             <p className="text-stone-400 text-sm">
-              {new Date(article.date).toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', {
+              {new Date(article.date + 'T12:00:00').toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', {
                 year: 'numeric', month: 'long', day: 'numeric'
               })}
             </p>
