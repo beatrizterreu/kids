@@ -37,7 +37,7 @@ function renderBlock(block, index) {
   switch (block.type) {
     case 'intro':
       return (
-        <p key={index} className="text-xl text-stone-700 leading-relaxed font-medium border-l-4 border-amber-600 pl-5 py-1 my-6">
+        <p key={index} className="text-xl text-stone-700 leading-relaxed font-medium border-l-4 border-teal-600 pl-5 py-1 my-6">
           {block.text}
         </p>
       );
@@ -56,7 +56,7 @@ function renderBlock(block, index) {
         <ul key={index} className="my-4 space-y-3">
           {block.items.map((item, i) => (
             <li key={i} className="flex gap-3 items-start text-stone-700 leading-relaxed">
-              <span className="text-amber-700 mt-1 flex-shrink-0">—</span>
+              <span className="text-teal-700 mt-1 flex-shrink-0">—</span>
               <span>{parseBold(item)}</span>
             </li>
           ))}
@@ -113,7 +113,7 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
 
       <a href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50
-          focus:px-4 focus:py-2 focus:bg-amber-800 focus:text-white focus:rounded-lg focus:font-bold">
+          focus:px-4 focus:py-2 focus:bg-teal-800 focus:text-white focus:rounded-lg focus:font-bold">
         Skip to content
       </a>
 
@@ -125,13 +125,13 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
           {/* Breadcrumb */}
           <nav aria-label="breadcrumb" className="mb-8">
             <Link href="/blog"
-              className="text-sm text-amber-700 font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 rounded">
+              className="text-sm text-teal-700 font-bold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 rounded">
               {copy.back}
             </Link>
           </nav>
 
           {/* Hero image — 16:9 */}
-          <div className="w-full rounded-3xl overflow-hidden bg-amber-50 mb-8" style={{ aspectRatio: '16/9' }}>
+          <div className="w-full rounded-3xl overflow-hidden bg-teal-50 mb-8" style={{ aspectRatio: '16/9' }}>
             <img
               src={article.heroImageUrl || article.imageUrl}
               alt={article.title}
@@ -144,7 +144,7 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
           {/* Article header */}
           <header className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <span className="bg-amber-100 text-amber-800 text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wide">
+              <span className="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1.5 rounded-full uppercase tracking-wide">
                 {article.category}
               </span>
               <span className="text-stone-400 text-sm">{copy.readTime}</span>
@@ -159,7 +159,7 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
             </p>
           </header>
 
-          <div className="border-t-2 border-amber-100 mb-8" />
+          <div className="border-t-2 border-teal-100 mb-8" />
 
           {/* Body */}
           <article>
@@ -167,13 +167,13 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
           </article>
 
           {/* CTA box */}
-          <div className="mt-14 bg-amber-50 border border-amber-200 rounded-3xl p-8 text-center">
+          <div className="mt-14 bg-teal-50 border border-teal-200 rounded-3xl p-8 text-center">
             <p className="text-stone-600 mb-5">{copy.toolDesc}</p>
             <Link
               href="/tool"
-              className="inline-block bg-amber-800 text-white font-bold px-8 py-3.5 rounded-full
-                hover:bg-amber-900 transition-colors shadow-md
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2"
+              className="inline-block bg-teal-800 text-white font-bold px-8 py-3.5 rounded-full
+                hover:bg-teal-900 transition-colors shadow-md
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2"
             >
               {copy.toolBtn}
             </Link>
@@ -189,10 +189,10 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
                     key={rel.slug}
                     href={`/blog/${rel.slug}`}
                     className="group bg-stone-50 border border-stone-200 rounded-2xl overflow-hidden
-                      hover:border-amber-300 hover:shadow-md transition-all
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
+                      hover:border-teal-300 hover:shadow-md transition-all
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700"
                   >
-                    <div className="w-full overflow-hidden bg-amber-50" style={{ aspectRatio: '16/9' }}>
+                    <div className="w-full overflow-hidden bg-teal-50" style={{ aspectRatio: '16/9' }}>
                       <img
                         src={rel.imageUrl}
                         alt={rel.title}
@@ -202,7 +202,7 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="text-sm font-black text-stone-900 leading-snug group-hover:text-amber-800 transition-colors">
+                      <h3 className="text-sm font-black text-stone-900 leading-snug group-hover:text-teal-800 transition-colors">
                         {rel.title}
                       </h3>
                       <p className="text-xs text-stone-400 mt-1">{rel.readTime}</p>
@@ -216,11 +216,11 @@ export default function ArticlePage({ rawArticle, relatedRaw }) {
 
         <footer className="bg-white border-t border-stone-100 py-8 text-center text-stone-400 text-sm">
           <nav className="flex justify-center gap-4 mb-2 flex-wrap">
-            <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
-            <Link href="/tool" className="hover:text-amber-800 transition-colors">{isEs ? 'Generador' : 'Generator'}</Link>
-            <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-amber-800 transition-colors">{isEs ? 'Sobre nosotros' : 'About'}</Link>
-            <Link href="/privacy" className="hover:text-amber-800 transition-colors">{isEs ? 'Privacidad' : 'Privacy'}</Link>
+            <Link href="/" className="hover:text-teal-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
+            <Link href="/tool" className="hover:text-teal-800 transition-colors">{isEs ? 'Generador' : 'Generator'}</Link>
+            <Link href="/blog" className="hover:text-teal-800 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-teal-800 transition-colors">{isEs ? 'Sobre nosotros' : 'About'}</Link>
+            <Link href="/privacy" className="hover:text-teal-800 transition-colors">{isEs ? 'Privacidad' : 'Privacy'}</Link>
           </nav>
           <p>{copy.footerCredits}</p>
         </footer>

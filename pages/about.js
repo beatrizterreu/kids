@@ -95,7 +95,7 @@ export default function About() {
           <section className="mb-12">
             <div className="grid sm:grid-cols-2 gap-4">
               {t.values.map((v, i) => (
-                <div key={i} className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
+                <div key={i} className="bg-teal-50 border border-teal-100 rounded-2xl p-5">
                   <span className="text-3xl block mb-3" aria-hidden="true">{v.emoji}</span>
                   <h3 className="font-black text-stone-900 text-base mb-1">{v.title}</h3>
                   <p className="text-stone-600 text-sm leading-relaxed">{v.desc}</p>
@@ -110,8 +110,8 @@ export default function About() {
             <p className="text-stone-600 text-sm mb-2">{t.contact.p}</p>
             <a
               href={`mailto:${t.contact.email}`}
-              className="text-amber-700 font-bold hover:underline text-sm
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 rounded"
+              className="text-teal-700 font-bold hover:underline text-sm
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 rounded"
             >
               {t.contact.email}
             </a>
@@ -126,15 +126,15 @@ export default function About() {
           {/* CTA */}
           <Link
             href="/tool"
-            className="inline-block bg-amber-800 text-white font-bold px-8 py-3.5 rounded-full
-              hover:bg-amber-900 transition-colors shadow-md mb-8
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2"
+            className="inline-block bg-teal-800 text-white font-bold px-8 py-3.5 rounded-full
+              hover:bg-teal-900 transition-colors shadow-md mb-8
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2"
           >
             {t.cta}
           </Link>
 
           <div className="mt-4">
-            <Link href="/" className="text-amber-700 font-bold hover:underline text-sm">
+            <Link href="/" className="text-teal-700 font-bold hover:underline text-sm">
               {t.back}
             </Link>
           </div>
@@ -142,11 +142,11 @@ export default function About() {
 
         <footer className="border-t border-stone-100 py-8 text-center text-stone-400 text-sm">
           <nav className="flex justify-center gap-6 mb-2 flex-wrap">
-            <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
-            <Link href="/tool" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
-            <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
-            <Link href="/privacy" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
+            <Link href="/" className="hover:text-teal-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
+            <Link href="/tool" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
+            <Link href="/blog" className="hover:text-teal-800 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
+            <Link href="/privacy" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
           </nav>
         </footer>
       </div>

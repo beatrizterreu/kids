@@ -125,7 +125,7 @@ export default function Privacy() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-stone-100">
-            <Link href="/" className="text-amber-700 font-bold hover:underline text-sm">
+            <Link href="/" className="text-teal-700 font-bold hover:underline text-sm">
               ← {lang === 'es' ? 'Volver al inicio' : 'Back to home'}
             </Link>
           </div>
@@ -133,11 +133,11 @@ export default function Privacy() {
 
         <footer className="border-t border-stone-100 py-8 text-center text-stone-400 text-sm">
           <nav className="flex justify-center gap-6 mb-2">
-            <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
-            <Link href="/tool" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
-            <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
-            <Link href="/privacy" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
+            <Link href="/" className="hover:text-teal-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
+            <Link href="/tool" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
+            <Link href="/blog" className="hover:text-teal-800 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
+            <Link href="/privacy" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
           </nav>
         </footer>
       </div>

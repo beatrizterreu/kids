@@ -98,7 +98,7 @@ export default function Home() {
 
       <a href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50
-          focus:px-4 focus:py-2 focus:bg-amber-800 focus:text-white focus:rounded-lg focus:font-bold">
+          focus:px-4 focus:py-2 focus:bg-teal-800 focus:text-white focus:rounded-lg focus:font-bold">
         Saltar al contenido
       </a>
 
@@ -112,16 +112,16 @@ export default function Home() {
             <div className="max-w-3xl mx-auto px-4 pt-20 pb-16 text-center">
               <h1 className="text-5xl md:text-6xl font-black text-stone-900 leading-tight mb-5 whitespace-nowrap">
                 <span className="block">{t.heroLine1}</span>
-                <span className="block text-amber-800">{t.heroLine2}</span>
+                <span className="block text-teal-800">{t.heroLine2}</span>
               </h1>
               <p className="text-lg text-stone-500 mb-1">{t.heroSub1}</p>
               <p className="text-lg text-stone-500 mb-5">{t.heroSub2}</p>
 
               <Link
                 href="/tool"
-                className="inline-block bg-amber-800 text-white font-bold text-lg px-8 py-3.5 rounded-full
-                  hover:bg-amber-900 active:scale-95 transition-all shadow-md
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2"
+                className="inline-block bg-teal-800 text-white font-bold text-lg px-8 py-3.5 rounded-full
+                  hover:bg-teal-900 active:scale-95 transition-all shadow-md
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2"
               >
                 {t.ctaBtn}
               </Link>
@@ -136,7 +136,7 @@ export default function Home() {
               <div className="flex flex-col md:flex-row gap-10 items-center">
                 {/* Creative flatlay photo — bigger */}
                 <div className="flex-shrink-0 w-full md:w-80 lg:w-96">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-amber-50 aspect-[3/4]">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-teal-50 aspect-[3/4]">
                     <img
                       src={appImgUrl()}
                       alt={t.appAlt}
@@ -153,7 +153,7 @@ export default function Home() {
                   <div className="space-y-6">
                     {t.steps.map((step) => (
                       <div key={step.n} className="flex gap-5 items-start">
-                        <span className="flex-shrink-0 text-3xl font-black text-amber-200 w-12 text-right leading-none pt-1">
+                        <span className="flex-shrink-0 text-3xl font-black text-teal-200 w-12 text-right leading-none pt-1">
                           {step.n}
                         </span>
                         <div>
@@ -177,7 +177,7 @@ export default function Home() {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {t.features.map((feature, i) => (
                   <div key={i} className={`bg-stone-800 border border-stone-700 rounded-2xl p-6 flex flex-col
-                    ${i === 3 ? 'col-span-2 lg:col-span-1 bg-amber-900/60 border-amber-800' : ''}`}>
+                    ${i === 3 ? 'col-span-2 lg:col-span-1 bg-teal-900/60 border-teal-800' : ''}`}>
                     <span className="text-4xl mb-4" aria-hidden="true">{feature.emoji}</span>
                     <h3 className="font-black text-white text-base mb-2 leading-snug">{feature.title}</h3>
                     <p className="text-stone-400 text-sm leading-relaxed">{feature.desc}</p>
@@ -194,8 +194,8 @@ export default function Home() {
                 <div className="flex justify-between items-baseline mb-10">
                   <h2 className="text-3xl font-black text-stone-900">{t.blogTitle}</h2>
                   <Link href="/blog"
-                    className="text-amber-700 font-bold text-sm hover:underline
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 rounded">
+                    className="text-teal-700 font-bold text-sm hover:underline
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 rounded">
                     {t.blogCta}
                   </Link>
                 </div>
@@ -204,9 +204,9 @@ export default function Home() {
                     <Link
                       key={article.slug}
                       href={`/blog/${article.slug}`}
-                      className="group bg-amber-50 border border-amber-100 rounded-2xl overflow-hidden
+                      className="group bg-teal-50 border border-teal-100 rounded-2xl overflow-hidden
                         hover:shadow-md transition-all
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
+                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700"
                     >
                       {/* Photo — 16:9 */}
                       <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
@@ -219,14 +219,14 @@ export default function Home() {
                         />
                       </div>
                       <div className="p-5">
-                        <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-2">
+                        <span className="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-2">
                           {article.category}
                         </span>
                         <h3 className="font-black text-stone-900 text-sm leading-snug mb-2
-                          group-hover:text-amber-800 group-hover:underline transition-colors">
+                          group-hover:text-teal-800 group-hover:underline transition-colors">
                           {article.title}
                         </h3>
-                        <span className="text-xs font-bold text-amber-700 group-hover:underline">{t.readMore}</span>
+                        <span className="text-xs font-bold text-teal-700 group-hover:underline">{t.readMore}</span>
                       </div>
                     </Link>
                   ))}
@@ -242,9 +242,9 @@ export default function Home() {
               <p className="text-stone-400 mb-8">{t.finalSub}</p>
               <Link
                 href="/tool"
-                className="inline-block bg-amber-600 text-white font-bold text-lg px-8 py-3.5 rounded-full
-                  hover:bg-amber-500 active:scale-95 transition-all shadow-md
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-900"
+                className="inline-block bg-teal-600 text-white font-bold text-lg px-8 py-3.5 rounded-full
+                  hover:bg-teal-500 active:scale-95 transition-all shadow-md
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-900"
               >
                 {t.finalBtn}
               </Link>
@@ -256,11 +256,11 @@ export default function Home() {
         {/* FOOTER */}
         <footer className="bg-white border-t border-stone-100 py-8 text-center text-stone-400 text-sm">
           <nav className="flex justify-center gap-4 mb-2 flex-wrap">
-            <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
-            <Link href="/tool" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
-            <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
-            <Link href="/privacy" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
+            <Link href="/" className="hover:text-teal-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
+            <Link href="/tool" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
+            <Link href="/blog" className="hover:text-teal-800 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
+            <Link href="/privacy" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
           </nav>
           <p>{t.footerCredits}</p>
         </footer>

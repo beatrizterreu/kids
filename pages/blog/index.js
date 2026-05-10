@@ -72,7 +72,7 @@ export default function BlogIndex() {
 
       <a href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50
-          focus:px-4 focus:py-2 focus:bg-amber-800 focus:text-white focus:rounded-lg focus:font-bold">
+          focus:px-4 focus:py-2 focus:bg-teal-800 focus:text-white focus:rounded-lg focus:font-bold">
         Skip to content
       </a>
 
@@ -106,10 +106,10 @@ export default function BlogIndex() {
                   onClick={() => setActiveFilter('all')}
                   aria-pressed={activeFilter === 'all'}
                   className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-bold transition-all
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700
                     ${activeFilter === 'all'
-                      ? 'bg-amber-800 text-white shadow-sm'
-                      : 'bg-amber-50 text-stone-600 hover:bg-amber-100 hover:text-amber-800'
+                      ? 'bg-teal-800 text-white shadow-sm'
+                      : 'bg-teal-50 text-stone-600 hover:bg-teal-100 hover:text-teal-800'
                     }`}
                 >
                   {t.filterAll}
@@ -120,10 +120,10 @@ export default function BlogIndex() {
                     onClick={() => setActiveFilter(cat)}
                     aria-pressed={activeFilter === cat}
                     className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-bold transition-all
-                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700
                       ${activeFilter === cat
-                        ? 'bg-amber-800 text-white shadow-sm'
-                        : 'bg-amber-50 text-stone-600 hover:bg-amber-100 hover:text-amber-800'
+                        ? 'bg-teal-800 text-white shadow-sm'
+                        : 'bg-teal-50 text-stone-600 hover:bg-teal-100 hover:text-teal-800'
                       }`}
                   >
                     {cat}
@@ -142,9 +142,9 @@ export default function BlogIndex() {
             {filtered[0] && (
               <Link
                 href={`/blog/${filtered[0].slug}`}
-                className="group block bg-amber-50 border border-amber-100 rounded-3xl overflow-hidden
+                className="group block bg-teal-50 border border-teal-100 rounded-3xl overflow-hidden
                   hover:shadow-lg transition-all mb-8
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700"
               >
                 <div className="md:flex">
                   <div className="md:w-80 flex-shrink-0 overflow-hidden" style={{ aspectRatio: '16/9' }}>
@@ -158,18 +158,18 @@ export default function BlogIndex() {
                   </div>
                   <div className="p-7 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="bg-amber-100 text-amber-800 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">
+                      <span className="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">
                         {filtered[0].category}
                       </span>
                       <span className="text-stone-400 text-sm">{filtered[0].readTime} {t.readMin}</span>
                     </div>
-                    <h2 className="text-2xl font-black text-stone-900 leading-tight mb-3 group-hover:text-amber-800 transition-colors">
+                    <h2 className="text-2xl font-black text-stone-900 leading-tight mb-3 group-hover:text-teal-800 transition-colors">
                       {filtered[0].title}
                     </h2>
                     <p className="text-stone-600 leading-relaxed mb-4 text-sm">
                       {filtered[0].excerpt}
                     </p>
-                    <span className="text-amber-700 font-bold text-sm group-hover:underline">
+                    <span className="text-teal-700 font-bold text-sm group-hover:underline">
                       {t.readMore}
                     </span>
                   </div>
@@ -183,9 +183,9 @@ export default function BlogIndex() {
                 <Link
                   key={article.slug}
                   href={`/blog/${article.slug}`}
-                  className="group bg-amber-50 border border-amber-100 rounded-2xl overflow-hidden
+                  className="group bg-teal-50 border border-teal-100 rounded-2xl overflow-hidden
                     hover:shadow-md transition-all
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700"
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700"
                 >
                   {/* Photo — 16:9 */}
                   <div className="w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
@@ -199,18 +199,18 @@ export default function BlogIndex() {
                   </div>
                   <div className="p-5">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full">
+                      <span className="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-full">
                         {article.category}
                       </span>
                       <span className="text-stone-400 text-xs">{article.readTime}</span>
                     </div>
-                    <h3 className="font-black text-stone-900 text-sm leading-snug mb-2 group-hover:text-amber-800 transition-colors group-hover:underline">
+                    <h3 className="font-black text-stone-900 text-sm leading-snug mb-2 group-hover:text-teal-800 transition-colors group-hover:underline">
                       {article.title}
                     </h3>
                     <p className="text-stone-500 text-xs leading-relaxed line-clamp-2">
                       {article.excerpt}
                     </p>
-                    <span className="mt-3 block text-xs font-bold text-amber-700 group-hover:underline">
+                    <span className="mt-3 block text-xs font-bold text-teal-700 group-hover:underline">
                       {t.readMore}
                     </span>
                   </div>
@@ -232,9 +232,9 @@ export default function BlogIndex() {
               <p className="text-stone-300 mb-7 text-base">{t.ctaSub}</p>
               <Link
                 href="/tool"
-                className="inline-block bg-amber-400 text-stone-900 font-bold px-8 py-3.5 rounded-full
-                  hover:bg-amber-300 transition-colors shadow-md
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-900"
+                className="inline-block bg-teal-400 text-stone-900 font-bold px-8 py-3.5 rounded-full
+                  hover:bg-teal-300 transition-colors shadow-md
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-900"
               >
                 {t.ctaBtn}
               </Link>
@@ -245,11 +245,11 @@ export default function BlogIndex() {
 
         <footer className="bg-white border-t border-stone-100 py-8 text-center text-stone-400 text-sm">
           <nav className="flex justify-center gap-4 mb-2 flex-wrap">
-            <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
-            <Link href="/tool" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
-            <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
-            <Link href="/privacy" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
+            <Link href="/" className="hover:text-teal-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
+            <Link href="/tool" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
+            <Link href="/blog" className="hover:text-teal-800 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
+            <Link href="/privacy" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
           </nav>
           <p>{t.footerCredits}</p>
         </footer>

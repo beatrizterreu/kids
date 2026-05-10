@@ -146,13 +146,13 @@ const translations = {
 };
 
 // ─── EARTHY COLOUR TOKENS (WCAG AA ≥ 4.5:1) ─────────────────────────────────
-const pillActive   = 'bg-amber-800 text-white scale-105 shadow-md';
-const pillInactive = 'bg-amber-50 text-stone-800 hover:bg-amber-100';
-const pillFocus    = 'focus-visible:ring-amber-700';
+const pillActive   = 'bg-teal-800 text-white scale-105 shadow-md';
+const pillInactive = 'bg-teal-50 text-stone-800 hover:bg-teal-100';
+const pillFocus    = 'focus-visible:ring-teal-700';
 
 const difficultyColors = {
   easy:   { bg: 'bg-green-100',  text: 'text-green-800' },
-  medium: { bg: 'bg-amber-100',  text: 'text-amber-900' },
+  medium: { bg: 'bg-teal-100',  text: 'text-teal-900' },
   hard:   { bg: 'bg-red-100',    text: 'text-red-800'   },
 };
 
@@ -301,7 +301,7 @@ export default function Tool() {
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50
-          focus:px-4 focus:py-2 focus:bg-amber-800 focus:text-white focus:rounded-lg focus:font-bold"
+          focus:px-4 focus:py-2 focus:bg-teal-800 focus:text-white focus:rounded-lg focus:font-bold"
       >
         Saltar al contenido
       </a>
@@ -346,7 +346,7 @@ export default function Tool() {
               </legend>
 
               {/* Segmented control — pill style, warm brown */}
-              <div className="flex bg-amber-100 rounded-full p-1 mb-5 gap-1" role="tablist">
+              <div className="flex bg-teal-100 rounded-full p-1 mb-5 gap-1" role="tablist">
                 {t.categoryGroups.map((group, gi) => {
                   const isActive = catGroup === gi;
                   return (
@@ -357,10 +357,10 @@ export default function Tool() {
                       onClick={() => { setCatGroup(gi); setCatItem(0); setActivity(null); }}
                       className={`flex-1 py-2.5 px-4 rounded-full
                         font-bold text-sm transition-all duration-200
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2
+                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2
                         ${isActive
-                          ? 'bg-amber-800 text-white shadow-sm'
-                          : 'text-stone-600 hover:text-amber-900'
+                          ? 'bg-teal-800 text-white shadow-sm'
+                          : 'text-stone-600 hover:text-teal-900'
                         }`}
                     >
                       {group.groupLabel}
@@ -420,9 +420,9 @@ export default function Tool() {
               disabled={loading || loadingPdf}
               aria-busy={loading}
               className="w-full py-3.5 rounded-full text-base font-black text-white shadow-lg
-                bg-amber-800 hover:bg-amber-900
+                bg-teal-800 hover:bg-teal-900
                 active:scale-95 transition-all duration-200
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-700
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-700
                 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? (
@@ -479,7 +479,7 @@ export default function Tool() {
               aria-atomic="true"
             >
               {/* Image */}
-              <div className="relative h-60 bg-gradient-to-br from-amber-50 to-stone-100 overflow-hidden">
+              <div className="relative h-60 bg-gradient-to-br from-teal-50 to-stone-100 overflow-hidden">
                 {!imgLoaded && <div className="absolute inset-0 shimmer" aria-hidden="true" />}
                 <img
                   src={imageUrl}
@@ -498,10 +498,10 @@ export default function Tool() {
                     {activity.title}
                   </h2>
                   <div className="flex flex-wrap gap-3">
-                    <span className="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-full">
+                    <span className="bg-teal-100 text-teal-900 text-xs font-bold px-3 py-1.5 rounded-full">
                       {t.ages[age].label}
                     </span>
-                    <span className="bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1.5 rounded-full">
+                    <span className="bg-teal-100 text-teal-900 text-xs font-bold px-3 py-1.5 rounded-full">
                       {activity.duration}
                     </span>
                     {activity.difficulty && difficultyColors[activity.difficulty] && (
@@ -528,7 +528,7 @@ export default function Tool() {
                       <li key={i} className="flex gap-3 items-start">
                         <span
                           aria-hidden="true"
-                          className="flex-shrink-0 w-7 h-7 rounded-full bg-amber-800
+                          className="flex-shrink-0 w-7 h-7 rounded-full bg-teal-800
                             text-white text-xs font-black flex items-center justify-center mt-0.5 shadow-sm"
                         >
                           {i + 1}
@@ -551,15 +551,15 @@ export default function Tool() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`${mat.name} — ${t.buyOnAmazon}`}
-                            className="flex items-center justify-between bg-amber-50 hover:bg-amber-100
-                              border border-amber-200 rounded-2xl px-4 py-3 transition-all group
-                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:ring-offset-2"
+                            className="flex items-center justify-between bg-teal-50 hover:bg-teal-100
+                              border border-teal-200 rounded-2xl px-4 py-3 transition-all group
+                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 focus-visible:ring-offset-2"
                           >
                             <div className="flex items-center gap-2.5">
                               <span aria-hidden="true" className="text-xl">🛍️</span>
                               <span className="text-sm font-bold text-stone-800">{mat.name}</span>
                             </div>
-                            <span className="text-xs text-amber-800 font-black group-hover:underline whitespace-nowrap">
+                            <span className="text-xs text-teal-800 font-black group-hover:underline whitespace-nowrap">
                               {t.buyOnAmazon} →
                             </span>
                           </a>
@@ -574,9 +574,9 @@ export default function Tool() {
                   onClick={generateActivity}
                   disabled={loading}
                   className="w-full py-4 rounded-full text-base font-black text-white
-                    bg-amber-800 hover:bg-amber-900
+                    bg-teal-800 hover:bg-teal-900
                     active:scale-95 transition-all duration-200
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-700
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-700
                     disabled:opacity-60 disabled:cursor-not-allowed shadow-md"
                 >
                   {t.generateAnother}
@@ -589,11 +589,11 @@ export default function Tool() {
         {/* FOOTER */}
         <footer className="text-center py-8 text-stone-400 text-sm border-t border-stone-100">
           <nav className="flex justify-center gap-4 mb-2 flex-wrap">
-            <Link href="/" className="hover:text-amber-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
-            <Link href="/tool" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
-            <Link href="/blog" className="hover:text-amber-800 transition-colors">Blog</Link>
-            <Link href="/about" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
-            <Link href="/privacy" className="hover:text-amber-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
+            <Link href="/" className="hover:text-teal-800 transition-colors font-semibold text-stone-600">KidSpark</Link>
+            <Link href="/tool" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Generador' : 'Generator'}</Link>
+            <Link href="/blog" className="hover:text-teal-800 transition-colors">Blog</Link>
+            <Link href="/about" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Sobre nosotros' : 'About'}</Link>
+            <Link href="/privacy" className="hover:text-teal-800 transition-colors">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link>
           </nav>
           <p>{t.footerCredits}</p>
         </footer>
